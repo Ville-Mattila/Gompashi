@@ -9,7 +9,7 @@ ettei kukaan ole tiennyt, missä suunnassa lähin Alko sijaitsee. Tähän epäko
 puututtu määrätietoisesti ja hieman jälkijättöisesti.
 
 **Gompashi** on kompassi, joka ei osoita pohjoiseen. Pohjoisessa kun ei yleensä ole mitään.
-Sen sijaan se osoittaa erään punaviinipullon — virka-asultaan *Gambina Cocktail* — muodossa
+Sen sijaan se osoittaa erään punaviinipullon - virka-asultaan *Gambina Cocktail* - muodossa
 suoraan kohti lähintä valtion alkoholimyymälää. Pullo kääntyy, vipattaa ja osoittaa, ja
 kansalainen seuraa. Yksinkertaista kuin valtionhallinto, mutta toimivaa.
 
@@ -28,7 +28,7 @@ kansalainen seuraa. Yksinkertaista kuin valtionhallinto, mutta toimivaa.
 Pidä puhelinta **vaakatasossa, näyttö kohti taivasta**, aivan kuten oikeaa magneettikompassia
 tai tarjotinta. Tämä ei ole mielipidekysymys vaan fysiikkaa: pystyyn nostettu kompassi
 osoittaa korkeintaan kohti omaa turhautumistasi. Jos suunta heittelee, heiluta laitetta
-ilmassa kahdeksikon muodossa — virallisesti tätä kutsutaan *kalibroinniksi*, kansanomaisesti
+ilmassa kahdeksikon muodossa - virallisesti tätä kutsutaan *kalibroinniksi*, kansanomaisesti
 *hölmöilyksi bussipysäkillä*.
 
 ## Asennusta edeltävät hallinnolliset edellytykset
@@ -48,8 +48,8 @@ Hakemuksen käsittely edellyttää seuraavia liitteitä:
 ```
 
 > ### ⚠️ VIRALLINEN VAROITUS ei-ASCII-poluista ⚠️
-> Mikäli projektinne majailee kansiossa, jonka nimessä komeilee ei-ASCII-merkki — kuten
-> sivistynyt skandinaavinen **ö** sanassa `Työt` — Androidin yksikkötestikone menee
+> Mikäli projektinne majailee kansiossa, jonka nimessä komeilee ei-ASCII-merkki - kuten
+> sivistynyt skandinaavinen **ö** sanassa `Työt` - Androidin yksikkötestikone menee
 > lakkoon ja julistaa `ClassNotFoundException`. Tämä on tunnettu ilmiö, ja siihen on
 > kehitetty byrokraattinen kiertotie: pystytetään ASCII-polkuun *risteysasema* (junction)
 > ja ajetaan rakennustyöt sen kautta:
@@ -70,7 +70,7 @@ python tools/fetch_alko.py
 ```
 
 Skripti noutaa myymälät OpenStreetMapista (Overpass-rajapinta) käyttäen ainoastaan Pythonin
-vakiokalustoa — ei ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
+vakiokalustoa - ei ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
 
 ## Laitoksen sisäinen organisaatiokaavio
 
@@ -103,4 +103,4 @@ Suunnittelu- ja toteutuspöytäkirjat arkistoituvat kansioon `docs/superpowers/`
 Gompashi ei kehota nauttimaan alkoholia, vaan ainoastaan tietämään, missä suunnassa sitä
 teoriassa olisi. Valmistaja ei vastaa eksymisistä, pettymyksistä, sulkemisajoista,
 hyllyväleihin kadonneista iltapäivistä eikä siitä, että kävelit innoissasi suoraan
-lammikkoon pullonkuvaa tuijottaen. Nauti vastuullisesti — niin nestettä kuin navigointia.
+lammikkoon pullonkuvaa tuijottaen. Nauti vastuullisesti - niin nestettä kuin navigointia.
