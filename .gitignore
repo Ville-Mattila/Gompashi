@@ -13,3 +13,8 @@ app/build/
 # Affinity Designer source files (icon artwork)
 *.af
 *~lock~
+
+# Release signing secrets (never commit these)
+keystore.properties
+*.keystore
+*.jks
