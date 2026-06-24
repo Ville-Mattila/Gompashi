@@ -9,8 +9,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.graphics.Color
 import androidx.core.content.ContextCompat
 
 class MainActivity : ComponentActivity() {
@@ -30,8 +32,14 @@ class MainActivity : ComponentActivity() {
         viewModel.setPermissionGranted(hasLocationPermission())
 
         setContent {
-            MaterialTheme {
-                Surface {
+            MaterialTheme(
+                colorScheme = darkColorScheme(
+                    background = Color.Black,
+                    surface = Color.Black,
+                    primary = Color(0xFFD7263D),
+                ),
+            ) {
+                Surface(color = Color.Black) {
                     val state by viewModel.state.collectAsState()
                     MainScreen(
                         state = state,
