@@ -19,7 +19,7 @@ class LocationProvider(context: Context) {
 
     @SuppressLint("MissingPermission")
     fun locationFlow(): Flow<Location> = callbackFlow {
-        val request = LocationRequest.Builder(Priority.PRIORITY_BALANCED_POWER_ACCURACY, 5_000L)
+        val request = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 5_000L)
             .setMinUpdateIntervalMillis(2_000L)
             .build()
 
