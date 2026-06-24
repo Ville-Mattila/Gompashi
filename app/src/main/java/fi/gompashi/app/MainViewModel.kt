@@ -3,10 +3,14 @@ package fi.gompashi.app
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 
 data class UiState(
@@ -38,40 +42,50 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         selectedRank.value = if (next < stores.size) next else 0
     }
 
-    val state: StateFlow<UiState> = run {
-        val azimuth = compass.azimuthFlow()
-        val loc = location.locationFlow()
+    private fun baseState(
+        loading: Boolean,
+        permissionGranted: Boolean,
+    ) = UiState(
+        loading = loading,
+        hasCompass = compass.hasCompass,
+        permissionGranted = permissionGranted,
+        storeCount = stores.size,
+        selectedRank = selectedRank.value,
+    )
 
-        combine(loc, azimuth, selectedRank, permission) { l, az, rank, perm ->
-            val ranked = NearestStoreFinder.rank(l.latitude, l.longitude, stores)
-            val safeRank = rank.coerceIn(0, (ranked.size - 1).coerceAtLeast(0))
-            val target = ranked.getOrNull(safeRank)
-            if (target == null) {
-                UiState(
-                    loading = false,
-                    hasCompass = compass.hasCompass,
-                    permissionGranted = perm,
-                    storeCount = stores.size,
-                    selectedRank = safeRank,
-                )
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val state: StateFlow<UiState> =
+        permission.flatMapLatest { granted ->
+            if (!granted) {
+                // No permission yet: show the permission prompt, don't touch location.
+                flowOf(baseState(loading = false, permissionGranted = false))
             } else {
-                val bearing = target.bearingDeg.toFloat()
-                UiState(
-                    loading = false,
-                    hasCompass = compass.hasCompass,
-                    permissionGranted = perm,
-                    storeName = target.store.name,
-                    distanceText = DistanceFormat.format(target.distanceMeters),
-                    bearingDeg = bearing,
-                    rotationDeg = ((bearing - az + 360f) % 360f),
-                    storeCount = stores.size,
-                    selectedRank = safeRank,
-                )
+                // Seed azimuth with 0 so combine can emit before/without a compass reading.
+                val azimuth = compass.azimuthFlow().onStart { emit(0f) }
+                combine(location.locationFlow(), azimuth, selectedRank) { l, az, rank ->
+                    val ranked = NearestStoreFinder.rank(l.latitude, l.longitude, stores)
+                    val safeRank = rank.coerceIn(0, (ranked.size - 1).coerceAtLeast(0))
+                    val target = ranked.getOrNull(safeRank)
+                    if (target == null) {
+                        baseState(loading = false, permissionGranted = true)
+                    } else {
+                        val bearing = target.bearingDeg.toFloat()
+                        baseState(loading = false, permissionGranted = true).copy(
+                            storeName = target.store.name,
+                            distanceText = DistanceFormat.format(target.distanceMeters),
+                            bearingDeg = bearing,
+                            rotationDeg = ((bearing - az + 360f) % 360f),
+                            selectedRank = safeRank,
+                        )
+                    }
+                }.onStart {
+                    // While waiting for the first location fix, show a loading state.
+                    emit(baseState(loading = true, permissionGranted = true))
+                }
             }
         }.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(5_000),
-            initialValue = UiState(hasCompass = compass.hasCompass, storeCount = stores.size),
+            initialValue = baseState(loading = true, permissionGranted = false),
         )
-    }
 }
