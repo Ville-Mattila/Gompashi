@@ -11,6 +11,7 @@ import com.google.android.gms.location.Priority
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.conflate
 
 /** Emits the device location. Caller MUST hold location permission before collecting. */
 class LocationProvider(context: Context) {
@@ -31,5 +32,5 @@ class LocationProvider(context: Context) {
         client.lastLocation.addOnSuccessListener { loc -> if (loc != null) trySend(loc) }
         client.requestLocationUpdates(request, callback, null)
         awaitClose { client.removeLocationUpdates(callback) }
-    }
+    }.conflate()
 }

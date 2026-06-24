@@ -8,6 +8,7 @@ import android.hardware.SensorManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.conflate
 
 /** Emits device azimuth in degrees [0,360), 0 = north. Empty/no emissions if no sensor. */
 class CompassProvider(context: Context) {
@@ -25,13 +26,23 @@ class CompassProvider(context: Context) {
             return@callbackFlow
         }
         val rotationMatrix = FloatArray(9)
+        val remapped = FloatArray(9)
         val orientation = FloatArray(3)
         var smoothed = Float.NaN
 
         val listener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent) {
                 SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
-                SensorManager.getOrientation(rotationMatrix, orientation)
+                // Remap for a phone held upright (portrait, screen facing the user): the
+                // azimuth then reflects where the top edge of the device points, which is
+                // the heading the user is looking along while reading the screen.
+                SensorManager.remapCoordinateSystem(
+                    rotationMatrix,
+                    SensorManager.AXIS_X,
+                    SensorManager.AXIS_Z,
+                    remapped,
+                )
+                SensorManager.getOrientation(remapped, orientation)
                 val deg = ((Math.toDegrees(orientation[0].toDouble()) + 360.0) % 360.0).toFloat()
                 smoothed = if (smoothed.isNaN()) deg else lowPass(deg, smoothed)
                 trySend(smoothed)
@@ -42,7 +53,7 @@ class CompassProvider(context: Context) {
 
         sensorManager.registerListener(listener, sensor, SensorManager.SENSOR_DELAY_UI)
         awaitClose { sensorManager.unregisterListener(listener) }
-    }
+    }.conflate()
 
     /** Angular low-pass that handles the 0/360 wraparound. */
     private fun lowPass(target: Float, prev: Float, alpha: Float = 0.15f): Float {
