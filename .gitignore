@@ -9,3 +9,7 @@
 .cxx
 local.properties
 app/build/
+
+# Affinity Designer source files (icon artwork)
+*.af
+*~lock~
