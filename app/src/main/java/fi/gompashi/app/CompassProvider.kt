@@ -26,23 +26,16 @@ class CompassProvider(context: Context) {
             return@callbackFlow
         }
         val rotationMatrix = FloatArray(9)
-        val remapped = FloatArray(9)
         val orientation = FloatArray(3)
         var smoothed = Float.NaN
 
         val listener = object : SensorEventListener {
             override fun onSensorChanged(event: SensorEvent) {
+                // Phone held flat (screen up, like a map): the screen plane equals the
+                // real-world horizontal plane, so the raw azimuth is the compass heading
+                // of the device's top edge — exactly what we rotate the bottle against.
                 SensorManager.getRotationMatrixFromVector(rotationMatrix, event.values)
-                // Remap for a phone held upright (portrait, screen facing the user): the
-                // azimuth then reflects where the top edge of the device points, which is
-                // the heading the user is looking along while reading the screen.
-                SensorManager.remapCoordinateSystem(
-                    rotationMatrix,
-                    SensorManager.AXIS_X,
-                    SensorManager.AXIS_Z,
-                    remapped,
-                )
-                SensorManager.getOrientation(remapped, orientation)
+                SensorManager.getOrientation(rotationMatrix, orientation)
                 val deg = ((Math.toDegrees(orientation[0].toDouble()) + 360.0) % 360.0).toFloat()
                 smoothed = if (smoothed.isNaN()) deg else lowPass(deg, smoothed)
                 trySend(smoothed)
