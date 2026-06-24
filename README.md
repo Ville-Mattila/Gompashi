@@ -7,6 +7,7 @@ valittua Alkoa. Toggle vaihtaa lähimmän ja toiseksi lähimmän Alkon välillä
 ## Ominaisuudet
 
 - Pullonuoli osoittaa kohti Alkoa ja reagoi puhelimen kääntämiseen (kompassi + suuntima).
+  Pidä puhelinta **vaakatasossa, näyttö ylöspäin**, kuten oikeaa magneettikompassia.
 - Etäisyys lähimpään Alkoon metreinä/kilometreinä.
 - Toggle: **Lähin** / **Toiseksi lähin** Alko.
 - Toimii offline — myymälädata on bundlattu sovellukseen.
