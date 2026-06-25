@@ -1,6 +1,6 @@
 // Gompashi PWA service worker — offline-first app shell + bundled store data.
 // Bump CACHE when assets or data change so clients pick up the new version.
-const CACHE = "gompashi-v6";
+const CACHE = "gompashi-v7";
 const ASSETS = [
   "./",
   "./index.html",
@@ -9,6 +9,8 @@ const ASSETS = [
   "./manifest.webmanifest",
   "./alko_stores.json",
   "./closed_dates.json",
+  "./assets/favicon-32.png",
+  "./assets/favicon-48.png",
   "./assets/compass_needle.png",
   "./assets/compass_needle_north.png",
   "./assets/title.svg",
