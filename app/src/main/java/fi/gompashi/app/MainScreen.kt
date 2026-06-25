@@ -67,6 +67,8 @@ private val TextPrimary = Color(0xFFF5F5F5)
 private val TextSecondary = Color(0xFF9A9A9A)
 private val TrackColor = Color(0xFF161616)
 private val DisabledText = Color(0xFF4A4A4A)
+private val OpenGreen = Color(0xFF7BD88F)
+private val ClosedRed = Color(0xFFE0707A)
 
 @Composable
 fun MainScreen(
@@ -195,6 +197,24 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                     fontSize = 17.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
+                )
+            }
+        }
+        if (state.hoursText.isNotEmpty()) {
+            Text(
+                text = state.hoursText,
+                color = if (state.hoursOpen) OpenGreen else ClosedRed,
+                fontSize = 15.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(top = 8.dp),
+            )
+            if (!state.hoursKnown) {
+                Text(
+                    text = "aukioloaika ei tiedossa — vakioajat käytössä",
+                    color = TextSecondary,
+                    fontSize = 11.sp,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.padding(top = 2.dp),
                 )
             }
         }

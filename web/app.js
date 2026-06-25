@@ -53,8 +53,14 @@ const northEl = document.getElementById("north");
 const distanceEl = document.getElementById("distance");
 const storeEl = document.getElementById("store");
 const hintEl = document.getElementById("hint");
+const hoursEl = document.getElementById("hours");
+const hoursNoteEl = document.getElementById("hoursnote");
 const toggleEl = document.getElementById("toggle");
 const segs = [...document.querySelectorAll(".seg")];
+
+let closedDates = new Set();   // Alko public-holiday closed dates (YYYY-MM-DD)
+let currentHours = null;       // selected store's 7-day schedule
+let currentHoursKnown = true;
 const overlay = document.getElementById("overlay");
 const overlayText = document.getElementById("overlayText");
 const overlayBtn = document.getElementById("overlayBtn");
@@ -99,6 +105,50 @@ function renderDistance(text, meters) {
   prevChars = chars;
 }
 
+// ---------- Opening hours / countdown ----------
+function pad2(n) { return String(n).padStart(2, "0"); }
+function dateKey(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
+function dowMon0(d) { return (d.getDay() + 6) % 7; } // JS Sun=0 -> Mon=0..Sun=6
+
+// Returns { state: "open"|"closed", at: Date } or null if no schedule found.
+function openingStatus(now, hours) {
+  for (let offset = 0; offset < 14; offset++) {
+    const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() + offset);
+    const sched = closedDates.has(dateKey(day)) ? null : hours[dowMon0(day)];
+    if (!sched) continue;
+    const [oh, om] = sched[0].split(":").map(Number);
+    const [ch, cm] = sched[1].split(":").map(Number);
+    const open = new Date(day.getFullYear(), day.getMonth(), day.getDate(), oh, om);
+    const close = new Date(day.getFullYear(), day.getMonth(), day.getDate(), ch, cm);
+    if (offset === 0) {
+      if (now < open) return { state: "closed", at: open };
+      if (now < close) return { state: "open", at: close };
+      continue; // already closed for today
+    }
+    return { state: "closed", at: open };
+  }
+  return null;
+}
+
+function fmtDur(ms) {
+  let s = Math.max(0, Math.floor(ms / 1000));
+  const d = Math.floor(s / 86400); s -= d * 86400;
+  const h = Math.floor(s / 3600); s -= h * 3600;
+  const m = Math.floor(s / 60); s -= m * 60;
+  const hms = `${h}:${pad2(m)}:${pad2(s)}`;
+  return d > 0 ? `${d} pv ${hms}` : hms;
+}
+
+function updateHours() {
+  if (!currentHours) { hoursEl.textContent = ""; hoursNoteEl.textContent = ""; return; }
+  const now = new Date();
+  const st = openingStatus(now, currentHours);
+  if (!st) { hoursEl.textContent = ""; hoursNoteEl.textContent = ""; return; }
+  const label = st.state === "open" ? "Auki vielä " : "Aukeaa ";
+  hoursEl.innerHTML = `<span class="${st.state}">${label}${fmtDur(st.at - now)}</span>`;
+  hoursNoteEl.textContent = currentHoursKnown ? "" : "aukioloaika ei tiedossa — vakioajat käytössä";
+}
+
 // ---------- Render ----------
 function render() {
   if (!userPos || !stores.length) return;
@@ -108,6 +158,9 @@ function render() {
 
   renderDistance(formatDistance(target.dist), target.dist);
   storeEl.textContent = target.store.name;
+  currentHours = target.store.hours;
+  currentHoursKnown = target.store.hoursKnown;
+  updateHours();
   segs[1].disabled = stores.length < 2;
   toggleEl.className = "toggle rank" + rank;
 
@@ -200,6 +253,13 @@ fetch("alko_stores.json")
   .then((r) => r.json())
   .then((data) => { stores = data; })
   .catch(() => showError("Myymälädataa ei voitu ladata."));
+
+fetch("closed_dates.json")
+  .then((r) => r.json())
+  .then((dates) => { closedDates = new Set(dates); updateHours(); })
+  .catch(() => {});
+
+setInterval(updateHours, 1000); // tick the countdown every second
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => navigator.serviceWorker.register("sw.js").catch(() => {}));

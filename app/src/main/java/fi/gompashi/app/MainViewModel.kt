@@ -4,14 +4,17 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import java.time.LocalDateTime
 
 data class UiState(
     val loading: Boolean = true,
@@ -19,6 +22,9 @@ data class UiState(
     val permissionGranted: Boolean = false,
     val storeName: String? = null,
     val distanceText: String? = null,
+    val hoursText: String = "",
+    val hoursOpen: Boolean = false,
+    val hoursKnown: Boolean = true,
     val rotationDeg: Float = 0f,
     val bearingDeg: Float = 0f,
     val azimuthDeg: Float = 0f,
@@ -31,8 +37,17 @@ data class UiState(
 class MainViewModel(app: Application) : AndroidViewModel(app) {
 
     private val stores: List<AlkoStore> = AlkoRepository.loadFromAssets(app)
+    private val closedDates: Set<String> = AlkoRepository.loadClosedDates(app)
     private val compass = CompassProvider(app)
     private val location = LocationProvider(app)
+
+    // Emits every second so the opening-hours countdown updates live.
+    private val ticker = flow {
+        while (true) {
+            emit(Unit)
+            delay(1000)
+        }
+    }
 
     private val selectedRank = MutableStateFlow(0)
     private val permission = MutableStateFlow(false)
@@ -66,7 +81,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 // Seed orientation with zeros so combine can emit before/without a sensor reading.
                 val orientation = compass.orientationFlow()
                     .onStart { emit(DeviceOrientation(0f, 0f, 0f)) }
-                combine(location.locationFlow(), orientation, selectedRank) { l, o, rank ->
+                combine(location.locationFlow(), orientation, selectedRank, ticker) { l, o, rank, _ ->
                     val ranked = NearestStoreFinder.rank(l.latitude, l.longitude, stores)
                     val safeRank = rank.coerceIn(0, (ranked.size - 1).coerceAtLeast(0))
                     val target = ranked.getOrNull(safeRank)
@@ -74,9 +89,14 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                         baseState(loading = false, permissionGranted = true)
                     } else {
                         val bearing = target.bearingDeg.toFloat()
+                        val now = LocalDateTime.now()
+                        val status = OpeningHours.status(now, target.store.hours, closedDates)
                         baseState(loading = false, permissionGranted = true).copy(
                             storeName = target.store.name,
                             distanceText = DistanceFormat.format(target.distanceMeters),
+                            hoursText = OpeningHours.countdownText(status, now),
+                            hoursOpen = status?.open == true,
+                            hoursKnown = target.store.hoursKnown,
                             bearingDeg = bearing,
                             rotationDeg = ((bearing - o.azimuth + 360f) % 360f),
                             azimuthDeg = o.azimuth,

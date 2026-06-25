@@ -134,6 +134,25 @@ html, body {
   transition: opacity 0.25s;
 }
 
+.hours {
+  color: var(--text);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  min-height: 1.1em;
+  margin-top: 8px;
+}
+
+.hours .open { color: #7bd88f; }
+.hours .closed { color: #e0707a; }
+
+.hoursnote {
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-align: center;
+  min-height: 0;
+}
+
 .hint {
   color: var(--text-secondary);
   font-size: 13px;
