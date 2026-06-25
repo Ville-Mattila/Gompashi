@@ -14,6 +14,10 @@ app/build/
 *.af
 *~lock~
 
+# Python bytecode cache (from tools/ scripts)
+__pycache__/
+*.pyc
+
 # Release signing secrets (never commit these)
 keystore.properties
 *.keystore
