@@ -19,6 +19,18 @@ object GeoUtils {
         return EARTH_RADIUS_M * c
     }
 
+    /**
+     * Smallest signed rotation (in degrees, range [-180,180]) to get from one angle to
+     * another. Used to animate the needle the short way across the 0/360 seam, e.g.
+     * 350° -> 10° is +20°, not -340°. Handles unbounded (continuous) `from` angles.
+     */
+    fun smallestAngleDelta(from: Double, to: Double): Double {
+        var d = (to - from) % 360.0
+        if (d > 180.0) d -= 360.0
+        if (d < -180.0) d += 360.0
+        return d
+    }
+
     /** Initial bearing from point 1 to point 2, in degrees [0,360). 0 = north, 90 = east. */
     fun bearingTo(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
         val phi1 = Math.toRadians(lat1)

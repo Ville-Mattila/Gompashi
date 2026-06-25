@@ -31,4 +31,21 @@ class GeoUtilsTest {
         val deg = GeoUtils.bearingTo(60.0, 24.0, 60.0, 23.0)
         assertEquals(270.0, deg, 1.0)
     }
+
+    @Test
+    fun smallest_delta_takes_short_way_across_seam() {
+        assertEquals(20.0, GeoUtils.smallestAngleDelta(350.0, 10.0), 1e-9)
+        assertEquals(-20.0, GeoUtils.smallestAngleDelta(10.0, 350.0), 1e-9)
+    }
+
+    @Test
+    fun smallest_delta_handles_unbounded_continuous_angle() {
+        // continuous angle 725.3 (== 5.3 mod 360) toward 10 -> +4.7
+        assertEquals(4.7, GeoUtils.smallestAngleDelta(725.3, 10.0), 1e-9)
+    }
+
+    @Test
+    fun smallest_delta_zero_when_equal() {
+        assertEquals(0.0, GeoUtils.smallestAngleDelta(123.0, 123.0), 1e-9)
+    }
 }

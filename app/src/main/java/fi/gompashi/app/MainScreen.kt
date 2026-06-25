@@ -1,5 +1,8 @@
 package fi.gompashi.app
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -17,6 +20,11 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -91,13 +99,25 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                         shape = RoundedCornerShape(percent = 50),
                     ),
             )
-            val rotation = if (state.hasCompass) state.rotationDeg else state.bearingDeg
+            val target = if (state.hasCompass) state.rotationDeg else state.bearingDeg
+            // Accumulate a continuous (unwrapped) angle so the needle always turns the
+            // short way across the 0/360 seam, then let a critically-damped spring
+            // interpolate it at frame rate for buttery-smooth motion.
+            var continuous by remember { mutableFloatStateOf(target) }
+            LaunchedEffect(target) {
+                continuous += GeoUtils.smallestAngleDelta(continuous.toDouble(), target.toDouble()).toFloat()
+            }
+            val animatedRotation by animateFloatAsState(
+                targetValue = continuous,
+                animationSpec = spring(dampingRatio = 1f, stiffness = Spring.StiffnessLow),
+                label = "needleRotation",
+            )
             Image(
                 painter = painterResource(id = R.drawable.compass_needle),
                 contentDescription = "Suunta Alkoon",
                 modifier = Modifier
                     .height(420.dp)
-                    .rotate(rotation),
+                    .rotate(animatedRotation),
             )
         }
 
