@@ -1,22 +1,28 @@
 package fi.gompashi.app
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -164,56 +170,62 @@ private fun SegmentedToggle(
     secondEnabled: Boolean,
     onToggleRank: () -> Unit,
 ) {
-    Box(
+    val labels = listOf("Lähin", "Toiseksi lähin")
+    val shape = RoundedCornerShape(percent = 50)
+    val segHeight = 44.dp
+    BoxWithConstraints(
         modifier = Modifier
-            .clip(RoundedCornerShape(percent = 50))
+            .clip(shape)
             .background(TrackColor)
             .padding(4.dp),
     ) {
-        androidx.compose.foundation.layout.Row(
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-        ) {
-            Segment(
-                label = "Lähin",
-                selected = selectedRank == 0,
-                enabled = true,
-            ) { if (selectedRank != 0) onToggleRank() }
-            Segment(
-                label = "Toiseksi lähin",
-                selected = selectedRank == 1,
-                enabled = secondEnabled,
-            ) { if (selectedRank != 1) onToggleRank() }
-        }
-    }
-}
-
-@Composable
-private fun Segment(
-    label: String,
-    selected: Boolean,
-    enabled: Boolean,
-    onClick: () -> Unit,
-) {
-    val bg = if (selected) Accent else Color.Transparent
-    val fg = when {
-        !enabled -> DisabledText
-        selected -> Color.White
-        else -> TextSecondary
-    }
-    Box(
-        modifier = Modifier
-            .clip(RoundedCornerShape(percent = 50))
-            .background(bg)
-            .then(if (enabled) Modifier.clickable(onClick = onClick) else Modifier)
-            .padding(horizontal = 28.dp, vertical = 12.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-        Text(
-            text = label,
-            color = fg,
-            fontSize = 15.sp,
-            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+        val segWidth = maxWidth / 2
+        // Highlight pill glides under the selected label with a springy settle.
+        val indicatorOffset by animateDpAsState(
+            targetValue = segWidth * selectedRank,
+            animationSpec = spring(dampingRatio = 0.72f, stiffness = Spring.StiffnessMediumLow),
+            label = "toggleSlide",
         )
+        Box(
+            modifier = Modifier
+                .offset(x = indicatorOffset)
+                .width(segWidth)
+                .height(segHeight)
+                .clip(shape)
+                .background(Accent),
+        )
+        Row {
+            labels.forEachIndexed { index, label ->
+                val selected = selectedRank == index
+                val enabled = index == 0 || secondEnabled
+                val textColor by animateColorAsState(
+                    targetValue = when {
+                        !enabled -> DisabledText
+                        selected -> Color.White
+                        else -> TextSecondary
+                    },
+                    label = "toggleText$index",
+                )
+                Box(
+                    modifier = Modifier
+                        .width(segWidth)
+                        .height(segHeight)
+                        .clickable(
+                            enabled = enabled,
+                            indication = null,
+                            interactionSource = remember { MutableInteractionSource() },
+                        ) { if (!selected) onToggleRank() },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        text = label,
+                        color = textColor,
+                        fontSize = 15.sp,
+                        fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+                    )
+                }
+            }
+        }
     }
 }
 
