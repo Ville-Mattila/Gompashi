@@ -141,10 +141,11 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                 modifier = Modifier
                     .height(420.dp)
                     .graphicsLayer {
-                        // Z = compass heading; X/Y = slight 3D tilt following the phone.
+                        // Z = compass heading; X/Y = slight 3D tilt that leans the bottle
+                        // opposite to the phone's tilt (negative factor).
                         rotationZ = animatedRotation
-                        rotationX = (state.pitchDeg * 0.5f).coerceIn(-7f, 7f)
-                        rotationY = (state.rollDeg * 0.5f).coerceIn(-7f, 7f)
+                        rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
+                        rotationY = (state.rollDeg * -0.5f).coerceIn(-7f, 7f)
                         cameraDistance = 16f * density
                     },
             )
