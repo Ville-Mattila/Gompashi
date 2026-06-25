@@ -1,10 +1,18 @@
 package fi.gompashi.app
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.Crossfade
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -135,25 +143,31 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
 
         Spacer(Modifier.height(32.dp))
 
-        Text(
-            text = state.distanceText.orEmpty(),
-            style = TextStyle(
-                color = TextPrimary,
-                fontFamily = BitcountSingle,
-                fontSize = 64.sp,
-                // Slight red glow, echoing the bottle needle's halo.
-                shadow = Shadow(color = Accent, offset = Offset.Zero, blurRadius = 26f),
-            ),
+        val distanceStyle = TextStyle(
+            color = TextPrimary,
+            fontFamily = BitcountSingle,
+            fontSize = 64.sp,
+            // Slight red glow, echoing the bottle needle's halo.
+            shadow = Shadow(color = Accent, offset = Offset.Zero, blurRadius = 26f),
         )
-        state.storeName?.let {
-            Text(
-                text = it,
-                color = TextSecondary,
-                fontSize = 17.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
+        AnimatedDistance(text = state.distanceText.orEmpty(), style = distanceStyle)
+
+        state.storeName?.let { name ->
+            // Crossfade the store name when toggling nearest / second nearest.
+            Crossfade(
+                targetState = name,
+                animationSpec = tween(300),
+                label = "storeName",
                 modifier = Modifier.padding(top = 6.dp),
-            )
+            ) { shown ->
+                Text(
+                    text = shown,
+                    color = TextSecondary,
+                    fontSize = 17.sp,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                )
+            }
         }
         if (!state.hasCompass) {
             Text(
@@ -172,6 +186,27 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
             secondEnabled = state.storeCount > 1,
             onToggleRank = onToggleRank,
         )
+    }
+}
+
+@Composable
+private fun AnimatedDistance(text: String, style: TextStyle) {
+    // Each character animates independently: only the digits that actually change
+    // roll vertically (odometer style), up when increasing and down when decreasing.
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        text.forEachIndexed { index, ch ->
+            AnimatedContent(
+                targetState = ch,
+                transitionSpec = {
+                    val dir = if (targetState >= initialState) 1 else -1
+                    (slideInVertically(tween(350)) { h -> dir * h } + fadeIn(tween(350))) togetherWith
+                        (slideOutVertically(tween(350)) { h -> -dir * h } + fadeOut(tween(350)))
+                },
+                label = "distChar$index",
+            ) { c ->
+                Text(text = c.toString(), style = style)
+            }
+        }
     }
 }
 
