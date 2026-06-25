@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <title>Gompashi</title>
+  <meta name="description" content="Suunta ja etäisyys lähimpään Alkoon." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <!-- PWA -->
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Gompashi" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app">
+    <img id="title" class="title" src="assets/title.svg" alt="Gompashi" />
+
+    <div class="stage">
+      <img id="north" class="north" src="assets/compass_needle_north.png" alt="" aria-hidden="true" />
+      <div class="glow"></div>
+      <img id="bottle" class="bottle" src="assets/compass_needle.png" alt="Suunta Alkoon" />
+    </div>
+
+    <div id="distance" class="distance" aria-live="polite"></div>
+    <div id="store" class="store"></div>
+    <div id="hint" class="hint"></div>
+
+    <div id="toggle" class="toggle" role="tablist">
+      <div class="pill" id="pill"></div>
+      <button class="seg" data-rank="0" role="tab">Lähin</button>
+      <button class="seg" data-rank="1" role="tab">Toiseksi lähin</button>
+    </div>
+  </main>
+
+  <!-- Start / permission / error overlay -->
+  <div id="overlay" class="overlay">
+    <p id="overlayText">Gompashi näyttää suunnan ja etäisyyden lähimpään Alkoon.</p>
+    <button id="overlayBtn" class="btn">Käynnistä</button>
+    <p class="overlay-fine">Pidä puhelinta vaakatasossa kuten oikeaa kompassia.</p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
