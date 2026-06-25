@@ -110,7 +110,7 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
 
         Spacer(Modifier.weight(1f))
 
-        // Hero: glowing bottle that rotates toward the store.
+        // Hero: a dim true-north needle behind the glowing bottle that points to the store.
         Box(contentAlignment = Alignment.Center) {
             Box(
                 modifier = Modifier
@@ -122,28 +122,36 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                         shape = RoundedCornerShape(percent = 50),
                     ),
             )
-            val target = if (state.hasCompass) state.rotationDeg else state.bearingDeg
-            // Accumulate a continuous (unwrapped) angle so the needle always turns the
-            // short way across the 0/360 seam, then let a critically-damped spring
-            // interpolate it at frame rate for buttery-smooth motion.
-            var continuous by remember { mutableFloatStateOf(target) }
-            LaunchedEffect(target) {
-                continuous += GeoUtils.smallestAngleDelta(continuous.toDouble(), target.toDouble()).toFloat()
+
+            // Dim north needle: always points to true north (screen rotation = -azimuth).
+            if (state.hasCompass) {
+                val northRotation = rememberAnimatedAngle(-state.azimuthDeg, "northRotation")
+                Image(
+                    painter = painterResource(id = R.drawable.compass_needle_north),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(440.dp)
+                        .graphicsLayer {
+                            rotationZ = northRotation
+                            rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
+                            rotationY = (state.rollDeg * -0.5f).coerceIn(-7f, 7f)
+                            cameraDistance = 16f * density
+                            alpha = 0.28f
+                        },
+                )
             }
-            val animatedRotation by animateFloatAsState(
-                targetValue = continuous,
-                animationSpec = spring(dampingRatio = 1f, stiffness = Spring.StiffnessLow),
-                label = "needleRotation",
-            )
+
+            // Bottle needle: points to the selected Alko, with a slight 3D lean opposite
+            // to the phone's tilt.
+            val target = if (state.hasCompass) state.rotationDeg else state.bearingDeg
+            val bottleRotation = rememberAnimatedAngle(target, "needleRotation")
             Image(
                 painter = painterResource(id = R.drawable.compass_needle),
                 contentDescription = "Suunta Alkoon",
                 modifier = Modifier
                     .height(420.dp)
                     .graphicsLayer {
-                        // Z = compass heading; X/Y = slight 3D tilt that leans the bottle
-                        // opposite to the phone's tilt (negative factor).
-                        rotationZ = animatedRotation
+                        rotationZ = bottleRotation
                         rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
                         rotationY = (state.rollDeg * -0.5f).coerceIn(-7f, 7f)
                         cameraDistance = 16f * density
@@ -202,6 +210,24 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
             onToggleRank = onToggleRank,
         )
     }
+}
+
+/**
+ * Animates an angle (degrees) the short way across the 0/360 seam, smoothed by a
+ * critically-damped spring at frame rate. Returns the current animated value.
+ */
+@Composable
+private fun rememberAnimatedAngle(target: Float, label: String): Float {
+    var continuous by remember { mutableFloatStateOf(target) }
+    LaunchedEffect(target) {
+        continuous += GeoUtils.smallestAngleDelta(continuous.toDouble(), target.toDouble()).toFloat()
+    }
+    val animated by animateFloatAsState(
+        targetValue = continuous,
+        animationSpec = spring(dampingRatio = 1f, stiffness = Spring.StiffnessLow),
+        label = label,
+    )
+    return animated
 }
 
 @Composable
