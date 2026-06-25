@@ -9,6 +9,7 @@ Usage:
     python tools/fetch_alko.py
 """
 import json
+import math
 import os
 import sys
 import urllib.parse
@@ -39,6 +40,32 @@ def display_name(tags: dict) -> str:
     if city:
         return f"{name} ({city})"
     return name
+
+
+def _meters(lat1, lon1, lat2, lon2):
+    r = 6_371_000.0
+    p1, p2 = math.radians(lat1), math.radians(lat2)
+    dp = math.radians(lat2 - lat1)
+    dl = math.radians(lon2 - lon1)
+    a = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
+    return r * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+
+
+def merge_manual(stores: list) -> list:
+    """Add hand-curated stores that are missing from OpenStreetMap (tools/manual_stores.json).
+    Skips an entry if a store with the same name already exists or one sits within 150 m."""
+    path = os.path.join(os.path.dirname(__file__), "manual_stores.json")
+    if not os.path.exists(path):
+        return stores
+    manual = json.load(open(path, encoding="utf-8"))
+    names = {s["name"].lower() for s in stores}
+    for m in manual:
+        near = any(_meters(m["lat"], m["lon"], s["lat"], s["lon"]) < 150 for s in stores)
+        if m["name"].lower() in names or near:
+            continue
+        stores.append({"name": m["name"], "lat": m["lat"], "lon": m["lon"]})
+        print(f"  + manual: {m['name']}")
+    return stores
 
 
 def fetch() -> dict:
@@ -89,6 +116,7 @@ def main() -> None:
             continue
         stores.append({"name": display_name(tags), "lat": lat, "lon": lon})
 
+    stores = merge_manual(stores)
     stores.sort(key=lambda s: s["name"])
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(stores, f, ensure_ascii=False, indent=2)
