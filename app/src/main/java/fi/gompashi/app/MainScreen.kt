@@ -35,10 +35,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -46,6 +51,7 @@ import androidx.compose.ui.unit.sp
 
 private val Background = Color(0xFF000000)
 private val Accent = Color(0xFFD7263D)
+private val BitcountSingle = FontFamily(Font(R.font.bitcount_single))
 private val TextPrimary = Color(0xFFF5F5F5)
 private val TextSecondary = Color(0xFF9A9A9A)
 private val TrackColor = Color(0xFF161616)
@@ -131,15 +137,20 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
 
         Text(
             text = state.distanceText.orEmpty(),
-            color = TextPrimary,
-            fontSize = 68.sp,
-            fontWeight = FontWeight.Light,
+            style = TextStyle(
+                color = TextPrimary,
+                fontFamily = BitcountSingle,
+                fontSize = 64.sp,
+                // Slight red glow, echoing the bottle needle's halo.
+                shadow = Shadow(color = Accent, offset = Offset.Zero, blurRadius = 26f),
+            ),
         )
         state.storeName?.let {
             Text(
                 text = it,
                 color = TextSecondary,
                 fontSize = 17.sp,
+                fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 6.dp),
             )

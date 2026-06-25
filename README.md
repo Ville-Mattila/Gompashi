@@ -97,6 +97,8 @@ Suunnittelu- ja toteutuspöytäkirjat arkistoituvat kansioon `docs/superpowers/`
 - `compass_needle.png`: *Gambina Cocktail* -pullo, ylennetty kunniakkaaseen
   kompassinuolen virkaan.
 - `title.svg`: talon oma vaakuna, taottu vektoripajassa.
+- Etäisyyslukeman pisteröity loiste: **Bitcount Single** -kirjasin, © sen tekijät,
+  lisenssi SIL Open Font License 1.1 (`licenses/BitcountSingle-OFL.txt`).
 
 ## Vastuuvapauslauseke
 
