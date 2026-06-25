@@ -130,13 +130,13 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                     painter = painterResource(id = R.drawable.compass_needle_north),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(440.dp)
+                        .size(500.dp)
                         .graphicsLayer {
                             rotationZ = northRotation
                             rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
                             rotationY = (state.rollDeg * -0.5f).coerceIn(-7f, 7f)
                             cameraDistance = 16f * density
-                            alpha = 0.28f
+                            alpha = 0.18f
                         },
                 )
             }
