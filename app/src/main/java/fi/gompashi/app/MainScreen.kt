@@ -130,13 +130,19 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                     painter = painterResource(id = R.drawable.compass_needle_north),
                     contentDescription = null,
                     modifier = Modifier
-                        .size(500.dp)
+                        // Lay out at the bottle's size, but draw at ~650dp via scale so the
+                        // big faint compass overflows behind the bottle without pushing the
+                        // distance/toggle off-screen.
+                        .size(420.dp)
                         .graphicsLayer {
+                            val s = 650f / 420f
+                            scaleX = s
+                            scaleY = s
                             rotationZ = northRotation
                             rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
                             rotationY = (state.rollDeg * -0.5f).coerceIn(-7f, 7f)
                             cameraDistance = 16f * density
-                            alpha = 0.18f
+                            alpha = 0.15f
                         },
                 )
             }
