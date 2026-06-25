@@ -1,7 +1,7 @@
 package fi.gompashi.app
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.Crossfade
+import androidx.compose.animation.SizeTransform
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
@@ -42,11 +42,15 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.CompositingStrategy
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -153,10 +157,15 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
         AnimatedDistance(text = state.distanceText.orEmpty(), style = distanceStyle)
 
         state.storeName?.let { name ->
-            // Crossfade the store name when toggling nearest / second nearest.
-            Crossfade(
+            // Fade AND animate the width between names of different lengths, so there is
+            // no snap at the end of the transition when toggling nearest / second nearest.
+            AnimatedContent(
                 targetState = name,
-                animationSpec = tween(300),
+                transitionSpec = {
+                    (fadeIn(tween(300)) togetherWith fadeOut(tween(300)))
+                        .using(SizeTransform { _, _ -> tween(300) })
+                },
+                contentAlignment = Alignment.Center,
                 label = "storeName",
                 modifier = Modifier.padding(top = 6.dp),
             ) { shown ->
@@ -191,20 +200,47 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
 
 @Composable
 private fun AnimatedDistance(text: String, style: TextStyle) {
-    // Each character animates independently: only the digits that actually change
-    // roll vertically (odometer style), up when increasing and down when decreasing.
-    Row(verticalAlignment = Alignment.CenterVertically) {
+    // Each character animates independently: only the digits that actually change roll
+    // vertically (odometer style), up when increasing and down when decreasing.
+    //
+    // Each glyph is padded top/bottom by `edge`, and a vertical gradient mask fades
+    // exactly that padding band (matched in px). A resting glyph sits entirely inside the
+    // un-faded middle, so it stays fully solid; a rolling glyph fades softly as it travels
+    // through the padding band, so it has no hard appear/disappear line.
+    val edge = 20.dp
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .graphicsLayer { compositingStrategy = CompositingStrategy.Offscreen }
+            .drawWithContent {
+                drawContent()
+                val f = (edge.toPx() / size.height).coerceIn(0f, 0.49f)
+                drawRect(
+                    brush = Brush.verticalGradient(
+                        0f to Color.Transparent,
+                        f to Color.Black,
+                        1f - f to Color.Black,
+                        1f to Color.Transparent,
+                    ),
+                    blendMode = BlendMode.DstIn,
+                )
+            },
+    ) {
         text.forEachIndexed { index, ch ->
             AnimatedContent(
                 targetState = ch,
                 transitionSpec = {
                     val dir = if (targetState >= initialState) 1 else -1
-                    (slideInVertically(tween(350)) { h -> dir * h } + fadeIn(tween(350))) togetherWith
-                        (slideOutVertically(tween(350)) { h -> -dir * h } + fadeOut(tween(350)))
+                    slideInVertically(tween(350)) { h -> dir * h } togetherWith
+                        slideOutVertically(tween(350)) { h -> -dir * h }
                 },
                 label = "distChar$index",
             ) { c ->
-                Text(text = c.toString(), style = style)
+                Text(
+                    text = c.toString(),
+                    style = style,
+                    modifier = Modifier.padding(vertical = edge),
+                )
             }
         }
     }
