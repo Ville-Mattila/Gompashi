@@ -66,7 +66,8 @@ html, body {
   left: 50%;
   top: 50%;
   will-change: transform;
-  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.25, 1.05);
+  /* Smooth ease-out (no overshoot) so the needle settles without wobble. */
+  transition: transform 0.22s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 .north {

@@ -66,10 +66,10 @@ const overlayText = document.getElementById("overlayText");
 const overlayBtn = document.getElementById("overlayBtn");
 
 // ---------- Rotation + tilt ----------
-function lowpass(target, prev, alpha = 0.15) {
+function lowpass(target, prev, alpha = 0.1) {
   return isNaN(prev) ? target : prev + alpha * (target - prev);
 }
-function lowpassAngle(target, prev, alpha = 0.2) {
+function lowpassAngle(target, prev, alpha = 0.12) {
   if (isNaN(prev)) return target;
   return (prev + alpha * smallestAngleDelta(prev, target) + 360) % 360;
 }
@@ -77,7 +77,9 @@ function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
 
 function setRotation(el, key, targetDeg) {
   let c = key in cont ? cont[key] : targetDeg;
-  c += smallestAngleDelta(c, targetDeg);
+  const delta = smallestAngleDelta(c, targetDeg);
+  if (key in cont && Math.abs(delta) < 0.5) return; // deadband: ignore magnetometer micro-jitter
+  c += delta;
   cont[key] = c;
   el.style.setProperty("--rot", c + "deg");
 }
@@ -194,8 +196,14 @@ function onOrientation(e) {
 }
 
 function startOrientation() {
-  window.addEventListener("deviceorientationabsolute", onOrientation, true);
-  window.addEventListener("deviceorientation", onOrientation, true);
+  // Use a single source: the absolute (sensor-fused) event on Android, or the plain
+  // event (which carries webkitCompassHeading) on iOS. Listening to both makes the
+  // heading flip between two references and jitter badly.
+  if ("ondeviceorientationabsolute" in window) {
+    window.addEventListener("deviceorientationabsolute", onOrientation, true);
+  } else {
+    window.addEventListener("deviceorientation", onOrientation, true);
+  }
   // If nothing arrives, fall back to bearing-from-north mode.
   setTimeout(() => { if (!gotOrientation) { hasCompass = false; render(); } }, 2500);
 }
