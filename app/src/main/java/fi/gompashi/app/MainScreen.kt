@@ -142,7 +142,7 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                             rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
                             rotationY = (state.rollDeg * -0.5f).coerceIn(-7f, 7f)
                             cameraDistance = 16f * density
-                            alpha = 0.15f
+                            alpha = 0.08f
                         },
                 )
             }
