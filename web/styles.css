@@ -41,10 +41,20 @@ html, body {
   margin-top: 8px;
 }
 
+/* Flexible spacers above/below the hero group, so the hero is centered and the
+   toggle is pinned near the bottom (mirrors the Android layout). */
+.spacer { flex: 1 1 0; }
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Hero stage: north needle (dim, behind) + glow + bottle */
 .stage {
-  flex: 1;
   width: 100%;
+  height: min(46vh, 430px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,6 +102,7 @@ html, body {
   justify-content: center;
   height: 1.9em;
   align-items: center;
+  margin-top: 18px;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0, #000 22%, #000 78%, transparent 100%);
 }
@@ -135,10 +146,10 @@ html, body {
 .toggle {
   position: relative;
   display: flex;
+  width: min(92vw, 360px);
   background: var(--track);
   border-radius: 999px;
   padding: 4px;
-  margin-top: 22px;
 }
 
 .toggle .pill {
@@ -157,14 +168,17 @@ html, body {
 .seg {
   position: relative;
   z-index: 1;
+  flex: 1 1 0;
+  min-width: 0;
   appearance: none;
   border: 0;
   background: transparent;
   color: var(--text-secondary);
   font-size: 15px;
   font-weight: 500;
-  padding: 12px 28px;
+  padding: 12px 0;
   border-radius: 999px;
+  text-align: center;
   cursor: pointer;
   transition: color 0.25s, font-weight 0.25s;
 }

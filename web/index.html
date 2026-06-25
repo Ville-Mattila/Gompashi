@@ -31,15 +31,20 @@
   <main id="app">
     <img id="title" class="title" src="assets/title.svg" alt="Gompashi" />
 
-    <div class="stage">
-      <img id="north" class="north" src="assets/compass_needle_north.png" alt="" aria-hidden="true" />
-      <div class="glow"></div>
-      <img id="bottle" class="bottle" src="assets/compass_needle.png" alt="Suunta Alkoon" />
+    <div class="spacer"></div>
+
+    <div class="hero">
+      <div class="stage">
+        <img id="north" class="north" src="assets/compass_needle_north.png" alt="" aria-hidden="true" />
+        <div class="glow"></div>
+        <img id="bottle" class="bottle" src="assets/compass_needle.png" alt="Suunta Alkoon" />
+      </div>
+      <div id="distance" class="distance" aria-live="polite"></div>
+      <div id="store" class="store"></div>
+      <div id="hint" class="hint"></div>
     </div>
 
-    <div id="distance" class="distance" aria-live="polite"></div>
-    <div id="store" class="store"></div>
-    <div id="hint" class="hint"></div>
+    <div class="spacer"></div>
 
     <div id="toggle" class="toggle" role="tablist">
       <div class="pill" id="pill"></div>
