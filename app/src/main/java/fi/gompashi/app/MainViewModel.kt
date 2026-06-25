@@ -21,6 +21,8 @@ data class UiState(
     val distanceText: String? = null,
     val rotationDeg: Float = 0f,
     val bearingDeg: Float = 0f,
+    val pitchDeg: Float = 0f,
+    val rollDeg: Float = 0f,
     val storeCount: Int = 0,
     val selectedRank: Int = 0,
 )
@@ -60,9 +62,10 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 // No permission yet: show the permission prompt, don't touch location.
                 flowOf(baseState(loading = false, permissionGranted = false))
             } else {
-                // Seed azimuth with 0 so combine can emit before/without a compass reading.
-                val azimuth = compass.azimuthFlow().onStart { emit(0f) }
-                combine(location.locationFlow(), azimuth, selectedRank) { l, az, rank ->
+                // Seed orientation with zeros so combine can emit before/without a sensor reading.
+                val orientation = compass.orientationFlow()
+                    .onStart { emit(DeviceOrientation(0f, 0f, 0f)) }
+                combine(location.locationFlow(), orientation, selectedRank) { l, o, rank ->
                     val ranked = NearestStoreFinder.rank(l.latitude, l.longitude, stores)
                     val safeRank = rank.coerceIn(0, (ranked.size - 1).coerceAtLeast(0))
                     val target = ranked.getOrNull(safeRank)
@@ -74,7 +77,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                             storeName = target.store.name,
                             distanceText = DistanceFormat.format(target.distanceMeters),
                             bearingDeg = bearing,
-                            rotationDeg = ((bearing - az + 360f) % 360f),
+                            rotationDeg = ((bearing - o.azimuth + 360f) % 360f),
+                            pitchDeg = o.pitch,
+                            rollDeg = o.roll,
                             selectedRank = safeRank,
                         )
                     }

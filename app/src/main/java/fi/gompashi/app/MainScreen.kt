@@ -43,7 +43,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithContent
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
@@ -141,7 +140,13 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
                 contentDescription = "Suunta Alkoon",
                 modifier = Modifier
                     .height(420.dp)
-                    .rotate(animatedRotation),
+                    .graphicsLayer {
+                        // Z = compass heading; X/Y = slight 3D tilt following the phone.
+                        rotationZ = animatedRotation
+                        rotationX = (state.pitchDeg * 0.5f).coerceIn(-7f, 7f)
+                        rotationY = (state.rollDeg * 0.5f).coerceIn(-7f, 7f)
+                        cameraDistance = 16f * density
+                    },
             )
         }
 
