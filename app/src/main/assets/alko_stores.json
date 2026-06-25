@@ -1,113 +1,13 @@
 [
   {
-    "name": "Alko",
-    "lat": 63.5481629,
-    "lon": 23.6902391
-  },
-  {
-    "name": "Alko",
-    "lat": 61.4903306,
-    "lon": 23.821164
-  },
-  {
-    "name": "Alko",
-    "lat": 61.4753063,
-    "lon": 23.9785267
-  },
-  {
-    "name": "Alko",
-    "lat": 62.4908966,
-    "lon": 27.7857846
-  },
-  {
-    "name": "Alko",
-    "lat": 63.901771,
-    "lon": 23.9177914
-  },
-  {
-    "name": "Alko",
-    "lat": 61.3494273,
-    "lon": 25.26771
-  },
-  {
-    "name": "Alko",
-    "lat": 64.8698668,
-    "lon": 27.6674038
-  },
-  {
-    "name": "Alko",
-    "lat": 64.6753101,
-    "lon": 28.5055112
-  },
-  {
-    "name": "Alko",
-    "lat": 62.6014567,
-    "lon": 29.7648408
-  },
-  {
-    "name": "Alko",
-    "lat": 60.7205188,
-    "lon": 24.4418458
-  },
-  {
-    "name": "Alko",
-    "lat": 62.2604966,
-    "lon": 24.6942796
-  },
-  {
-    "name": "Alko",
-    "lat": 60.922468,
-    "lon": 24.6487732
-  },
-  {
-    "name": "Alko",
-    "lat": 62.3014604,
-    "lon": 27.1613081
-  },
-  {
-    "name": "Alko",
-    "lat": 65.7423372,
-    "lon": 24.5783631
-  },
-  {
-    "name": "Alko",
-    "lat": 60.297639,
-    "lon": 25.3294773
-  },
-  {
-    "name": "Alko",
-    "lat": 60.0997303,
-    "lon": 19.9409799
-  },
-  {
-    "name": "Alko",
-    "lat": 60.8120124,
-    "lon": 23.6370703
-  },
-  {
-    "name": "Alko",
-    "lat": 63.6822489,
-    "lon": 25.9799141
-  },
-  {
-    "name": "Alko",
-    "lat": 61.4782793,
-    "lon": 23.5248356
-  },
-  {
-    "name": "Alko",
-    "lat": 61.4758322,
-    "lon": 23.8393918
-  },
-  {
-    "name": "Alko",
-    "lat": 61.3602796,
-    "lon": 23.7951554
-  },
-  {
     "name": "Alko (Alajärvi)",
     "lat": 63.0057739,
     "lon": 23.8026091
+  },
+  {
+    "name": "Alko (Forssa, Linikkala)",
+    "lat": 60.8120124,
+    "lon": 23.6370703
   },
   {
     "name": "Alko (Haukipudas)",
@@ -115,29 +15,29 @@
     "lon": 25.3482129
   },
   {
-    "name": "Alko (Heinola)",
-    "lat": 61.1921099,
-    "lon": 25.9982387
-  },
-  {
-    "name": "Alko (Heinola)",
+    "name": "Alko (Heinola, Pyhätön)",
     "lat": 61.2030628,
     "lon": 26.0303252
   },
   {
-    "name": "Alko (Helsinki)",
+    "name": "Alko (Heinola, Sinilähde)",
+    "lat": 61.1921099,
+    "lon": 25.9982387
+  },
+  {
+    "name": "Alko (Helsinki, Arabianranta)",
     "lat": 60.2025173,
     "lon": 24.9679399
   },
   {
-    "name": "Alko (Helsinki)",
-    "lat": 60.1593104,
-    "lon": 24.9438814
-  },
-  {
-    "name": "Alko (Helsinki)",
+    "name": "Alko (Helsinki, Katajanokka)",
     "lat": 60.1666233,
     "lon": 24.9649906
+  },
+  {
+    "name": "Alko (Helsinki, Ullanlinna)",
+    "lat": 60.1593104,
+    "lon": 24.9438814
   },
   {
     "name": "Alko (Hollola)",
@@ -145,9 +45,19 @@
     "lon": 25.5155604
   },
   {
+    "name": "Alko (Hyrynsalmi)",
+    "lat": 64.6753101,
+    "lon": 28.5055112
+  },
+  {
     "name": "Alko (Jakobstad)",
     "lat": 63.6777411,
     "lon": 22.7152645
+  },
+  {
+    "name": "Alko (Joensuu, Keskusta)",
+    "lat": 62.6014567,
+    "lon": 29.7648408
   },
   {
     "name": "Alko (Jyväskylä)",
@@ -155,14 +65,39 @@
     "lon": 25.7196986
   },
   {
+    "name": "Alko (Kangasala, Lemponen)",
+    "lat": 61.4753063,
+    "lon": 23.9785267
+  },
+  {
     "name": "Alko (Kangasniemi)",
     "lat": 61.9880975,
     "lon": 26.6424917
   },
   {
+    "name": "Alko (Kannus, Lopotti)",
+    "lat": 63.901771,
+    "lon": 23.9177914
+  },
+  {
     "name": "Alko (Kauhajoki)",
     "lat": 62.4340539,
     "lon": 22.1790792
+  },
+  {
+    "name": "Alko (Kaustinen)",
+    "lat": 63.5481629,
+    "lon": 23.6902391
+  },
+  {
+    "name": "Alko (Kemi, Kivikko)",
+    "lat": 65.7423372,
+    "lon": 24.5783631
+  },
+  {
+    "name": "Alko (Keuruu, Pappilanniemi)",
+    "lat": 62.2604966,
+    "lon": 24.6942796
   },
   {
     "name": "Alko (Kuhmo)",
@@ -175,9 +110,29 @@
     "lon": 25.6603435
   },
   {
+    "name": "Alko (Lempäälä, Moisio)",
+    "lat": 61.3602796,
+    "lon": 23.7951554
+  },
+  {
+    "name": "Alko (Leppävirta)",
+    "lat": 62.4908966,
+    "lon": 27.7857846
+  },
+  {
     "name": "Alko (Lieto)",
     "lat": 60.5037873,
     "lon": 22.4571899
+  },
+  {
+    "name": "Alko (Loppi)",
+    "lat": 60.7205188,
+    "lon": 24.4418458
+  },
+  {
+    "name": "Alko (Mariehamn, Storängen)",
+    "lat": 60.0997303,
+    "lon": 19.9409799
   },
   {
     "name": "Alko (Masku)",
@@ -195,6 +150,11 @@
     "lon": 24.9689731
   },
   {
+    "name": "Alko (Nokia, Lauttala)",
+    "lat": 61.4782793,
+    "lon": 23.5248356
+  },
+  {
     "name": "Alko (Nurmes)",
     "lat": 63.5562736,
     "lon": 29.1051629
@@ -210,6 +170,11 @@
     "lon": 25.730964
   },
   {
+    "name": "Alko (Padasjoki, Savikko)",
+    "lat": 61.3494273,
+    "lon": 25.26771
+  },
+  {
     "name": "Alko (Pargas)",
     "lat": 60.3084048,
     "lon": 22.3069503
@@ -218,6 +183,11 @@
     "name": "Alko (Parikkala)",
     "lat": 61.5572327,
     "lon": 29.5001871
+  },
+  {
+    "name": "Alko (Pieksämäki, Kontiopuisto)",
+    "lat": 62.3014604,
+    "lon": 27.1613081
   },
   {
     "name": "Alko (Pihtipudas)",
@@ -240,6 +210,16 @@
     "lon": 28.1566702
   },
   {
+    "name": "Alko (Puolanka)",
+    "lat": 64.8698668,
+    "lon": 27.6674038
+  },
+  {
+    "name": "Alko (Pyhäsalmi)",
+    "lat": 63.6822489,
+    "lon": 25.9799141
+  },
+  {
     "name": "Alko (Salo)",
     "lat": 60.2060673,
     "lon": 23.1135706
@@ -255,24 +235,44 @@
     "lon": 27.6560962
   },
   {
+    "name": "Alko (Sipoo, Söderkulla)",
+    "lat": 60.297639,
+    "lon": 25.3294773
+  },
+  {
     "name": "Alko (Suomussalmi)",
     "lat": 64.8831472,
     "lon": 28.9154442
   },
   {
-    "name": "Alko (Tampere)",
+    "name": "Alko (Tampere, Kalevanrinne)",
+    "lat": 61.4903306,
+    "lon": 23.821164
+  },
+  {
+    "name": "Alko (Tampere, Lielahti)",
     "lat": 61.5145574,
     "lon": 23.6670487
   },
   {
-    "name": "Alko (Tampere)",
+    "name": "Alko (Tampere, Tammela)",
+    "lat": 61.4998796,
+    "lon": 23.7857585
+  },
+  {
+    "name": "Alko (Tampere, Tesomajärvi)",
     "lat": 61.5051967,
     "lon": 23.6271995
   },
   {
-    "name": "Alko (Tampere)",
-    "lat": 61.4998796,
-    "lon": 23.7857585
+    "name": "Alko (Tampere, Turtola)",
+    "lat": 61.4758322,
+    "lon": 23.8393918
+  },
+  {
+    "name": "Alko (Turenki, Tapaila)",
+    "lat": 60.922468,
+    "lon": 24.6487732
   },
   {
     "name": "Alko (Utö)",
@@ -280,22 +280,22 @@
     "lon": 21.3705253
   },
   {
-    "name": "Alko (Vaasa)",
-    "lat": 63.0968559,
-    "lon": 21.6161573
-  },
-  {
-    "name": "Alko (Vaasa)",
+    "name": "Alko (Vaasa, Asevelikylä)",
     "lat": 63.1031199,
     "lon": 21.6470029
   },
   {
-    "name": "Alko (Vaasa)",
+    "name": "Alko (Vaasa, Keskusta 1)",
+    "lat": 63.0968559,
+    "lon": 21.6161573
+  },
+  {
+    "name": "Alko (Vaasa, Kivihaka)",
     "lat": 63.1088563,
     "lon": 21.651438
   },
   {
-    "name": "Alko (Vaasa)",
+    "name": "Alko (Vaasa, Vanha-Vaasa)",
     "lat": 63.0729284,
     "lon": 21.6993526
   },
@@ -328,11 +328,6 @@
     "name": "Alko Aura",
     "lat": 60.6472736,
     "lon": 22.591002
-  },
-  {
-    "name": "Alko Bahus",
-    "lat": 59.4300522,
-    "lon": 24.744147
   },
   {
     "name": "Alko Citymarket Lappeenranta",
@@ -613,11 +608,6 @@
     "name": "Alko Imatra Mansikkala",
     "lat": 61.189963,
     "lon": 28.7651094
-  },
-  {
-    "name": "Alko Imatra Vuoksenniska (Imatra)",
-    "lat": 61.224526,
-    "lon": 28.835179
   },
   {
     "name": "Alko Inari Ivalo",
@@ -1110,6 +1100,11 @@
     "lon": 22.2345168
   },
   {
+    "name": "Alko Mikkeli Graani",
+    "lat": 61.6862644,
+    "lon": 27.2966458
+  },
+  {
     "name": "Alko Muhos",
     "lat": 64.8075476,
     "lon": 25.9916193
@@ -1505,11 +1500,6 @@
     "lon": 21.7396372
   },
   {
-    "name": "Alko Tornio",
-    "lat": 65.8431741,
-    "lon": 24.1448148
-  },
-  {
     "name": "Alko Tripla",
     "lat": 60.1985595,
     "lon": 24.9297912
@@ -1643,105 +1633,5 @@
     "name": "Alko Äänekoski keskusta",
     "lat": 62.6027746,
     "lon": 25.7241354
-  },
-  {
-    "name": "Alko;Graanin Apteekki Mikkeli Graani",
-    "lat": 61.6862644,
-    "lon": 27.2966458
-  },
-  {
-    "name": "Alkoholi kauplus",
-    "lat": 59.4292432,
-    "lon": 24.7547757
-  },
-  {
-    "name": "Araxes Alkoholipood",
-    "lat": 59.4513603,
-    "lon": 24.6960025
-  },
-  {
-    "name": "City Alko",
-    "lat": 59.4434125,
-    "lon": 24.8640554
-  },
-  {
-    "name": "City Alko",
-    "lat": 59.4009981,
-    "lon": 24.697407
-  },
-  {
-    "name": "CityAlko",
-    "lat": 59.3665763,
-    "lon": 24.7590058
-  },
-  {
-    "name": "CityAlko",
-    "lat": 59.4162127,
-    "lon": 24.7406266
-  },
-  {
-    "name": "CityAlko",
-    "lat": 59.4030889,
-    "lon": 24.7156959
-  },
-  {
-    "name": "CityAlko",
-    "lat": 59.4418367,
-    "lon": 24.7352708
-  },
-  {
-    "name": "CityAlko (Tabasalu alevik)",
-    "lat": 59.4299925,
-    "lon": 24.5504672
-  },
-  {
-    "name": "Cityalko (Rapla)",
-    "lat": 59.0037057,
-    "lon": 24.7929669
-  },
-  {
-    "name": "Kiviõli CityAlko (Kiviõli)",
-    "lat": 59.3556588,
-    "lon": 26.9768405
-  },
-  {
-    "name": "R-Alko (Tallinn)",
-    "lat": 59.4368577,
-    "lon": 24.7503486
-  },
-  {
-    "name": "SuPer Alko",
-    "lat": 59.4415996,
-    "lon": 24.7665192
-  },
-  {
-    "name": "Super Alko",
-    "lat": 59.324842,
-    "lon": 24.5615237
-  },
-  {
-    "name": "SuperAlko",
-    "lat": 59.3887878,
-    "lon": 24.682795
-  },
-  {
-    "name": "SuperAlko",
-    "lat": 59.4415879,
-    "lon": 24.7665967
-  },
-  {
-    "name": "SuperAlko",
-    "lat": 59.449744,
-    "lon": 24.8678981
-  },
-  {
-    "name": "SuperAlko (Roela alevik)",
-    "lat": 59.1651624,
-    "lon": 26.5858412
-  },
-  {
-    "name": "Viimsi CityAlko (Haabneeme alevik)",
-    "lat": 59.5061652,
-    "lon": 24.8263997
   }
 ]
