@@ -38,7 +38,11 @@ function formatDistance(m) {
 }
 
 // ---------- State ----------
-let stores = [];
+let stores = [];            // bundled + custom, used for ranking
+let bundledStores = [];
+let customStores = [];
+const LS_NEEDLE = "gompashi.needle";
+const LS_STORES = "gompashi.customStores";
 let userPos = null;
 let azimuth = NaN;       // device heading, 0 = north, clockwise
 let tiltBeta = 0, tiltGamma = 0;
@@ -256,10 +260,103 @@ segs.forEach((seg) =>
   })
 );
 
+// ---------- Settings: custom needle + own stores (localStorage) ----------
+function rebuildStores() {
+  stores = bundledStores.concat(customStores);
+  if (userPos) render();
+}
+
+function loadCustom() {
+  try { customStores = JSON.parse(localStorage.getItem(LS_STORES) || "[]"); } catch (_) { customStores = []; }
+}
+
+function renderCustomList() {
+  const list = document.getElementById("customList");
+  list.replaceChildren();
+  customStores.forEach((s, i) => {
+    const row = document.createElement("div");
+    row.className = "custom-row";
+    const label = document.createElement("span");
+    label.textContent = s.name;
+    const del = document.createElement("button");
+    del.textContent = "✕";
+    del.setAttribute("aria-label", "Poista");
+    del.onclick = () => {
+      customStores.splice(i, 1);
+      localStorage.setItem(LS_STORES, JSON.stringify(customStores));
+      rebuildStores();
+      renderCustomList();
+    };
+    row.append(label, del);
+    list.appendChild(row);
+  });
+}
+
+// Downscale an uploaded image to keep localStorage small; preserves transparency (PNG).
+function downscaleImage(file, maxDim) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+      const w = Math.round(img.width * scale), h = Math.round(img.height * scale);
+      const canvas = document.createElement("canvas");
+      canvas.width = w; canvas.height = h;
+      canvas.getContext("2d").drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL("image/png"));
+    };
+    img.onerror = reject;
+    img.src = URL.createObjectURL(file);
+  });
+}
+
+function initSettings() {
+  const settings = document.getElementById("settings");
+  const preview = document.getElementById("needlePreview");
+
+  // Apply a saved custom needle on boot.
+  const saved = localStorage.getItem(LS_NEEDLE);
+  if (saved) { bottle.src = saved; preview.src = saved; }
+
+  document.getElementById("settingsBtn").onclick = () => { renderCustomList(); settings.classList.remove("hidden"); };
+  document.getElementById("settingsClose").onclick = () => settings.classList.add("hidden");
+
+  document.getElementById("needleInput").onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    downscaleImage(file, 720).then((url) => {
+      try {
+        localStorage.setItem(LS_NEEDLE, url);
+        bottle.src = url; preview.src = url;
+      } catch (_) { document.getElementById("customMsg").textContent = "Kuva on liian suuri tallennettavaksi."; }
+    });
+  };
+  document.getElementById("needleReset").onclick = () => {
+    localStorage.removeItem(LS_NEEDLE);
+    bottle.src = "assets/compass_needle.png";
+    preview.src = "assets/compass_needle.png";
+  };
+
+  document.getElementById("customAdd").onclick = () => {
+    const msg = document.getElementById("customMsg");
+    if (!userPos) { msg.textContent = "Sijaintia ei vielä saatu — käynnistä ensin ja salli sijainti."; return; }
+    const nameEl = document.getElementById("customName");
+    const name = nameEl.value.trim() || "Oma Alko";
+    customStores.push({ name, lat: userPos.lat, lon: userPos.lon, hours: [], hoursKnown: true, custom: true });
+    localStorage.setItem(LS_STORES, JSON.stringify(customStores));
+    nameEl.value = "";
+    msg.textContent = `Lisätty: ${name}`;
+    rebuildStores();
+    renderCustomList();
+  };
+}
+
 // ---------- Boot ----------
+loadCustom();
+initSettings();
+
 fetch("alko_stores.json")
   .then((r) => r.json())
-  .then((data) => { stores = data; })
+  .then((data) => { bundledStores = data; rebuildStores(); })
   .catch(() => showError("Myymälädataa ei voitu ladata."));
 
 fetch("closed_dates.json")

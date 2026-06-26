@@ -30,6 +30,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <button id="settingsBtn" class="iconbtn" aria-label="Asetukset" title="Asetukset">⚙</button>
+
   <main id="app">
     <img id="title" class="title" src="assets/title.svg" alt="Gompashi" />
 
@@ -62,6 +64,35 @@
     <p id="overlayText">Gompashi näyttää suunnan ja etäisyyden lähimpään Alkoon.</p>
     <button id="overlayBtn" class="btn">Käynnistä</button>
     <p class="overlay-fine">Pidä puhelinta vaakatasossa kuten oikeaa kompassia.</p>
+  </div>
+
+  <!-- Settings: custom needle image + your own Alko stores (stored locally) -->
+  <div id="settings" class="overlay settings hidden">
+    <div class="panel">
+      <h2>Asetukset</h2>
+
+      <section>
+        <h3>Kompassineula</h3>
+        <img id="needlePreview" class="needle-preview" src="assets/compass_needle.png" alt="" />
+        <div class="row">
+          <label class="btn small">Vaihda kuva
+            <input id="needleInput" type="file" accept="image/*" hidden />
+          </label>
+          <button id="needleReset" class="btn small ghost">Palauta oletus</button>
+        </div>
+      </section>
+
+      <section>
+        <h3>Oma Alko</h3>
+        <p class="fine">Lisää myymälä, jota ei ole datassa. Tallentuu vain tähän laitteeseen.</p>
+        <input id="customName" class="text-input" type="text" placeholder="Nimi (esim. Alko Mökkikylä)" />
+        <button id="customAdd" class="btn small">Lisää nykyiseen sijaintiin</button>
+        <p id="customMsg" class="fine"></p>
+        <div id="customList" class="custom-list"></div>
+      </section>
+
+      <button id="settingsClose" class="btn">Sulje</button>
+    </div>
   </div>
 
   <script src="app.js"></script>
