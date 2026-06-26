@@ -36,10 +36,51 @@ data class UiState(
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
 
-    private val stores: List<AlkoStore> = AlkoRepository.loadFromAssets(app)
+    private val storage = LocalStore(app)
+    private val bundledStores: List<AlkoStore> = AlkoRepository.loadFromAssets(app)
+    private var customStoresList: List<AlkoStore> = storage.loadCustomStores()
+    private var stores: List<AlkoStore> = bundledStores + customStoresList
     private val closedDates: Set<String> = AlkoRepository.loadClosedDates(app)
     private val compass = CompassProvider(app)
     private val location = LocationProvider(app)
+
+    @Volatile private var lastLocation: android.location.Location? = null
+
+    // Exposed for the settings screen.
+    val customStores = MutableStateFlow(customStoresList)
+    val needle = MutableStateFlow(storage.loadNeedle())
+
+    fun addCustomStore(name: String): Boolean {
+        val loc = lastLocation ?: return false
+        val store = AlkoStore(
+            name = name.ifBlank { "Oma Alko" },
+            lat = loc.latitude, lon = loc.longitude,
+            hours = emptyList(), hoursKnown = true,
+        )
+        customStoresList = customStoresList + store
+        persistCustom()
+        return true
+    }
+
+    fun removeCustomStore(index: Int) {
+        customStoresList = customStoresList.toMutableList().apply { if (index in indices) removeAt(index) }
+        persistCustom()
+    }
+
+    private fun persistCustom() {
+        storage.saveCustomStores(customStoresList)
+        stores = bundledStores + customStoresList
+        customStores.value = customStoresList
+    }
+
+    fun setNeedle(uri: android.net.Uri) {
+        if (storage.saveNeedleFromUri(uri)) needle.value = storage.loadNeedle()
+    }
+
+    fun resetNeedle() {
+        storage.deleteNeedle()
+        needle.value = null
+    }
 
     // Emits every second so the opening-hours countdown updates live.
     private val ticker = flow {
@@ -82,6 +123,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                 val orientation = compass.orientationFlow()
                     .onStart { emit(DeviceOrientation(0f, 0f, 0f)) }
                 combine(location.locationFlow(), orientation, selectedRank, ticker) { l, o, rank, _ ->
+                    lastLocation = l
                     val ranked = NearestStoreFinder.rank(l.latitude, l.longitude, stores)
                     val safeRank = rank.coerceIn(0, (ranked.size - 1).coerceAtLeast(0))
                     val target = ranked.getOrNull(safeRank)

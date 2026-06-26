@@ -17,6 +17,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
@@ -31,12 +32,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -48,8 +55,10 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.CompositingStrategy
+import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -73,9 +82,16 @@ private val ClosedRed = Color(0xFFE0707A)
 @Composable
 fun MainScreen(
     state: UiState,
+    needle: ImageBitmap?,
+    customStores: List<AlkoStore>,
     onToggleRank: () -> Unit,
     onRequestPermission: () -> Unit,
+    onAddCustom: (String) -> Boolean,
+    onRemoveCustom: (Int) -> Unit,
+    onPickNeedle: () -> Unit,
+    onResetNeedle: () -> Unit,
 ) {
+    var showSettings by remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -85,13 +101,39 @@ fun MainScreen(
         when {
             !state.permissionGranted -> PermissionState(onRequestPermission)
             state.loading || state.distanceText == null -> LoadingState()
-            else -> CompassContent(state, onToggleRank)
+            else -> CompassContent(state, needle, onToggleRank)
+        }
+
+        Text(
+            text = "⚙",
+            color = TextSecondary,
+            fontSize = 22.sp,
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .statusBarsPadding()
+                .padding(top = 8.dp, end = 16.dp)
+                .clickable(
+                    indication = null,
+                    interactionSource = remember { MutableInteractionSource() },
+                ) { showSettings = true },
+        )
+
+        if (showSettings) {
+            SettingsScreen(
+                needle = needle,
+                customStores = customStores,
+                onAddCustom = onAddCustom,
+                onRemoveCustom = onRemoveCustom,
+                onPickNeedle = onPickNeedle,
+                onResetNeedle = onResetNeedle,
+                onClose = { showSettings = false },
+            )
         }
     }
 }
 
 @Composable
-private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
+private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -153,8 +195,10 @@ private fun CompassContent(state: UiState, onToggleRank: () -> Unit) {
             // to the phone's tilt.
             val target = if (state.hasCompass) state.rotationDeg else state.bearingDeg
             val bottleRotation = rememberAnimatedAngle(target, "needleRotation")
+            val needlePainter = needle?.let { remember(it) { BitmapPainter(it) } }
+                ?: painterResource(id = R.drawable.compass_needle)
             Image(
-                painter = painterResource(id = R.drawable.compass_needle),
+                painter = needlePainter,
                 contentDescription = "Suunta Alkoon",
                 modifier = Modifier
                     .height(420.dp)
@@ -366,6 +410,84 @@ private fun SegmentedToggle(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun SettingsScreen(
+    needle: ImageBitmap?,
+    customStores: List<AlkoStore>,
+    onAddCustom: (String) -> Boolean,
+    onRemoveCustom: (Int) -> Unit,
+    onPickNeedle: () -> Unit,
+    onResetNeedle: () -> Unit,
+    onClose: () -> Unit,
+) {
+    var name by remember { mutableStateOf("") }
+    var msg by remember { mutableStateOf("") }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Background)
+            .statusBarsPadding()
+            .navigationBarsPadding()
+            .verticalScroll(rememberScrollState())
+            .padding(24.dp),
+    ) {
+        Text("Asetukset", color = TextPrimary, fontSize = 22.sp, fontWeight = FontWeight.Bold)
+
+        Spacer(Modifier.height(24.dp))
+        Text("Kompassineula", color = TextPrimary, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+        Spacer(Modifier.height(12.dp))
+        val preview = needle?.let { remember(it) { BitmapPainter(it) } }
+            ?: painterResource(id = R.drawable.compass_needle)
+        Image(
+            painter = preview,
+            contentDescription = null,
+            modifier = Modifier.height(120.dp).align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(12.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+            Button(onClick = onPickNeedle) { Text("Vaihda kuva") }
+            TextButton(onClick = onResetNeedle) { Text("Palauta oletus", color = TextSecondary) }
+        }
+
+        Spacer(Modifier.height(28.dp))
+        Text("Oma Alko", color = TextPrimary, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+        Text(
+            text = "Lisää myymälä, jota ei ole datassa. Tallentuu vain tähän laitteeseen.",
+            color = TextSecondary,
+            fontSize = 12.sp,
+            modifier = Modifier.padding(vertical = 6.dp),
+        )
+        OutlinedTextField(
+            value = name,
+            onValueChange = { name = it },
+            singleLine = true,
+            placeholder = { Text("Nimi (esim. Alko Mökkikylä)") },
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(Modifier.height(10.dp))
+        Button(onClick = {
+            msg = if (onAddCustom(name)) { name = ""; "Lisätty." } else "Sijaintia ei vielä saatu — salli sijainti ja yritä uudelleen."
+        }) { Text("Lisää nykyiseen sijaintiin") }
+        if (msg.isNotEmpty()) {
+            Text(msg, color = TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 6.dp))
+        }
+
+        Spacer(Modifier.height(8.dp))
+        customStores.forEachIndexed { i, s ->
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(s.name, color = TextPrimary, fontSize = 14.sp, modifier = Modifier.weight(1f))
+                TextButton(onClick = { onRemoveCustom(i) }) { Text("Poista", color = Accent) }
+            }
+        }
+
+        Spacer(Modifier.height(28.dp))
+        Button(onClick = onClose, modifier = Modifier.fillMaxWidth()) { Text("Sulje") }
     }
 }
 

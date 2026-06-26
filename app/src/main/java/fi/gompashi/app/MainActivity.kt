@@ -4,7 +4,9 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
@@ -37,14 +39,31 @@ class MainActivity : ComponentActivity() {
                     background = Color.Black,
                     surface = Color.Black,
                     primary = Color(0xFFD7263D),
+                    onPrimary = Color.White,
                 ),
             ) {
                 Surface(color = Color.Black) {
                     val state by viewModel.state.collectAsState()
+                    val customStores by viewModel.customStores.collectAsState()
+                    val needle by viewModel.needle.collectAsState()
+                    val pickImage = rememberLauncherForActivityResult(
+                        ActivityResultContracts.PickVisualMedia()
+                    ) { uri -> uri?.let { viewModel.setNeedle(it) } }
+
                     MainScreen(
                         state = state,
+                        needle = needle,
+                        customStores = customStores,
                         onToggleRank = { viewModel.toggleRank() },
                         onRequestPermission = { requestLocationPermission() },
+                        onAddCustom = { name -> viewModel.addCustomStore(name) },
+                        onRemoveCustom = { index -> viewModel.removeCustomStore(index) },
+                        onPickNeedle = {
+                            pickImage.launch(
+                                PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                            )
+                        },
+                        onResetNeedle = { viewModel.resetNeedle() },
                     )
                 }
             }
