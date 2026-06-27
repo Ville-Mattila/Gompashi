@@ -65,6 +65,7 @@ const segs = [...document.querySelectorAll(".seg")];
 let closedDates = new Set();   // Alko public-holiday closed dates (YYYY-MM-DD)
 let currentHours = null;       // selected store's 7-day schedule
 let currentHoursKnown = true;
+let currentExceptions = null;  // selected store's date-specific overrides
 const overlay = document.getElementById("overlay");
 const overlayText = document.getElementById("overlayText");
 const overlayBtn = document.getElementById("overlayBtn");
@@ -117,10 +118,15 @@ function dateKey(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-
 function dowMon0(d) { return (d.getDay() + 6) % 7; } // JS Sun=0 -> Mon=0..Sun=6
 
 // Returns { state: "open"|"closed", at: Date } or null if no schedule found.
-function openingStatus(now, hours) {
+// Precedence per day: exception (if the date is present) > closed date > weekly schedule.
+function openingStatus(now, hours, exceptions) {
   for (let offset = 0; offset < 14; offset++) {
     const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() + offset);
-    const sched = closedDates.has(dateKey(day)) ? null : hours[dowMon0(day)];
+    const key = dateKey(day);
+    let sched;
+    if (exceptions && Object.prototype.hasOwnProperty.call(exceptions, key)) sched = exceptions[key];
+    else if (closedDates.has(key)) sched = null;
+    else sched = hours[dowMon0(day)];
     if (!sched) continue;
     const [oh, om] = sched[0].split(":").map(Number);
     const [ch, cm] = sched[1].split(":").map(Number);
@@ -148,7 +154,7 @@ function fmtDur(ms) {
 function updateHours() {
   if (!currentHours) { hoursEl.textContent = ""; hoursNoteEl.textContent = ""; return; }
   const now = new Date();
-  const st = openingStatus(now, currentHours);
+  const st = openingStatus(now, currentHours, currentExceptions);
   if (!st) { hoursEl.textContent = ""; hoursNoteEl.textContent = ""; return; }
   const label = st.state === "open" ? "Auki vielä " : "Aukeaa ";
   hoursEl.innerHTML = `<span class="${st.state}">${label}${fmtDur(st.at - now)}</span>`;
@@ -166,6 +172,7 @@ function render() {
   storeEl.textContent = target.store.name;
   currentHours = target.store.hours;
   currentHoursKnown = target.store.hoursKnown;
+  currentExceptions = target.store.exceptions || null;
   updateHours();
   segs[1].disabled = stores.length < 2;
   toggleEl.className = "toggle rank" + rank;

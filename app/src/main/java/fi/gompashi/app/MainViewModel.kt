@@ -132,7 +132,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                     } else {
                         val bearing = target.bearingDeg.toFloat()
                         val now = LocalDateTime.now()
-                        val status = OpeningHours.status(now, target.store.hours, closedDates)
+                        val status = OpeningHours.status(now, target.store.hours, closedDates, target.store.exceptions)
                         baseState(loading = false, permissionGranted = true).copy(
                             storeName = target.store.name,
                             distanceText = DistanceFormat.format(target.distanceMeters),

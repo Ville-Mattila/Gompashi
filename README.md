@@ -62,15 +62,19 @@ Hakemuksen käsittely edellyttää seuraavia liitteitä:
 
 ## Myymälärekisterin virkistäminen
 
-Alkojen sijainnit sijaitsevat tiedostossa `app/src/main/assets/alko_stores.json`. Kun
-valtakunnan kapakkakartasto vanhenee, se päivitetään yhdellä taikasanalla:
+Alkojen sijainnit ja aukioloajat sijaitsevat tiedostossa `app/src/main/assets/alko_stores.json`.
+Lähtöaineisto on Alkon oma myymälävienti `stores.json` (juurihakemistossa). Kun valtakunnan
+kapakkakartasto vanhenee, jalostuslaitos käynnistetään yhdellä taikasanalla:
 
 ```bash
-python tools/fetch_alko.py
+python tools/convert_stores.py
 ```
 
-Skripti noutaa myymälät OpenStreetMapista (Overpass-rajapinta) käyttäen ainoastaan Pythonin
-vakiokalustoa - ei ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
+Skripti lukee `stores.json`-arkin, karsii joukosta noutopisteet (ne, joista vain noudetaan
+tilaus, eivät ole oikeita myymälöitä) ja pysyvästi suljetut, poimii viikkoaikataulut sekä
+seuraavan kymmenen päivän päiväkohtaiset poikkeukset (pyhät ja erikoispäivät), ja kirjoittaa
+tuloksen sekä Android-appiin että `web/`-kansioon. Pelkkää Pythonin vakiokalustoa - ei
+ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
 
 ## Laitoksen sisäinen organisaatiokaavio
 
@@ -92,8 +96,8 @@ Suunnittelu- ja toteutuspöytäkirjat arkistoituvat kansioon `docs/superpowers/`
 
 ## Tekijänoikeudet, kunnianosoitukset ja muut juhlapuheet
 
-- Myymälätiedot: © OpenStreetMapin uupumattomat talkoolaiset,
-  lisenssi [ODbL](https://opendatacommons.org/licenses/odbl/).
+- Myymälätiedot ja aukioloajat: peräisin Alkon omasta myymälärekisteristä.
+  Oikeudet kuuluvat Alko Oy:lle; tässä niitä vain osoitellaan pullolla.
 - `compass_needle.png`: *Gambina Cocktail* -pullo, ylennetty kunniakkaaseen
   kompassinuolen virkaan.
 - `title.svg`: talon oma vaakuna, taottu vektoripajassa.

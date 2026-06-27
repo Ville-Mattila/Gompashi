@@ -67,4 +67,34 @@ class OpeningHoursTest {
     fun no_schedule_returns_null() {
         assertNull(OpeningHours.status(LocalDateTime.of(2026, 6, 22, 12, 0), List(7) { null }, noClosed))
     }
+
+    @Test
+    fun exception_overrides_weekly_close_time() {
+        // Weekly says open until 21:00, but today's exception closes at 18:00.
+        val now = LocalDateTime.of(2026, 6, 27, 12, 0)
+        val exc = mapOf("2026-06-27" to listOf("09:00", "18:00"))
+        val st = OpeningHours.status(now, allDay, noClosed, exc)!!
+        assertTrue(st.open)
+        assertEquals(LocalDateTime.of(2026, 6, 27, 18, 0), st.target)
+    }
+
+    @Test
+    fun exception_can_close_a_normally_open_day() {
+        // Exception null = closed today; skip to next weekly open day.
+        val now = LocalDateTime.of(2026, 6, 22, 12, 0)
+        val exc = mapOf<String, List<String>?>("2026-06-22" to null)
+        val st = OpeningHours.status(now, allDay, noClosed, exc)!!
+        assertFalse(st.open)
+        assertEquals(LocalDateTime.of(2026, 6, 23, 9, 0), st.target)
+    }
+
+    @Test
+    fun exception_open_takes_precedence_over_holiday() {
+        // Holiday list marks the day closed, but an exception re-opens it.
+        val now = LocalDateTime.of(2026, 6, 22, 12, 0)
+        val exc = mapOf("2026-06-22" to listOf("10:00", "15:00"))
+        val st = OpeningHours.status(now, allDay, setOf("2026-06-22"), exc)!!
+        assertTrue(st.open)
+        assertEquals(LocalDateTime.of(2026, 6, 22, 15, 0), st.target)
+    }
 }
