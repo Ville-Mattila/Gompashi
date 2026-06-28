@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 
 data class UiState(
@@ -32,6 +33,7 @@ data class UiState(
     val rollDeg: Float = 0f,
     val storeCount: Int = 0,
     val selectedRank: Int = 0,
+    val stepsRemaining: Int? = null,
 )
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
@@ -43,8 +45,32 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     private val closedDates: Map<String, Set<String>> = AlkoRepository.loadClosedDates(app)
     private val compass = CompassProvider(app)
     private val location = LocationProvider(app)
+    private val stepProvider = StepProvider(app)
+    private val stride = StrideEstimator()
 
     @Volatile private var lastLocation: android.location.Location? = null
+
+    // Step counting / stride calibration state.
+    @Volatile private var currentSteps = 0
+    private var prevFix: android.location.Location? = null
+    private var prevFixTime = 0L
+    private var stepsAtPrevFix = 0
+    private val stepPermission =
+        MutableStateFlow(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.Q)
+
+    fun setStepPermission(granted: Boolean) {
+        if (granted) stepPermission.value = true
+    }
+
+    private val stepsAvailable: Boolean
+        get() = stepProvider.hasSensor && stepPermission.value
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    private val stepCollector = viewModelScope.launch {
+        stepPermission.flatMapLatest { ok ->
+            if (ok && stepProvider.hasSensor) stepProvider.stepFlow() else flowOf(0)
+        }.collect { currentSteps = it }
+    }
 
     // Exposed for the settings screen.
     val customStores = MutableStateFlow(customStoresList)
@@ -101,6 +127,27 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         selectedRank.value = if (next < stores.size) next else 0
     }
 
+    /**
+     * On each genuinely-new location fix, feed the stride estimator the distance moved and
+     * the steps taken since the previous fix. Only plausible walking segments are used, so
+     * GPS jitter while standing still does not corrupt the stride estimate.
+     */
+    private fun calibrateStride(l: android.location.Location) {
+        if (l.time == prevFixTime) return // same fix re-emitted by the ticker; ignore
+        val pf = prevFix
+        if (pf != null) {
+            val seg = pf.distanceTo(l).toDouble()
+            val segSteps = currentSteps - stepsAtPrevFix
+            val accurate = !l.hasAccuracy() || l.accuracy <= 35f
+            if (accurate && seg in 1.5..80.0 && segSteps in 1..200) {
+                stride.onSegment(seg, segSteps)
+            }
+        }
+        prevFix = l
+        prevFixTime = l.time
+        stepsAtPrevFix = currentSteps
+    }
+
     private fun baseState(
         loading: Boolean,
         permissionGranted: Boolean,
@@ -124,6 +171,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                     .onStart { emit(DeviceOrientation(0f, 0f, 0f)) }
                 combine(location.locationFlow(), orientation, selectedRank, ticker) { l, o, rank, _ ->
                     lastLocation = l
+                    calibrateStride(l)
                     val ranked = NearestStoreFinder.rank(l.latitude, l.longitude, stores)
                     val safeRank = rank.coerceIn(0, (ranked.size - 1).coerceAtLeast(0))
                     val target = ranked.getOrNull(safeRank)
@@ -146,6 +194,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                             pitchDeg = o.pitch,
                             rollDeg = o.roll,
                             selectedRank = safeRank,
+                            stepsRemaining = if (stepsAvailable) stride.stepsFor(target.distanceMeters) else null,
                         )
                     }
                 }.onStart {

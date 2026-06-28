@@ -33,7 +33,10 @@ function rankStores(lat, lon, stores) {
 }
 
 function formatDistance(m) {
-  if (m < 1000) return Math.round(m / 10) * 10 + " m";
+  if (m < 1000) {
+    const r = Math.round(m);
+    return (r < 100 ? r : Math.round(r / 10) * 10) + " m";
+  }
   return (m / 1000).toFixed(1) + " km";
 }
 

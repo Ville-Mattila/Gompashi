@@ -2,6 +2,7 @@ package fi.gompashi.app
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -29,9 +30,14 @@ class MainActivity : ComponentActivity() {
         viewModel.setPermissionGranted(granted)
     }
 
+    private val activityRecognitionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { granted -> viewModel.setStepPermission(granted) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel.setPermissionGranted(hasLocationPermission())
+        requestActivityRecognitionIfNeeded()
 
         setContent {
             MaterialTheme(
@@ -80,6 +86,22 @@ class MainActivity : ComponentActivity() {
             PackageManager.PERMISSION_GRANTED ||
             ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) ==
             PackageManager.PERMISSION_GRANTED
+
+    private fun requestActivityRecognitionIfNeeded() {
+        // The step counter is optional; on Android 10+ it needs ACTIVITY_RECOGNITION.
+        // Older versions grant step access without a runtime permission.
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            viewModel.setStepPermission(true)
+            return
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            viewModel.setStepPermission(true)
+        } else {
+            activityRecognitionLauncher.launch(Manifest.permission.ACTIVITY_RECOGNITION)
+        }
+    }
 
     private fun requestLocationPermission() {
         permissionLauncher.launch(

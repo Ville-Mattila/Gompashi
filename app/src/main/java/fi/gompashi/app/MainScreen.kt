@@ -222,6 +222,16 @@ private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: (
         )
         AnimatedDistance(text = state.distanceText.orEmpty(), style = distanceStyle)
 
+        state.stepsRemaining?.let { steps ->
+            Text(
+                text = "≈ ${formatSteps(steps)} askelta",
+                color = TextSecondary,
+                fontSize = 14.sp,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(top = 4.dp),
+            )
+        }
+
         state.storeName?.let { name ->
             // Fade AND animate the width between names of different lengths, so there is
             // no snap at the end of the transition when toggling nearest / second nearest.
@@ -281,6 +291,10 @@ private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: (
         )
     }
 }
+
+/** Groups an integer with spaces every three digits, e.g. 1234 -> "1 234". */
+private fun formatSteps(n: Int): String =
+    n.toString().reversed().chunked(3).joinToString(" ").reversed()
 
 /**
  * Animates an angle (degrees) the short way across the 0/360 seam, smoothed by a
