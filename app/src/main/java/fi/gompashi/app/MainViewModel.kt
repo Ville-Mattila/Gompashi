@@ -184,7 +184,9 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         val oLat = user.latitude
         val oLon = user.longitude
         viewModelScope.launch {
-            val r = routeProvider.fetch(oLat, oLon, store.lat, store.lon)
+            // Online: OSM routing service. Offline (or on failure): the downloaded local graph.
+            var r = if (tileStore.online) routeProvider.fetch(oLat, oLon, store.lat, store.lon) else null
+            if (r == null) r = tileStore.router.route(oLat, oLon, store.lat, store.lon)
             if (r != null) {
                 route.value = r
                 routeKey = key

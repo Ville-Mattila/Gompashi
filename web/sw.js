@@ -1,8 +1,9 @@
 // Gompashi PWA service worker — offline-first app shell + bundled store data.
 // Bump CACHE when assets or data change so clients pick up the new version.
-const CACHE = "gompashi-v19";
-// Persistent, user-downloaded base-map tiles (kept across app-shell updates).
+const CACHE = "gompashi-v20";
+// Persistent, user-downloaded data (kept across app-shell updates).
 const TILE_CACHE = "gompashi-tiles";
+const ROUTE_CACHE = "gompashi-routing";
 const TILE_HOST = "basemaps.cartocdn.com";
 const ASSETS = [
   "./",
@@ -29,7 +30,7 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE && k !== TILE_CACHE).map((k) => caches.delete(k)))
+      Promise.all(keys.filter((k) => k !== CACHE && k !== TILE_CACHE && k !== ROUTE_CACHE).map((k) => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });

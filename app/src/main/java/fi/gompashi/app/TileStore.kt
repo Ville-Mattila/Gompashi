@@ -44,6 +44,7 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
     val tiles = mutableStateMapOf<String, ImageBitmap>()
     private val inFlight = HashSet<String>()
 
+    val router = OfflineRouter(context)
     val regions = mutableStateListOf<MapRegion>().apply { addAll(loadRegions()) }
     var downloading by mutableStateOf(false); private set
     var progressDone by mutableStateOf(0); private set
@@ -117,6 +118,8 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
                     progressDone++
                 }
             }
+            // Walkable network for offline routing (best-effort).
+            bytes += router.downloadAndStore(lat, lon)
             regions.add(MapRegion(lat, lon, list.size, bytes))
             saveRegions()
             downloading = false
@@ -128,6 +131,7 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
         scope.launch {
             withContext(Dispatchers.IO) {
                 for (t in regionTiles(r.lat, r.lon)) file(t[0], t[1], t[2]).delete()
+                router.deleteRegion(r.lat, r.lon)
             }
             tiles.clear()
             if (index in regions.indices) regions.removeAt(index)
@@ -143,18 +147,19 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
     }
 
     companion object {
-        const val MIN_ZOOM = 11
-        const val MAX_ZOOM = 14 // also the offline render cap; closer zooms overzoom these
-        const val RADIUS_KM = 25.0
+        const val WIDE_KM = 25.0
+        const val WIDE_MIN = 11
+        const val WIDE_MAX = 14 // offline render cap away from a region centre
+        const val SHARP_KM = 3.0
+        const val SHARP_MIN = 15
+        const val SHARP_MAX = 16 // offline render cap near a region centre
 
         private fun mercY(lat: Double) = (1 - ln(tan(lat * Math.PI / 180) + 1 / cos(lat * Math.PI / 180)) / Math.PI) / 2
 
-        /** [z,x,y] triples covering a ±RADIUS_KM box around (lat,lon), zoom MIN..MAX. */
-        fun regionTiles(lat: Double, lon: Double): List<IntArray> {
-            val dLat = RADIUS_KM / 111.32
-            val dLon = RADIUS_KM / (111.32 * cos(lat * Math.PI / 180))
-            val out = ArrayList<IntArray>()
-            for (z in MIN_ZOOM..MAX_ZOOM) {
+        private fun tilesForBox(lat: Double, lon: Double, km: Double, zMin: Int, zMax: Int, out: ArrayList<IntArray>) {
+            val dLat = km / 111.32
+            val dLon = km / (111.32 * cos(lat * Math.PI / 180))
+            for (z in zMin..zMax) {
                 val n = 1 shl z
                 fun tx(lo: Double) = (((lo + 180) / 360 * n).toInt()).coerceIn(0, n - 1)
                 fun ty(la: Double) = ((mercY(la) * n).toInt()).coerceIn(0, n - 1)
@@ -162,6 +167,13 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
                 val y0 = ty(lat + dLat); val y1 = ty(lat - dLat) // north = smaller y
                 for (x in x0..x1) for (y in y0..y1) out.add(intArrayOf(z, x, y))
             }
+        }
+
+        /** Wide low-zoom overview + a sharp high-zoom ring around the centre. */
+        fun regionTiles(lat: Double, lon: Double): List<IntArray> {
+            val out = ArrayList<IntArray>()
+            tilesForBox(lat, lon, WIDE_KM, WIDE_MIN, WIDE_MAX, out)
+            tilesForBox(lat, lon, SHARP_KM, SHARP_MIN, SHARP_MAX, out)
             return out
         }
 

@@ -516,7 +516,7 @@ private fun SettingsScreen(
         Spacer(Modifier.height(28.dp))
         Text("Offline-kartat", color = TextPrimary, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
         Text(
-            text = "Lataa kartta nykyisen sijainnin ympäriltä (n. 50 km), niin reittikartta toimii myös ilman verkkoa. Reitit vaativat silti verkon.",
+            text = "Lataa kartta ja kävelytieverkko nykyisen sijainnin ympäriltä (n. 50 km). Sekä kartta että kävelyreitin laskenta toimivat sen jälkeen ilman verkkoa.",
             color = TextSecondary,
             fontSize = 12.sp,
             modifier = Modifier.padding(vertical = 6.dp),
@@ -653,7 +653,7 @@ private fun RouteMap(
                 val info = when {
                     state.userLat == null -> "Odotetaan sijaintia"
                     route != null -> "Kävellen ${DistanceFormat.format(route.distanceMeters)} · ~${max(1, (route.durationSeconds / 60).roundToInt())} min"
-                    else -> "Reitti vaatii verkon — näytetään linnuntie"
+                    else -> "Reittiä ei saatavilla — näytetään linnuntie"
                 }
                 Text(info, color = TextSecondary, fontSize = 14.sp, modifier = Modifier.padding(start = 4.dp, bottom = 8.dp))
                 RouteCanvas(state, route, tileStore)
@@ -743,8 +743,16 @@ private fun RouteCanvas(state: UiState, route: FootRoute?, tileStore: TileStore)
         val dnx = max(maxNx - minNx, 1e-12); val dny = max(maxNy - minNy, 1e-12)
         var scale = min((w - 2 * marginX) / dnx, (h - 2 * marginY) / dny) // px per normalized world unit
         scale = scale.coerceIn(TILE * 2.0.pow(3), TILE * 2.0.pow(20))
-        // Offline: cap to the downloaded zoom; closer zooms overzoom those tiles.
-        val maxZ = if (tileStore.online) 19 else TileStore.MAX_ZOOM
+        // Offline: the sharp ring (z15-16) only exists near a region centre; elsewhere cap to the
+        // wide z14 and overzoom. Online: full detail.
+        val maxZ = if (tileStore.online) 19 else {
+            val nearSharp = tileStore.regions.any { r ->
+                val dy = (uLat - r.lat) * 111320.0
+                val dx = (uLon - r.lon) * 111320.0 * cos(uLat * PI / 180)
+                Math.hypot(dy, dx) < TileStore.SHARP_KM * 1000
+            }
+            if (nearSharp) TileStore.SHARP_MAX else TileStore.WIDE_MAX
+        }
         val tz = (ln(scale / TILE) / ln(2.0)).toInt().coerceIn(3, maxZ)
         val nT = 2.0.pow(tz).toInt()
         val tilePx = scale / nT // on-screen tile size (256..512)

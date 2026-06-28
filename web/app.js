@@ -71,27 +71,35 @@ let lastMapDraw = 0;
 const TILE = 256;
 const mercY = (lat) => (1 - Math.log(Math.tan(rad(lat)) + 1 / Math.cos(rad(lat))) / Math.PI) / 2;
 
-// ----- Offline map regions (downloaded tiles) -----
+// ----- Offline map regions (downloaded tiles + routing graph) -----
 const TILE_CACHE_NAME = "gompashi-tiles";
+const ROUTE_CACHE_NAME = "gompashi-routing";
 const LS_REGIONS = "gompashi.regions";
-const OFFLINE_RADIUS_KM = 25;   // half-size of the downloaded box
-const OFFLINE_MINZ = 11;
-const OFFLINE_MAXZ = 14;        // also the offline render zoom cap (higher zooms overzoom these)
+const OFFLINE_WIDE_KM = 25;     // wide overview area, low zoom
+const OFFLINE_WIDE_MINZ = 11;
+const OFFLINE_WIDE_MAXZ = 14;
+const OFFLINE_SHARP_KM = 3;     // sharp inner ring around the centre
+const OFFLINE_SHARP_MINZ = 15;
+const OFFLINE_SHARP_MAXZ = 16;
+const OFFLINE_ROUTE_KM = 2.5;   // walkable network radius for offline routing
 
 const tileX = (lon, z) => Math.floor((lon + 180) / 360 * 2 ** z);
 const tileY = (lat, z) => Math.floor(mercY(lat) * 2 ** z);
 
-// All {z,x,y} tiles covering a box of ±OFFLINE_RADIUS_KM around (lat,lon), z MIN..MAX.
-function regionTiles(lat, lon) {
-  const dLat = OFFLINE_RADIUS_KM / 111.32;
-  const dLon = OFFLINE_RADIUS_KM / (111.32 * Math.cos(rad(lat)));
-  const s = lat - dLat, n = lat + dLat, w = lon - dLon, e = lon + dLon;
-  const out = [];
-  for (let z = OFFLINE_MINZ; z <= OFFLINE_MAXZ; z++) {
-    const x0 = tileX(w, z), x1 = tileX(e, z);
-    const y0 = tileY(n, z), y1 = tileY(s, z); // north has the smaller y
+function tilesForBox(lat, lon, km, zMin, zMax, out) {
+  const dLat = km / 111.32, dLon = km / (111.32 * Math.cos(rad(lat)));
+  for (let z = zMin; z <= zMax; z++) {
+    const x0 = tileX(lon - dLon, z), x1 = tileX(lon + dLon, z);
+    const y0 = tileY(lat + dLat, z), y1 = tileY(lat - dLat, z); // north has the smaller y
     for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) out.push({ z, x, y });
   }
+}
+
+// Wide low-zoom overview + a sharp high-zoom ring around the centre.
+function regionTiles(lat, lon) {
+  const out = [];
+  tilesForBox(lat, lon, OFFLINE_WIDE_KM, OFFLINE_WIDE_MINZ, OFFLINE_WIDE_MAXZ, out);
+  tilesForBox(lat, lon, OFFLINE_SHARP_KM, OFFLINE_SHARP_MINZ, OFFLINE_SHARP_MAXZ, out);
   return out;
 }
 
@@ -223,6 +231,121 @@ function currentTarget() {
 
 function storeKey(s) { return `${s.lat.toFixed(5)},${s.lon.toFixed(5)}`; }
 
+// ---------- Offline walking router (downloaded OSM network + A*) ----------
+const OVERPASS_ENDPOINTS = [
+  "https://overpass-api.de/api/interpreter",
+  "https://overpass.kumi.systems/api/interpreter",
+  "https://overpass.private.coffee/api/interpreter",
+];
+const WALK_TYPES = "footway|path|pedestrian|living_street|residential|steps|unclassified|tertiary|service";
+const routeGraphKey = (lat, lon) => `https://gompashi.local/route/${lat.toFixed(5)}_${lon.toFixed(5)}`;
+let routeGraphs = null; // lazily-loaded array of {nodes:[[lat,lon]], adj:[[i,...]]}
+
+// Fetch the walkable network around (lat,lon) and build a routable graph.
+async function fetchNetworkGraph(lat, lon) {
+  const dLat = OFFLINE_ROUTE_KM / 111.32, dLon = OFFLINE_ROUTE_KM / (111.32 * Math.cos(rad(lat)));
+  const b = `(${(lat - dLat).toFixed(5)},${(lon - dLon).toFixed(5)},${(lat + dLat).toFixed(5)},${(lon + dLon).toFixed(5)})`;
+  const q = `[out:json][timeout:60];way["highway"~"^(${WALK_TYPES})$"]${b};out geom;`;
+  let d = null;
+  for (const ep of OVERPASS_ENDPOINTS) {
+    try {
+      const res = await fetch(ep, {
+        method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "data=" + encodeURIComponent(q),
+      });
+      if (res.ok) { d = await res.json(); break; }
+    } catch (_) { /* try next mirror */ }
+  }
+  if (!d) throw new Error("overpass-unreachable");
+  const idx = new Map(), nodes = [], adj = [];
+  const nodeId = (la, lo) => {
+    const k = Math.round(la * 1e5) + "," + Math.round(lo * 1e5);
+    let i = idx.get(k);
+    if (i === undefined) { i = nodes.length; idx.set(k, i); nodes.push([Math.round(la * 1e5) / 1e5, Math.round(lo * 1e5) / 1e5]); adj.push([]); }
+    return i;
+  };
+  for (const el of d.elements || []) {
+    let prev = -1;
+    for (const p of el.geometry || []) {
+      const id = nodeId(p.lat, p.lon);
+      if (prev >= 0 && prev !== id) {
+        if (!adj[prev].includes(id)) adj[prev].push(id);
+        if (!adj[id].includes(prev)) adj[id].push(prev);
+      }
+      prev = id;
+    }
+  }
+  return { nodes, adj };
+}
+
+async function loadGraphs() {
+  if (routeGraphs) return routeGraphs;
+  routeGraphs = [];
+  try {
+    const c = await caches.open(ROUTE_CACHE_NAME);
+    for (const req of await c.keys()) {
+      const res = await c.match(req);
+      if (res) routeGraphs.push(await res.json());
+    }
+  } catch (_) {}
+  return routeGraphs;
+}
+
+function snapNode(graph, lat, lon) {
+  let best = -1, bestD = Infinity;
+  const n = graph.nodes;
+  for (let i = 0; i < n.length; i++) {
+    const d = distanceMeters(lat, lon, n[i][0], n[i][1]);
+    if (d < bestD) { bestD = d; best = i; }
+  }
+  return { idx: best, dist: bestD };
+}
+
+// A* over the node graph; returns {coords,distance} or null.
+function aStar(graph, start, goal) {
+  const { nodes, adj } = graph;
+  const N = nodes.length;
+  const g = new Float64Array(N).fill(Infinity);
+  const came = new Int32Array(N).fill(-1);
+  const [glat, glon] = nodes[goal];
+  const h = (i) => distanceMeters(nodes[i][0], nodes[i][1], glat, glon);
+  const heap = [{ n: start, p: h(start) }];
+  g[start] = 0;
+  const up = (a) => { let i = a.length - 1; while (i > 0) { const pa = (i - 1) >> 1; if (a[pa].p <= a[i].p) break; [a[pa], a[i]] = [a[i], a[pa]]; i = pa; } };
+  const down = (a) => { let i = 0; for (;;) { const l = 2 * i + 1, r = l + 1; let s = i; if (l < a.length && a[l].p < a[s].p) s = l; if (r < a.length && a[r].p < a[s].p) s = r; if (s === i) break; [a[s], a[i]] = [a[i], a[s]]; i = s; } };
+  while (heap.length) {
+    const cur = heap[0]; const last = heap.pop(); if (heap.length) { heap[0] = last; down(heap); }
+    const u = cur.n;
+    if (u === goal) break;
+    if (cur.p - h(u) > g[u] + 1e-6) continue; // stale entry
+    for (const v of adj[u]) {
+      const nd = g[u] + distanceMeters(nodes[u][0], nodes[u][1], nodes[v][0], nodes[v][1]);
+      if (nd < g[v]) { g[v] = nd; came[v] = u; heap.push({ n: v, p: nd + h(v) }); up(heap); }
+    }
+  }
+  if (g[goal] === Infinity) return null;
+  const coords = [];
+  for (let c = goal; c >= 0; c = came[c]) coords.push(nodes[c]);
+  coords.reverse();
+  return { coords, distance: g[goal] };
+}
+
+// Compute a walking route from a downloaded graph, or null if none covers both ends.
+async function offlineRoute(fLat, fLon, tLat, tLon) {
+  for (const graph of await loadGraphs()) {
+    if (!graph.nodes.length) continue;
+    const s = snapNode(graph, fLat, fLon), e = snapNode(graph, tLat, tLon);
+    if (s.dist > 300 || e.dist > 300) continue;
+    const path = aStar(graph, s.idx, e.idx);
+    if (path) {
+      const coords = [[fLat, fLon], ...path.coords, [tLat, tLon]];
+      const distance = path.distance + s.dist + e.dist;
+      return { coords, distance, duration: distance / 1.35 };
+    }
+  }
+  return null;
+}
+
 // Fetch a foot route to the target, but only when needed: store changed, user moved
 // far enough, or no route yet. Backs off after failures so we respect fair-use.
 async function maybeFetchRoute(target) {
@@ -233,26 +356,28 @@ async function maybeFetchRoute(target) {
   const need = key !== routeKey || moved > 75;
   if (!need || routeFetching || Date.now() < routeCooldownUntil) return;
   routeFetching = true;
-  const from = `${userPos.lon},${userPos.lat}`;
-  const to = `${target.store.lon},${target.store.lat}`;
   try {
-    const res = await fetch(`${ROUTE_URL}${from};${to}?overview=full&geometries=geojson`);
-    const d = await res.json();
-    if (d.code === "Ok" && d.routes && d.routes[0]) {
-      const r = d.routes[0];
-      currentRoute = {
-        coords: r.geometry.coordinates.map(([lon, lat]) => [lat, lon]),
-        distance: r.distance,
-        duration: r.duration,
-      };
+    let r = null;
+    if (navigator.onLine) {
+      try {
+        const from = `${userPos.lon},${userPos.lat}`, to = `${target.store.lon},${target.store.lat}`;
+        const res = await fetch(`${ROUTE_URL}${from};${to}?overview=full&geometries=geojson`);
+        const d = await res.json();
+        if (d.code === "Ok" && d.routes && d.routes[0]) {
+          const rt = d.routes[0];
+          r = { coords: rt.geometry.coordinates.map(([lon, lat]) => [lat, lon]), distance: rt.distance, duration: rt.duration };
+        }
+      } catch (_) { /* fall through to offline */ }
+    }
+    if (!r) r = await offlineRoute(userPos.lat, userPos.lon, target.store.lat, target.store.lon);
+    if (r) {
+      currentRoute = r;
       routeKey = key;
       routeOrigin = { lat: userPos.lat, lon: userPos.lon };
     } else {
       routeCooldownUntil = Date.now() + 15000;
+      if (key !== routeKey) currentRoute = null;
     }
-  } catch (_) {
-    routeCooldownUntil = Date.now() + 15000; // offline / failed: fall back to straight line
-    if (key !== routeKey) currentRoute = null;
   } finally {
     routeFetching = false;
     if (mapOpen) drawMap(currentTarget());
@@ -298,8 +423,15 @@ function drawMap(target) {
   const dnx = Math.max(maxNx - minNx, 1e-12), dny = Math.max(maxNy - minNy, 1e-12);
   let scale = Math.min((W - 2 * marginX) / dnx, (H - 2 * marginY) / dny); // px per normalized world unit
   scale = Math.max(TILE * 2 ** 3, Math.min(TILE * 2 ** 20, scale));
-  // Offline: cap the tile zoom to what's been downloaded; higher zooms overzoom those tiles.
-  const maxZ = navigator.onLine ? 19 : OFFLINE_MAXZ;
+  // Offline: cap the tile zoom to what's downloaded. The sharp ring (z15-16) only exists near
+  // a region centre; elsewhere overzoom the wide z14. Online: full detail.
+  let maxZ = 19;
+  if (!navigator.onLine) {
+    const nearSharp = loadRegions().some(
+      (r) => distanceMeters(userPos.lat, userPos.lon, r.lat, r.lon) < OFFLINE_SHARP_KM * 1000,
+    );
+    maxZ = nearSharp ? OFFLINE_SHARP_MAXZ : OFFLINE_WIDE_MAXZ;
+  }
   const tz = Math.max(3, Math.min(maxZ, Math.floor(Math.log2(scale / TILE))));
   const nT = 2 ** tz;
   const tilePx = scale / nT; // on-screen tile size (256..512)
@@ -342,7 +474,7 @@ function drawMap(target) {
   if (haveRoute) {
     info.textContent = `Kävellen ${formatDistance(currentRoute.distance)} · ~${Math.max(1, Math.round(currentRoute.duration / 60))} min`;
   } else {
-    info.textContent = "Reitti vaatii verkon — näytetään linnuntie";
+    info.textContent = "Reittiä ei saatavilla — näytetään linnuntie";
   }
 }
 
@@ -519,6 +651,18 @@ async function downloadCurrentRegion(onProgress) {
     }
   }
   await Promise.all(Array.from({ length: 6 }, worker));
+
+  // Walkable network for offline routing (best-effort; tiles still useful without it).
+  if (onProgress) onProgress(tiles.length, tiles.length, "Haetaan tieverkkoa…");
+  try {
+    const graph = await fetchNetworkGraph(userPos.lat, userPos.lon);
+    const blob = JSON.stringify(graph);
+    bytes += blob.length;
+    const rc = await caches.open(ROUTE_CACHE_NAME);
+    await rc.put(routeGraphKey(userPos.lat, userPos.lon), new Response(blob, { headers: { "Content-Type": "application/json" } }));
+    routeGraphs = null; // invalidate cache so the new graph is used
+  } catch (_) { /* routing stays online-only for this region */ }
+
   const regions = loadRegions();
   regions.push({ lat: userPos.lat, lon: userPos.lon, tiles: tiles.length, bytes, ts: Date.now() });
   saveRegions(regions);
@@ -533,6 +677,8 @@ async function deleteRegion(i) {
   for (const t of regionTiles(r.lat, r.lon)) {
     try { await cache.delete(TILE_URL(t.z, t.x, t.y)); } catch (_) {}
   }
+  try { await (await caches.open(ROUTE_CACHE_NAME)).delete(routeGraphKey(r.lat, r.lon)); } catch (_) {}
+  routeGraphs = null;
   regions.splice(i, 1);
   saveRegions(regions);
 }
@@ -563,8 +709,10 @@ function initOfflineMaps() {
     btn.disabled = true;
     prog.textContent = "Ladataan…";
     try {
-      const r = await downloadCurrentRegion((d, total) => { prog.textContent = `Ladataan ${d}/${total}…`; });
-      prog.textContent = `Valmis: ${(r.bytes / 1048576).toFixed(0)} MB tallennettu.`;
+      const r = await downloadCurrentRegion((d, total, status) => {
+        prog.textContent = status || `Ladataan ${d}/${total}…`;
+      });
+      prog.textContent = `Valmis: ${(r.bytes / 1048576).toFixed(1)} MB tallennettu.`;
       renderRegionList();
     } catch (_) {
       prog.textContent = "Lataus epäonnistui. Tarkista verkkoyhteys.";
