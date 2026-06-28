@@ -40,7 +40,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     private val bundledStores: List<AlkoStore> = AlkoRepository.loadFromAssets(app)
     private var customStoresList: List<AlkoStore> = storage.loadCustomStores()
     private var stores: List<AlkoStore> = bundledStores + customStoresList
-    private val closedDates: Set<String> = AlkoRepository.loadClosedDates(app)
+    private val closedDates: Map<String, Set<String>> = AlkoRepository.loadClosedDates(app)
     private val compass = CompassProvider(app)
     private val location = LocationProvider(app)
 
@@ -132,7 +132,8 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
                     } else {
                         val bearing = target.bearingDeg.toFloat()
                         val now = LocalDateTime.now()
-                        val status = OpeningHours.status(now, target.store.hours, closedDates)
+                        val storeClosed = closedDates[target.store.country] ?: emptySet()
+                        val status = OpeningHours.status(now, target.store.hours, storeClosed)
                         baseState(loading = false, permissionGranted = true).copy(
                             storeName = target.store.name,
                             distanceText = DistanceFormat.format(target.distanceMeters),

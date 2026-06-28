@@ -10,4 +10,6 @@ data class AlkoStore(
     // 7 entries Mon..Sun; each is [open, close] ("HH:MM") or null when closed that day.
     val hours: List<List<String>?> = emptyList(),
     val hoursKnown: Boolean = true,
+    // ISO country code ("FI"/"SE"/"NO") — selects the right public-holiday list.
+    val country: String = "FI",
 )

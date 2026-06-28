@@ -62,19 +62,27 @@ Hakemuksen käsittely edellyttää seuraavia liitteitä:
 
 ## Myymälärekisterin virkistäminen
 
-Alkojen sijainnit ja aukioloajat sijaitsevat tiedostossa `app/src/main/assets/alko_stores.json`.
-Lähtöaineisto on Alkon oma myymälävienti `stores.json` (juurihakemistossa). Kun valtakunnan
-kapakkakartasto vanhenee, jalostuslaitos käynnistetään yhdellä taikasanalla:
+Kolmen valtakunnan kapakkakartasto sijaitsee tiedostossa `app/src/main/assets/alko_stores.json`.
+Kun se vanhenee, jalostuslaitos käynnistetään yhdellä taikasanalla:
 
 ```bash
 python tools/convert_stores.py
 ```
 
-Skripti lukee `stores.json`-arkin, karsii joukosta noutopisteet (ne, joista vain noudetaan
-tilaus, eivät ole oikeita myymälöitä) ja pysyvästi suljetut, poimii viikkoaikataulut ja
+Skripti yhdistää kolme lähtöaineistoa, karsii noutopisteet (ne, joista vain noudetaan tilaus,
+eivät ole oikeita myymälöitä) ja suljetut, normalisoi aukioloajat viikkoaikatauluksi ja
 kirjoittaa tuloksen sekä Android-appiin että `web/`-kansioon. Pyhät hoituu erikseen
-`closed_dates.json`-listalta. Pelkkää Pythonin vakiokalustoa - ei ulkopuolisia
-riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
+maakohtaisesti `closed_dates.json`-listalta (FI/SE/NO):
+
+| Maa | Ketju | Lähtöaineisto |
+|---|---|---|
+| 🇫🇮 Suomi | Alko | `stores.json` (Alkon oma vienti, juurihakemistossa) |
+| 🇸🇪 Ruotsi | Systembolaget | `tools/raw/systembolaget_mirror.json` (virallinen Site V2 -data) |
+| 🇳🇴 Norja | Vinmonopolet | `tools/raw/vinmonopolet_osm.json` (OpenStreetMap / Overpass) |
+
+Norjan raakadatan saa tuoreena Overpassista; Ruotsin virallisesta APIsta
+(`api-extern.systembolaget.se`, vaatii ilmaisen avaimen) tai sen yhteisömirrorista.
+Pelkkää Pythonin vakiokalustoa - ei ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
 
 ## Laitoksen sisäinen organisaatiokaavio
 
@@ -96,8 +104,11 @@ Suunnittelu- ja toteutuspöytäkirjat arkistoituvat kansioon `docs/superpowers/`
 
 ## Tekijänoikeudet, kunnianosoitukset ja muut juhlapuheet
 
-- Myymälätiedot ja aukioloajat: peräisin Alkon omasta myymälärekisteristä.
-  Oikeudet kuuluvat Alko Oy:lle; tässä niitä vain osoitellaan pullolla.
+- Suomen myymälätiedot: Alkon oma myymälärekisteri, oikeudet Alko Oy:lle.
+- Ruotsin myymälätiedot: Systembolagetin avoin Site-API, oikeudet Systembolaget AB:lle
+  (käyttöehdot sallivat datan julkaisun sovelluksessa).
+- Norjan myymälätiedot: © OpenStreetMapin uupumattomat talkoolaiset,
+  lisenssi [ODbL](https://opendatacommons.org/licenses/odbl/).
 - `compass_needle.png`: *Gambina Cocktail* -pullo, ylennetty kunniakkaaseen
   kompassinuolen virkaan.
 - `title.svg`: talon oma vaakuna, taottu vektoripajassa.

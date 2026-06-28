@@ -62,9 +62,10 @@ const hoursNoteEl = document.getElementById("hoursnote");
 const toggleEl = document.getElementById("toggle");
 const segs = [...document.querySelectorAll(".seg")];
 
-let closedDates = new Set();   // Alko public-holiday closed dates (YYYY-MM-DD)
+let closedByCountry = {};      // ISO country -> Set of public-holiday dates (YYYY-MM-DD)
 let currentHours = null;       // selected store's 7-day schedule
 let currentHoursKnown = true;
+let currentCountry = "FI";     // selected store's country (selects the holiday list)
 const overlay = document.getElementById("overlay");
 const overlayText = document.getElementById("overlayText");
 const overlayBtn = document.getElementById("overlayBtn");
@@ -117,10 +118,10 @@ function dateKey(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-
 function dowMon0(d) { return (d.getDay() + 6) % 7; } // JS Sun=0 -> Mon=0..Sun=6
 
 // Returns { state: "open"|"closed", at: Date } or null if no schedule found.
-function openingStatus(now, hours) {
+function openingStatus(now, hours, closed) {
   for (let offset = 0; offset < 14; offset++) {
     const day = new Date(now.getFullYear(), now.getMonth(), now.getDate() + offset);
-    const sched = closedDates.has(dateKey(day)) ? null : hours[dowMon0(day)];
+    const sched = closed.has(dateKey(day)) ? null : hours[dowMon0(day)];
     if (!sched) continue;
     const [oh, om] = sched[0].split(":").map(Number);
     const [ch, cm] = sched[1].split(":").map(Number);
@@ -148,7 +149,7 @@ function fmtDur(ms) {
 function updateHours() {
   if (!currentHours) { hoursEl.textContent = ""; hoursNoteEl.textContent = ""; return; }
   const now = new Date();
-  const st = openingStatus(now, currentHours);
+  const st = openingStatus(now, currentHours, closedByCountry[currentCountry] || new Set());
   if (!st) { hoursEl.textContent = ""; hoursNoteEl.textContent = ""; return; }
   const label = st.state === "open" ? "Auki vielä " : "Aukeaa ";
   hoursEl.innerHTML = `<span class="${st.state}">${label}${fmtDur(st.at - now)}</span>`;
@@ -166,6 +167,7 @@ function render() {
   storeEl.textContent = target.store.name;
   currentHours = target.store.hours;
   currentHoursKnown = target.store.hoursKnown;
+  currentCountry = target.store.country || "FI";
   updateHours();
   segs[1].disabled = stores.length < 2;
   toggleEl.className = "toggle rank" + rank;
@@ -341,7 +343,7 @@ function initSettings() {
     if (!userPos) { msg.textContent = "Sijaintia ei vielä saatu — käynnistä ensin ja salli sijainti."; return; }
     const nameEl = document.getElementById("customName");
     const name = nameEl.value.trim() || "Oma Alko";
-    customStores.push({ name, lat: userPos.lat, lon: userPos.lon, hours: [], hoursKnown: true, custom: true });
+    customStores.push({ name, lat: userPos.lat, lon: userPos.lon, hours: [], hoursKnown: true, country: "FI", custom: true });
     localStorage.setItem(LS_STORES, JSON.stringify(customStores));
     nameEl.value = "";
     msg.textContent = `Lisätty: ${name}`;
@@ -361,7 +363,11 @@ fetch("alko_stores.json")
 
 fetch("closed_dates.json")
   .then((r) => r.json())
-  .then((dates) => { closedDates = new Set(dates); updateHours(); })
+  .then((byCountry) => {
+    closedByCountry = {};
+    for (const c in byCountry) closedByCountry[c] = new Set(byCountry[c]);
+    updateHours();
+  })
   .catch(() => {});
 
 setInterval(updateHours, 1000); // tick the countdown every second

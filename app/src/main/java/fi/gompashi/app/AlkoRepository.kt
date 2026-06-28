@@ -17,9 +17,9 @@ object AlkoRepository {
         return parseStores(text)
     }
 
-    /** Loads the bundled Alko-closed dates (ISO "yyyy-MM-dd") as a set. */
-    fun loadClosedDates(context: Context, fileName: String = "closed_dates.json"): Set<String> {
+    /** Loads the bundled closed dates per country (ISO code -> set of "yyyy-MM-dd"). */
+    fun loadClosedDates(context: Context, fileName: String = "closed_dates.json"): Map<String, Set<String>> {
         val text = context.assets.open(fileName).bufferedReader().use { it.readText() }
-        return json.decodeFromString<List<String>>(text).toSet()
+        return json.decodeFromString<Map<String, List<String>>>(text).mapValues { it.value.toSet() }
     }
 }

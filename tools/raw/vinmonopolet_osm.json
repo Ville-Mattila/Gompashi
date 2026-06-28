@@ -1,0 +1,6715 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.4 2390de5a",
+  "osm3s": {
+    "timestamp_osm_base": "2026-06-28T08:46:02Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 308002152,
+  "lat": 58.8485139,
+  "lon": 5.7411032,
+  "tags": {
+    "branch": "Sandnes sentrum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sandnes sentrum",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "241",
+    "ref:vinmonopolet": "241",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/241"
+  }
+},
+{
+  "type": "node",
+  "id": 324715246,
+  "lat": 59.4367945,
+  "lon": 10.6627632,
+  "tags": {
+    "branch": "Moss",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Moss",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "270",
+    "ref:vinmonopolet": "270",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/270"
+  }
+},
+{
+  "type": "node",
+  "id": 354480872,
+  "lat": 59.9124657,
+  "lon": 10.7530079,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Oslo City",
+    "branch": "Oslo City",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2026-01-19",
+    "check_date:opening_hours": "2024-06-01",
+    "drive_through": "no",
+    "level": "-1",
+    "name": "Vinmonopolet Oslo City",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "143",
+    "ref:vinmonopolet": "143",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/143",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 354480874,
+  "lat": 59.9179600,
+  "lon": 10.6353440,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, CC Vest",
+    "branch": "CC Vest",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet CC Vest",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "127",
+    "ref:vinmonopolet": "127",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/127",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 354480879,
+  "lat": 59.9188270,
+  "lon": 10.7073160,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Frogner",
+    "branch": "Frogner",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Frogner",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "111",
+    "ref:vinmonopolet": "111",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/111",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 354480885,
+  "lat": 59.9306570,
+  "lon": 10.7102290,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Majorstuen",
+    "branch": "Majorstuen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2024-06-12",
+    "name": "Vinmonopolet Majorstuen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "136",
+    "ref:vinmonopolet": "136",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/136",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 398968489,
+  "lat": 58.9713000,
+  "lon": 5.7370960,
+  "tags": {
+    "alt_name": "Vinmonopolet Stavanger, Verksgata",
+    "branch": "Verksgata",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "1",
+    "name": "Vinmonopolet Verksgata",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "231",
+    "ref:vinmonopolet": "231",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/231",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 441010251,
+  "lat": 60.7956630,
+  "lon": 11.0889580,
+  "tags": {
+    "branch": "Hamar",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hamar",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "230",
+    "ref:vinmonopolet": "230",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/230",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 448157795,
+  "lat": 59.9382280,
+  "lon": 10.7684170,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Sandaker",
+    "branch": "Sandaker",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Sandaker",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "152",
+    "ref:vinmonopolet": "152",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/152",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 448159872,
+  "lat": 59.4111990,
+  "lon": 5.2732650,
+  "tags": {
+    "branch": "Haugesund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Haugesund",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "218",
+    "ref:vinmonopolet": "218",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/218",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 448171155,
+  "lat": 59.8612020,
+  "lon": 5.7566430,
+  "tags": {
+    "branch": "Husnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Husnes",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "179",
+    "ref:vinmonopolet": "179",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/179"
+  }
+},
+{
+  "type": "node",
+  "id": 498220322,
+  "lat": 62.5950730,
+  "lon": 9.6906980,
+  "tags": {
+    "branch": "Oppdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Oppdal",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "260",
+    "ref:vinmonopolet": "260",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/260",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 534908666,
+  "lat": 60.1838020,
+  "lon": 5.4721960,
+  "tags": {
+    "branch": "Os",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Os",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "275",
+    "ref:vinmonopolet": "275",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/275"
+  }
+},
+{
+  "type": "node",
+  "id": 590979064,
+  "lat": 58.8821930,
+  "lon": 5.6525730,
+  "tags": {
+    "branch": "Sola",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sola",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "355",
+    "ref:vinmonopolet": "355",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/355",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 590979070,
+  "lat": 58.9479510,
+  "lon": 5.7393660,
+  "tags": {
+    "alt_name": "Vinmonopolet Stavanger, Hillevåg",
+    "branch": "Hillevåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hillevåg",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "221",
+    "ref:vinmonopolet": "221",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/221",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 590979072,
+  "lat": 58.9698420,
+  "lon": 5.7279120,
+  "tags": {
+    "alt_name": "Vinmonopolet Stavanger, Herbarium",
+    "branch": "Herbarium",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Herbarium",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "227",
+    "ref:vinmonopolet": "227",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/227"
+  }
+},
+{
+  "type": "node",
+  "id": 607012310,
+  "lat": 59.7781950,
+  "lon": 5.4986880,
+  "tags": {
+    "branch": "Stord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stord",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "297",
+    "ref:vinmonopolet": "297",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/297",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 615209010,
+  "lat": 59.9211894,
+  "lon": 10.7572667,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Grünerløkka",
+    "branch": "Grünerløkka",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2025-05-03",
+    "name": "Vinmonopolet Grünerløkka",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "115",
+    "ref:vinmonopolet": "115",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/115",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 619245300,
+  "lat": 60.7169492,
+  "lon": 11.1915666,
+  "tags": {
+    "branch": "Stange",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stange",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "324",
+    "ref:vinmonopolet": "324",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/324"
+  }
+},
+{
+  "type": "node",
+  "id": 670640532,
+  "lat": 58.3415059,
+  "lon": 8.5938820,
+  "tags": {
+    "branch": "Grimstad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-07-26",
+    "name": "Vinmonopolet Grimstad",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "211",
+    "ref:vinmonopolet": "211",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/211"
+  }
+},
+{
+  "type": "node",
+  "id": 710534985,
+  "lat": 59.9578470,
+  "lon": 11.0484000,
+  "tags": {
+    "branch": "Lillestrøm",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2025-05-02",
+    "name": "Vinmonopolet Lillestrøm",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "265",
+    "ref:vinmonopolet": "265",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/265"
+  }
+},
+{
+  "type": "node",
+  "id": 771309588,
+  "lat": 61.2320910,
+  "lon": 7.1021400,
+  "tags": {
+    "branch": "Sogndal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Sogndal",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "261",
+    "ref:vinmonopolet": "261",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/261",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 827330816,
+  "lat": 59.8970660,
+  "lon": 10.8140440,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Manglerud",
+    "branch": "Manglerud",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date:opening_hours": "2024-06-05",
+    "name": "Vinmonopolet Manglerud",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "138",
+    "ref:vinmonopolet": "138",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/138",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 830673179,
+  "lat": 59.9255110,
+  "lon": 10.8478470,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Alna",
+    "branch": "Alna",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Alna",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "117",
+    "ref:vinmonopolet": "117",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/117"
+  }
+},
+{
+  "type": "node",
+  "id": 884734169,
+  "lat": 59.6501550,
+  "lon": 6.3549610,
+  "tags": {
+    "branch": "Sauda",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sauda",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "147",
+    "ref:vinmonopolet": "147",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/147"
+  }
+},
+{
+  "type": "node",
+  "id": 899287337,
+  "lat": 70.9818387,
+  "lon": 25.9717310,
+  "tags": {
+    "branch": "Honningsvåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2025-01-22",
+    "name": "Vinmonopolet Honningsvåg",
+    "opening_hours": "Mo closed; Tu-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "239",
+    "ref:vinmonopolet": "239",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/239"
+  }
+},
+{
+  "type": "node",
+  "id": 1262634973,
+  "lat": 59.7456510,
+  "lon": 10.2027260,
+  "tags": {
+    "alt_name": "Vinmonopolet Drammen, Bragernes",
+    "branch": "Bragernes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bragernes",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "205",
+    "ref:vinmonopolet": "205",
+    "shop": "alcohol",
+    "toilets:wheelchair": "no",
+    "website": "https://www.vinmonopolet.no/butikk/205",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1349676030,
+  "lat": 58.0293370,
+  "lon": 7.4617530,
+  "tags": {
+    "branch": "Mandal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Mandal",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "266",
+    "ref:vinmonopolet": "266",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/266"
+  }
+},
+{
+  "type": "node",
+  "id": 1363069725,
+  "lat": 58.0967490,
+  "lon": 6.8048630,
+  "tags": {
+    "branch": "Farsund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Farsund",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "307",
+    "ref:vinmonopolet": "307",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/307"
+  }
+},
+{
+  "type": "node",
+  "id": 1376727137,
+  "lat": 59.9423110,
+  "lon": 10.7040810,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Vinderen",
+    "branch": "Vinderen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vinderen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "454",
+    "ref:vinmonopolet": "454",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/454"
+  }
+},
+{
+  "type": "node",
+  "id": 1384216370,
+  "lat": 60.3563420,
+  "lon": 5.3597260,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Sletten",
+    "branch": "Sletten",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "1",
+    "name": "Vinmonopolet Sletten",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "130",
+    "ref:vinmonopolet": "130",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/130",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1460417118,
+  "lat": 60.5469220,
+  "lon": 5.2862130,
+  "tags": {
+    "branch": "Knarvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Knarvik",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "156",
+    "ref:vinmonopolet": "156",
+    "shop": "alcohol",
+    "stroller": "yes",
+    "website": "https://www.vinmonopolet.no/butikk/156",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1497194867,
+  "lat": 59.1213068,
+  "lon": 11.3830335,
+  "tags": {
+    "branch": "Halden",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Halden",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "229",
+    "ref:vinmonopolet": "229",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/229"
+  }
+},
+{
+  "type": "node",
+  "id": 1579350204,
+  "lat": 59.5569740,
+  "lon": 9.2556600,
+  "tags": {
+    "branch": "Notodden",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2026-01-09",
+    "name": "Vinmonopolet Notodden",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "opening_hours:url": "https://www.vinmonopolet.no/butikk/273",
+    "phone": "+47 22 01 50 00",
+    "ref": "273",
+    "ref:vinmonopolet": "273",
+    "shop": "alcohol",
+    "source:opening_hours": "website",
+    "website": "https://www.vinmonopolet.no/butikk/273"
+  }
+},
+{
+  "type": "node",
+  "id": 1600944338,
+  "lat": 58.7703340,
+  "lon": 5.8465360,
+  "tags": {
+    "branch": "Ålgård",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ålgård",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "405",
+    "ref:vinmonopolet": "405",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/405"
+  }
+},
+{
+  "type": "node",
+  "id": 1657477790,
+  "lat": 68.1486167,
+  "lon": 13.6166015,
+  "tags": {
+    "branch": "Lofotsenteret",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "name": "Vinmonopolet Leknes",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+47 22 01 50 00",
+    "ref": "214",
+    "ref:vinmonopolet": "214",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/214"
+  }
+},
+{
+  "type": "node",
+  "id": 1657480112,
+  "lat": 68.2331021,
+  "lon": 14.5581890,
+  "tags": {
+    "branch": "Svolvær",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2026-01-15",
+    "level": "0",
+    "name": "Vinmonopolet Svolvær",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "284",
+    "ref:vinmonopolet": "284",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/284"
+  }
+},
+{
+  "type": "node",
+  "id": 1657481404,
+  "lat": 68.6943270,
+  "lon": 15.4163280,
+  "tags": {
+    "branch": "Sortland",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sortland",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "272",
+    "ref:vinmonopolet": "272",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/272"
+  }
+},
+{
+  "type": "node",
+  "id": 1657481405,
+  "lat": 68.5671580,
+  "lon": 14.9121570,
+  "tags": {
+    "branch": "Stokmarknes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stokmarknes",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "341",
+    "ref:vinmonopolet": "341",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/341"
+  }
+},
+{
+  "type": "node",
+  "id": 1660450903,
+  "lat": 67.2770370,
+  "lon": 14.4227420,
+  "tags": {
+    "alt_name": "Vinmonopolet Bodø, City Nord",
+    "branch": "City Nord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet City Nord",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "339",
+    "ref:vinmonopolet": "339",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/339",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1660844140,
+  "lat": 69.6749370,
+  "lon": 18.9216470,
+  "tags": {
+    "alt_name": "Vinmonopolet Tromsø, Langnes",
+    "branch": "Langnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Langnes",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "282",
+    "ref:vinmonopolet": "282",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/282",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1660857390,
+  "lat": 68.7986690,
+  "lon": 16.5454900,
+  "tags": {
+    "branch": "Harstad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Harstad",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "224",
+    "ref:vinmonopolet": "224",
+    "shop": "alcohol",
+    "toilets:wheelchair": "yes",
+    "website": "https://www.vinmonopolet.no/butikk/224",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1660857391,
+  "lat": 68.4140040,
+  "lon": 15.9978260,
+  "tags": {
+    "branch": "Lødingen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lødingen",
+    "opening_hours": "Mo-Tu closed; We-Th 12:00-17:00; Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "369",
+    "ref:vinmonopolet": "369",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/369"
+  }
+},
+{
+  "type": "node",
+  "id": 1663410648,
+  "lat": 68.4410370,
+  "lon": 17.4357000,
+  "tags": {
+    "branch": "Narvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "3",
+    "name": "Vinmonopolet Narvik",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "256",
+    "ref:vinmonopolet": "256",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/256",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1702778033,
+  "lat": 63.5841129,
+  "lon": 9.9600146,
+  "tags": {
+    "branch": "Rissa",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rissa",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "340",
+    "ref:vinmonopolet": "340",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/340"
+  }
+},
+{
+  "type": "node",
+  "id": 1810728116,
+  "lat": 60.6292080,
+  "lon": 6.4242070,
+  "tags": {
+    "branch": "Voss",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Voss",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "298",
+    "ref:vinmonopolet": "298",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/298"
+  }
+},
+{
+  "type": "node",
+  "id": 1817486601,
+  "lat": 59.9165560,
+  "lon": 10.5887480,
+  "tags": {
+    "alt_name": "Vinmonopolet Bærum, Bekkestua",
+    "branch": "Bekkestua",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bekkestua",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "190",
+    "ref:vinmonopolet": "190",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/190",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1817518951,
+  "lat": 59.9436800,
+  "lon": 10.6070540,
+  "tags": {
+    "alt_name": "Vinmonopolet Bærum, Østerås",
+    "branch": "Østerås",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Østerås",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "198",
+    "ref:vinmonopolet": "198",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/198",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1919866634,
+  "lat": 60.0467530,
+  "lon": 10.8813680,
+  "tags": {
+    "branch": "Nittedal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Nittedal",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "105",
+    "ref:vinmonopolet": "105",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/105"
+  }
+},
+{
+  "type": "node",
+  "id": 1933033324,
+  "lat": 58.9983710,
+  "lon": 5.6175090,
+  "tags": {
+    "branch": "Randaberg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Randaberg",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "399",
+    "ref:vinmonopolet": "399",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/399",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1937387667,
+  "lat": 59.9196860,
+  "lon": 10.9535130,
+  "tags": {
+    "alt_name": "Vinmonopolet Lørenskog, Triaden",
+    "branch": "Triaden",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Triaden",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "287",
+    "ref:vinmonopolet": "287",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/287",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2011515807,
+  "lat": 59.8561284,
+  "lon": 10.6608132,
+  "tags": {
+    "branch": "Nesodden",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Nesodden",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "134",
+    "ref:vinmonopolet": "134",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/134"
+  }
+},
+{
+  "type": "node",
+  "id": 2029912990,
+  "lat": 59.6646940,
+  "lon": 10.7904190,
+  "tags": {
+    "branch": "Ås",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2026-04-21",
+    "name": "Vinmonopolet Ås",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "418",
+    "ref:vinmonopolet": "418",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/418"
+  }
+},
+{
+  "type": "node",
+  "id": 2036352185,
+  "lat": 59.4155089,
+  "lon": 10.6833034,
+  "tags": {
+    "branch": "Rygge",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Rygge",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "350",
+    "ref:vinmonopolet": "350",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/350"
+  }
+},
+{
+  "type": "node",
+  "id": 2106440084,
+  "lat": 60.7290190,
+  "lon": 10.6143410,
+  "tags": {
+    "branch": "Raufoss",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Raufoss",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "352",
+    "ref:vinmonopolet": "352",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/352"
+  }
+},
+{
+  "type": "node",
+  "id": 2110547968,
+  "lat": 59.9210880,
+  "lon": 10.6770530,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Skøyen",
+    "branch": "Skøyen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Skøyen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "393",
+    "ref:vinmonopolet": "393",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/393",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2114957852,
+  "lat": 59.8105090,
+  "lon": 10.7988170,
+  "tags": {
+    "branch": "Kolbotn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kolbotn",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "234",
+    "ref:vinmonopolet": "234",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/234"
+  }
+},
+{
+  "type": "node",
+  "id": 2136397427,
+  "lat": 63.7441100,
+  "lon": 11.2979110,
+  "tags": {
+    "branch": "Levanger",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Levanger",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "236",
+    "ref:vinmonopolet": "236",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/236"
+  }
+},
+{
+  "type": "node",
+  "id": 2296716183,
+  "lat": 63.4249840,
+  "lon": 10.4427370,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Valentinlyst",
+    "branch": "Valentinlyst",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "level": "-1",
+    "name": "Vinmonopolet Valentinlyst",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "180",
+    "ref:vinmonopolet": "180",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/180"
+  }
+},
+{
+  "type": "node",
+  "id": 2300206381,
+  "lat": 60.2674565,
+  "lon": 8.9459103,
+  "tags": {
+    "branch": "Rødberg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2026-01-13",
+    "description": "Kategori 2",
+    "drive_through": "no",
+    "name": "Vinmonopolet Rødberg",
+    "opening_hours": "Mo-Tu closed; We 11:00-17:00; Th-Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "412",
+    "ref:vinmonopolet": "412",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/412"
+  }
+},
+{
+  "type": "node",
+  "id": 2316693105,
+  "lat": 59.9283060,
+  "lon": 10.7502350,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Kiellands plass",
+    "branch": "Kiellands plass",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2025-06-04",
+    "email": "kundesenter@vinmonopolet.no",
+    "name": "Vinmonopolet Kiellands plass",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "178",
+    "ref:vinmonopolet": "178",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/178",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2321462022,
+  "lat": 61.2439190,
+  "lon": 10.4388730,
+  "tags": {
+    "branch": "Øyer",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Øyer",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "408",
+    "ref:vinmonopolet": "408",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/408",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2375296037,
+  "lat": 66.8725845,
+  "lon": 13.7056618,
+  "tags": {
+    "branch": "Ørnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ørnes",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "185",
+    "ref:vinmonopolet": "185",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/185",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2411052275,
+  "lat": 63.6017584,
+  "lon": 8.9774959,
+  "tags": {
+    "branch": "Hitra",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hitra",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "314",
+    "ref:vinmonopolet": "314",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/314",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2420996382,
+  "lat": 60.8624235,
+  "lon": 8.5549612,
+  "tags": {
+    "branch": "Hemsedal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hemsedal",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "419",
+    "ref:vinmonopolet": "419",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/419"
+  }
+},
+{
+  "type": "node",
+  "id": 2519999477,
+  "lat": 60.7019880,
+  "lon": 8.9366900,
+  "tags": {
+    "branch": "Gol",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2025-11-08",
+    "name": "Vinmonopolet Gol",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "225",
+    "ref:vinmonopolet": "225",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/225"
+  }
+},
+{
+  "type": "node",
+  "id": 2586616731,
+  "lat": 63.4353620,
+  "lon": 10.4126510,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Nedre Elvehavn",
+    "branch": "Nedre Elvehavn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "level": "0",
+    "name": "Vinmonopolet Nedre Elvehavn",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "322",
+    "ref:solsiden": "301",
+    "ref:vinmonopolet": "322",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/322"
+  }
+},
+{
+  "type": "node",
+  "id": 2879930963,
+  "lat": 61.2265190,
+  "lon": 10.2219430,
+  "tags": {
+    "branch": "Gausdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Gausdal",
+    "opening_hours": "Mo closed; Tu-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "395",
+    "ref:vinmonopolet": "395",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/395"
+  }
+},
+{
+  "type": "node",
+  "id": 2880466969,
+  "lat": 61.1151320,
+  "lon": 10.4656990,
+  "tags": {
+    "branch": "Lillehammer",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lillehammer",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "263",
+    "ref:vinmonopolet": "263",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/263",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2905989692,
+  "lat": 59.5814198,
+  "lon": 11.1688699,
+  "tags": {
+    "branch": "Askim",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Askim",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "203",
+    "ref:vinmonopolet": "203",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/203",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2949740850,
+  "lat": 58.1452080,
+  "lon": 7.9916220,
+  "tags": {
+    "alt_name": "Vinmonopolet Kristiansand, Lillemarkens",
+    "branch": "Lillemarkens",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lillemarkens",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "254",
+    "ref:vinmonopolet": "254",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/254"
+  }
+},
+{
+  "type": "node",
+  "id": 2953805951,
+  "lat": 59.7236600,
+  "lon": 11.0503130,
+  "tags": {
+    "branch": "Ytre Enebakk",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Ytre Enebakk",
+    "opening_hours": "Mo closed; Tu-We 11:00-18:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "415",
+    "ref:vinmonopolet": "415",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/415"
+  }
+},
+{
+  "type": "node",
+  "id": 2959952025,
+  "lat": 59.2525460,
+  "lon": 10.4182510,
+  "tags": {
+    "branch": "Nøtterøy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Nøtterøy",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "142",
+    "ref:vinmonopolet": "142",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/142"
+  }
+},
+{
+  "type": "node",
+  "id": 2960409379,
+  "lat": 59.9499333,
+  "lon": 10.7349474,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Ullevaal stadion",
+    "branch": "Ullevaal stadion",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2025-11-26",
+    "name": "Vinmonopolet Ullevaal stadion",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "panoramax": "a76e2d27-d4e0-4fec-bffa-adf59fd849b1",
+    "phone": "+47 22 01 50 00",
+    "ref": "334",
+    "ref:vinmonopolet": "334",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/334",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2980970297,
+  "lat": 58.7361640,
+  "lon": 5.6405450,
+  "tags": {
+    "branch": "Bryne",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bryne",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "326",
+    "ref:vinmonopolet": "326",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/326"
+  }
+},
+{
+  "type": "node",
+  "id": 2982747597,
+  "lat": 61.8370900,
+  "lon": 8.5684117,
+  "tags": {
+    "branch": "Lom",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lom",
+    "opening_hours": "Mo closed; Tu 11:00-17:00; We closed; Th 11:00-17:00; Fr 11:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "364",
+    "ref:vinmonopolet": "364",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/364",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3032835297,
+  "lat": 60.0707400,
+  "lon": 11.0347890,
+  "tags": {
+    "branch": "Gjerdrum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Gjerdrum",
+    "opening_hours": "Mo closed; Tu-Th 12:00-18:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "426",
+    "ref:vinmonopolet": "426",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/426"
+  }
+},
+{
+  "type": "node",
+  "id": 3048726033,
+  "lat": 58.3178190,
+  "lon": 6.9589080,
+  "tags": {
+    "branch": "Kvinesdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kvinesdal",
+    "opening_hours": "Mo-Tu closed; We 12:00-17:00; Th-Fr 12:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "430",
+    "ref:vinmonopolet": "430",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/430"
+  }
+},
+{
+  "type": "node",
+  "id": 3117216481,
+  "lat": 63.2920307,
+  "lon": 9.0860962,
+  "tags": {
+    "branch": "Kyrksæterøra",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kyrksæterøra",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "313",
+    "ref:vinmonopolet": "313",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/313"
+  }
+},
+{
+  "type": "node",
+  "id": 3132098799,
+  "lat": 59.9114170,
+  "lon": 10.7516850,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Oslo S",
+    "branch": "Oslo S",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "1",
+    "name": "Vinmonopolet Oslo S",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "118",
+    "ref:vinmonopolet": "118",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/118",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3166459088,
+  "lat": 59.8831400,
+  "lon": 10.8456480,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Bøler",
+    "branch": "Bøler",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2024-08-17",
+    "name": "Vinmonopolet Bøler",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "440",
+    "ref:vinmonopolet": "440",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/440",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3240235707,
+  "lat": 63.4302140,
+  "lon": 10.3932860,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Trondheim torg",
+    "branch": "Trondheim torg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "check_date": "2025-08-02",
+    "level": "-1",
+    "name": "Vinmonopolet Trondheim torg",
+    "name:no": "Vinmonopolet Trondheim torg",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+47 22 01 50 00",
+    "ref": "160",
+    "ref:vinmonopolet": "160",
+    "shop": "alcohol",
+    "start_date": "2021-01-28",
+    "website": "https://www.vinmonopolet.no/butikk/160"
+  }
+},
+{
+  "type": "node",
+  "id": 3344655995,
+  "lat": 70.0719050,
+  "lon": 29.7496460,
+  "tags": {
+    "branch": "Vadsø",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vadsø",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "296",
+    "ref:vinmonopolet": "296",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/296"
+  }
+},
+{
+  "type": "node",
+  "id": 3402573902,
+  "lat": 59.9128890,
+  "lon": 10.7638020,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Grønland basar",
+    "branch": "Grønland basar",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Grønland basar",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "361",
+    "ref:vinmonopolet": "361",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/361"
+  }
+},
+{
+  "type": "node",
+  "id": 3402573903,
+  "lat": 60.8831440,
+  "lon": 11.5614850,
+  "tags": {
+    "branch": "Elverum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Elverum",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "215",
+    "ref:vinmonopolet": "215",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/215"
+  }
+},
+{
+  "type": "node",
+  "id": 3473464414,
+  "lat": 59.9165847,
+  "lon": 10.5011430,
+  "tags": {
+    "alt_name": "Vinmonopolet Bærum, Kolsås",
+    "branch": "Kolsås",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kolsås",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "124",
+    "ref:vinmonopolet": "124",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/124"
+  }
+},
+{
+  "type": "node",
+  "id": 3520798479,
+  "lat": 63.4337661,
+  "lon": 10.3963814,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Byhaven",
+    "branch": "Byhaven",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "level": "0",
+    "name": "Vinmonopolet Byhaven",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "140",
+    "ref:vinmonopolet": "140",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/140"
+  }
+},
+{
+  "type": "node",
+  "id": 3575013101,
+  "lat": 60.4698260,
+  "lon": 5.3230860,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Åsane Horisont",
+    "branch": "Åsane Horisont",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "level": "0",
+    "name": "Vinmonopolet Åsane Horisont",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "434",
+    "ref:vinmonopolet": "434",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/434"
+  }
+},
+{
+  "type": "node",
+  "id": 3646211279,
+  "lat": 59.0255860,
+  "lon": 11.0393150,
+  "tags": {
+    "branch": "Hvaler",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Hvaler",
+    "opening_hours": "Mo 10:00-17:00; Tu-We closed; Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "321",
+    "ref:vinmonopolet": "321",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/321"
+  }
+},
+{
+  "type": "node",
+  "id": 3731934297,
+  "lat": 59.6636400,
+  "lon": 9.6471680,
+  "tags": {
+    "branch": "Kongsberg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Kongsberg",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "247",
+    "ref:vinmonopolet": "247",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/247"
+  }
+},
+{
+  "type": "node",
+  "id": 3824297280,
+  "lat": 60.6775430,
+  "lon": 10.8179280,
+  "tags": {
+    "branch": "Lena",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lena",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "332",
+    "ref:vinmonopolet": "332",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/332"
+  }
+},
+{
+  "type": "node",
+  "id": 3843535823,
+  "lat": 60.3589600,
+  "lon": 5.1245250,
+  "tags": {
+    "branch": "Sotra",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Sotra",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "325",
+    "ref:vinmonopolet": "325",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/325"
+  }
+},
+{
+  "type": "node",
+  "id": 3964605284,
+  "lat": 61.5304864,
+  "lon": 10.1409704,
+  "tags": {
+    "branch": "Ringebu",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-08-24",
+    "name": "Vinmonopolet Ringebu",
+    "opening_hours": "Mo-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "380",
+    "ref:vinmonopolet": "380",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/380"
+  }
+},
+{
+  "type": "node",
+  "id": 3966718399,
+  "lat": 60.3941180,
+  "lon": 5.3205740,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Valkendorfsgaten",
+    "branch": "Valkendorfsgaten",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "loc_name": "Hovedpolet",
+    "name": "Vinmonopolet Valkendorfsgaten",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "150",
+    "ref:vinmonopolet": "150",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/150",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3975976576,
+  "lat": 60.3893050,
+  "lon": 5.3330240,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Bergen storsenter",
+    "branch": "Bergen storsenter",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "0",
+    "name": "Vinmonopolet Bergen storsenter",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "121",
+    "ref:vinmonopolet": "121",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/121",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4230430764,
+  "lat": 61.2186570,
+  "lon": 6.0727670,
+  "tags": {
+    "branch": "Høyanger",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Høyanger",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "356",
+    "ref:vinmonopolet": "356",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/356"
+  }
+},
+{
+  "type": "node",
+  "id": 4235821500,
+  "lat": 60.3488840,
+  "lon": 5.2928310,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Fyllingsdalen",
+    "branch": "Fyllingsdalen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Fyllingsdalen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "149",
+    "ref:vinmonopolet": "149",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/149"
+  }
+},
+{
+  "type": "node",
+  "id": 4241784705,
+  "lat": 60.3619050,
+  "lon": 5.2341340,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Vestkanten",
+    "branch": "Vestkanten",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vestkanten",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "170",
+    "ref:vinmonopolet": "170",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/170"
+  }
+},
+{
+  "type": "node",
+  "id": 4346445290,
+  "lat": 59.0216220,
+  "lon": 6.0411810,
+  "tags": {
+    "branch": "Jørpeland",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Jørpeland",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "308",
+    "ref:vinmonopolet": "308",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/308"
+  }
+},
+{
+  "type": "node",
+  "id": 4392633230,
+  "lat": 59.7932970,
+  "lon": 5.1716840,
+  "tags": {
+    "branch": "Bømlo",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bømlo",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "309",
+    "ref:vinmonopolet": "309",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/309"
+  }
+},
+{
+  "type": "node",
+  "id": 4417586005,
+  "lat": 58.7210100,
+  "lon": 9.2337550,
+  "tags": {
+    "branch": "Risør",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Risør",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "169",
+    "ref:vinmonopolet": "169",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/169"
+  }
+},
+{
+  "type": "node",
+  "id": 4439754697,
+  "lat": 59.2694403,
+  "lon": 10.4103970,
+  "tags": {
+    "branch": "Tønsberg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tønsberg",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "295",
+    "ref:vinmonopolet": "295",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/295",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4485246490,
+  "lat": 62.5757474,
+  "lon": 11.3812096,
+  "tags": {
+    "branch": "Røros",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Røros",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "264",
+    "ref:vinmonopolet": "264",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/264"
+  }
+},
+{
+  "type": "node",
+  "id": 4505820407,
+  "lat": 59.9612680,
+  "lon": 10.9258470,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Stovner",
+    "branch": "Stovner",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stovner",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "162",
+    "ref:vinmonopolet": "162",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/162"
+  }
+},
+{
+  "type": "node",
+  "id": 4518820347,
+  "lat": 63.4172090,
+  "lon": 10.3541670,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Byåsen",
+    "branch": "Byåsen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "name": "Vinmonopolet Byåsen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "401",
+    "ref:vinmonopolet": "401",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/401",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4564629385,
+  "lat": 62.3072000,
+  "lon": 6.9457750,
+  "tags": {
+    "branch": "Stranda",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stranda",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "329",
+    "ref:vinmonopolet": "329",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/329"
+  }
+},
+{
+  "type": "node",
+  "id": 4695257869,
+  "lat": 59.1293020,
+  "lon": 10.2252770,
+  "tags": {
+    "branch": "Sandefjord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2026-04-18",
+    "name": "Vinmonopolet Sandefjord",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "283",
+    "ref:vinmonopolet": "283",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/283"
+  }
+},
+{
+  "type": "node",
+  "id": 4698048812,
+  "lat": 63.4435210,
+  "lon": 10.4466160,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Lade",
+    "branch": "Lade",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "level": "0",
+    "name": "Vinmonopolet Lade",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "336",
+    "ref:vinmonopolet": "336",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/336"
+  }
+},
+{
+  "type": "node",
+  "id": 4992437712,
+  "lat": 61.4033040,
+  "lon": 7.2953800,
+  "tags": {
+    "branch": "Luster",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Luster",
+    "opening_hours": "Mo-We closed; Th-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "366",
+    "ref:vinmonopolet": "366",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/366"
+  }
+},
+{
+  "type": "node",
+  "id": 5015756621,
+  "lat": 59.8932320,
+  "lon": 10.5236390,
+  "tags": {
+    "alt_name": "Vinmonopolet Bærum, Sandvika",
+    "branch": "Sandvika",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sandvika",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "194",
+    "ref:vinmonopolet": "194",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/194"
+  }
+},
+{
+  "type": "node",
+  "id": 5293252522,
+  "lat": 62.4718610,
+  "lon": 6.1548060,
+  "tags": {
+    "branch": "Ålesund sentrum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ålesund sentrum",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "245",
+    "ref:vinmonopolet": "245",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/245"
+  }
+},
+{
+  "type": "node",
+  "id": 5293283621,
+  "lat": 62.4402450,
+  "lon": 6.1897860,
+  "tags": {
+    "branch": "Langevåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "internet_access": "wlan",
+    "name": "Vinmonopolet Langevåg",
+    "name:ru": "винный магазин",
+    "opening_hours": "Mo closed; Tu-We 11:00-17:00; Th 11:00-18:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "432",
+    "ref:vinmonopolet": "432",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/432"
+  }
+},
+{
+  "type": "node",
+  "id": 5412188040,
+  "lat": 63.3515560,
+  "lon": 10.3547180,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Heimdal",
+    "branch": "Heimdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "name": "Vinmonopolet Heimdal",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "460",
+    "ref:vinmonopolet": "460",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/460"
+  }
+},
+{
+  "type": "node",
+  "id": 5448690077,
+  "lat": 69.0650050,
+  "lon": 18.5120860,
+  "tags": {
+    "branch": "Bardufoss",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bardufoss",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "278",
+    "ref:vinmonopolet": "278",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/278"
+  }
+},
+{
+  "type": "node",
+  "id": 5466306293,
+  "lat": 58.1387140,
+  "lon": 7.0711350,
+  "tags": {
+    "branch": "Lyngdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lyngdal",
+    "note": "opend on new location 07 Mars 2018, same enterens as COOP, Post i butikk and Cafe",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "345",
+    "ref:vinmonopolet": "345",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/345"
+  }
+},
+{
+  "type": "node",
+  "id": 5487222025,
+  "lat": 59.4147418,
+  "lon": 10.4860960,
+  "tags": {
+    "branch": "Horten",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2025-10-20",
+    "name": "Vinmonopolet Horten",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "237",
+    "ref:vinmonopolet": "237",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/237",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5528581001,
+  "lat": 60.3171310,
+  "lon": 5.3542080,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Nesttun",
+    "branch": "Nesttun",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "0",
+    "name": "Vinmonopolet Nesttun",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "163",
+    "ref:vinmonopolet": "163",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/163"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556990,
+  "lat": 59.9274870,
+  "lon": 10.9583800,
+  "tags": {
+    "alt_name": "Vinmonopolet Lørenskog, Metro",
+    "branch": "Metro",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "1",
+    "name": "Vinmonopolet Metro",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "473",
+    "ref:vinmonopolet": "473",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/473"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556991,
+  "lat": 60.0009910,
+  "lon": 11.0397500,
+  "tags": {
+    "branch": "Skedsmokorset",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Skedsmokorset",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "472",
+    "ref:vinmonopolet": "472",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/472"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556992,
+  "lat": 60.2811060,
+  "lon": 11.1739020,
+  "tags": {
+    "branch": "Råholt",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Råholt",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "470",
+    "ref:vinmonopolet": "470",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/470"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556994,
+  "lat": 60.0778820,
+  "lon": 10.2813970,
+  "tags": {
+    "branch": "Vik i Hole",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vik i Hole",
+    "opening_hours": "Mo closed; Tu-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "467",
+    "ref:vinmonopolet": "467",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/467"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556995,
+  "lat": 60.2700740,
+  "lon": 5.0724630,
+  "tags": {
+    "branch": "Sund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sund",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "466",
+    "ref:vinmonopolet": "466",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/466"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556996,
+  "lat": 63.5881531,
+  "lon": 10.7399519,
+  "tags": {
+    "branch": "Frosta",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Frosta",
+    "opening_hours": "Mo-We closed; Th 13:00-17:00; Fr 13:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "465",
+    "ref:vinmonopolet": "465",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/465"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556997,
+  "lat": 61.0856400,
+  "lon": 6.5815130,
+  "tags": {
+    "branch": "Vik i Sogn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Vik i Sogn",
+    "opening_hours": "Mo-We closed; Th-Fr 13:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "464",
+    "ref:vinmonopolet": "464",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/464"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556998,
+  "lat": 59.3496840,
+  "lon": 10.4600570,
+  "tags": {
+    "branch": "Åsgårdstrand",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Åsgårdstrand",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "463",
+    "ref:vinmonopolet": "463",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/463"
+  }
+},
+{
+  "type": "node",
+  "id": 5690556999,
+  "lat": 59.5258290,
+  "lon": 10.6890940,
+  "tags": {
+    "branch": "Son",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Son",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "462",
+    "ref:vinmonopolet": "462",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/462"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557000,
+  "lat": 59.2741390,
+  "lon": 11.0822830,
+  "tags": {
+    "alt_name": "Vinmonopolet Sarpsborg, Borg",
+    "branch": "Borg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Borg",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "461",
+    "ref:vinmonopolet": "461",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/461"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557001,
+  "lat": 60.0438343,
+  "lon": 5.5221096,
+  "tags": {
+    "branch": "Tysnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tysnes",
+    "opening_hours": "Mo-We closed; Th-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "458",
+    "ref:vinmonopolet": "458",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/458"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557002,
+  "lat": 63.4611474,
+  "lon": 8.0116789,
+  "tags": {
+    "branch": "Smøla",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Smøla",
+    "opening_hours": "Mo-We closed; Th 13:00-17:00; Fr 13:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "457",
+    "ref:vinmonopolet": "457",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/457",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557003,
+  "lat": 67.7760750,
+  "lon": 15.0144560,
+  "tags": {
+    "branch": "Steigen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Steigen",
+    "opening_hours": "Mo-We closed; Th-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "456",
+    "ref:vinmonopolet": "456",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/456"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557004,
+  "lat": 60.0761250,
+  "lon": 11.1361210,
+  "tags": {
+    "branch": "Kløfta",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kløfta",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "455",
+    "ref:vinmonopolet": "455",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/455"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557005,
+  "lat": 59.9409470,
+  "lon": 10.5016500,
+  "tags": {
+    "alt_name": "Vinmonopolet Bærum, Bærums verk",
+    "branch": "Bærums verk",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bærums verk",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "453",
+    "ref:vinmonopolet": "453",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/453"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557006,
+  "lat": 60.4305520,
+  "lon": 9.4584634,
+  "tags": {
+    "branch": "Flå",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2025-08-01",
+    "name": "Vinmonopolet Flå",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "452",
+    "ref:vinmonopolet": "452",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/452"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557007,
+  "lat": 59.3771670,
+  "lon": 5.3060100,
+  "tags": {
+    "alt_name": "Vinmonopolet Karmøy, Oasen",
+    "branch": "Oasen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Oasen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "449",
+    "ref:vinmonopolet": "449",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/449",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557008,
+  "lat": 60.2400680,
+  "lon": 5.7474740,
+  "tags": {
+    "branch": "Eikelandsosen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Eikelandsosen",
+    "opening_hours": "Mo-We closed; Th 12:00-17:00; Fr 12:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "448",
+    "ref:vinmonopolet": "448",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/448"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557009,
+  "lat": 70.9454170,
+  "lon": 27.3515140,
+  "tags": {
+    "branch": "Kjøllefjord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kjøllefjord",
+    "opening_hours": "Mo-We closed; Th 13:00-17:00; Fr 12:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "447",
+    "ref:vinmonopolet": "447",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/447"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557010,
+  "lat": 63.8735420,
+  "lon": 11.2972100,
+  "tags": {
+    "branch": "Inderøy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Inderøy",
+    "opening_hours": "Mo-Tu closed; We-Th 12:00-17:00; Fr 12:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "446",
+    "ref:vinmonopolet": "446",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/446"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557011,
+  "lat": 68.6208984,
+  "lon": 14.4454049,
+  "tags": {
+    "branch": "Bø i Vesterålen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bø i Vesterålen",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "445",
+    "ref:vinmonopolet": "445",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/445"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557012,
+  "lat": 69.5747820,
+  "lon": 20.2068800,
+  "tags": {
+    "branch": "Lyngen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lyngen",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "444",
+    "ref:vinmonopolet": "444",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/444"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557014,
+  "lat": 59.8935170,
+  "lon": 10.6207560,
+  "tags": {
+    "alt_name": "Vinmonopolet Bærum, Fornebu",
+    "branch": "Fornebu",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fornebu",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "442",
+    "ref:vinmonopolet": "442",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/442"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557015,
+  "lat": 59.9281270,
+  "lon": 11.1624480,
+  "tags": {
+    "branch": "Fetsund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fetsund",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "441",
+    "ref:vinmonopolet": "441",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/441"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557016,
+  "lat": 60.9285350,
+  "lon": 10.7017780,
+  "tags": {
+    "branch": "Moelv",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Moelv",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "439",
+    "ref:vinmonopolet": "439",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/439",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557017,
+  "lat": 60.6964490,
+  "lon": 10.3532300,
+  "tags": {
+    "branch": "Hov",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hov",
+    "opening_hours": "Mo-We 11:00-17:00; Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "438",
+    "ref:vinmonopolet": "438",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/438"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557018,
+  "lat": 58.5084156,
+  "lon": 8.6294715,
+  "tags": {
+    "branch": "Froland",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-06-18",
+    "name": "Vinmonopolet Froland",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "437",
+    "ref:vinmonopolet": "437",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/437"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557019,
+  "lat": 58.9150941,
+  "lon": 5.7303413,
+  "tags": {
+    "alt_name": "Vinmonopolet Stavanger, Hinna",
+    "branch": "Hinna",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "level": "1",
+    "name": "Vinmonopolet Hinna",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "436",
+    "ref:vinmonopolet": "436",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/436"
+  }
+},
+{
+  "type": "node",
+  "id": 5690557020,
+  "lat": 60.6408130,
+  "lon": 5.0420490,
+  "tags": {
+    "branch": "Radøy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Radøy",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "433",
+    "ref:vinmonopolet": "433",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/433"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558021,
+  "lat": 58.6681520,
+  "lon": 5.6410000,
+  "tags": {
+    "branch": "Nærbø",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Nærbø",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "431",
+    "ref:vinmonopolet": "431",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/431"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558022,
+  "lat": 59.6640070,
+  "lon": 5.9402720,
+  "tags": {
+    "branch": "Etne",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Etne",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "429",
+    "ref:vinmonopolet": "429",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/429"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558023,
+  "lat": 63.7651710,
+  "lon": 9.8118700,
+  "tags": {
+    "branch": "Bjugn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bjugn",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "428",
+    "ref:vinmonopolet": "428",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/428"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558024,
+  "lat": 60.8229690,
+  "lon": 9.5537300,
+  "tags": {
+    "branch": "Bagn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bagn",
+    "opening_hours": "Mo closed; Tu-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "427",
+    "ref:vinmonopolet": "427",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/427"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558025,
+  "lat": 59.3046000,
+  "lon": 10.1767000,
+  "tags": {
+    "branch": "Andebu",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Andebu",
+    "opening_hours": "Mo-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "425",
+    "ref:vinmonopolet": "425",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/425"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558026,
+  "lat": 66.0802570,
+  "lon": 13.8248710,
+  "tags": {
+    "branch": "Korgen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Korgen",
+    "opening_hours": "Mo-We closed; Th-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "424",
+    "ref:vinmonopolet": "424",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/424"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558027,
+  "lat": 63.2192490,
+  "lon": 11.0402920,
+  "tags": {
+    "branch": "Selbu",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Selbu",
+    "opening_hours": "Mo-We closed; Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "423",
+    "ref:vinmonopolet": "423",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/423"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558028,
+  "lat": 59.6177118,
+  "lon": 10.4099003,
+  "tags": {
+    "branch": "Svelvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2026--01-12",
+    "description": "Kategori 2",
+    "drive_through": "no",
+    "name": "Vinmonopolet Svelvik",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "422",
+    "ref:vinmonopolet": "422",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/422"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558029,
+  "lat": 60.5251300,
+  "lon": 5.4965030,
+  "tags": {
+    "branch": "Lonevåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Lonevåg",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "421",
+    "ref:vinmonopolet": "421",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/421"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558030,
+  "lat": 63.0521000,
+  "lon": 7.6312000,
+  "tags": {
+    "branch": "Bruhagen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bruhagen",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "420",
+    "ref:vinmonopolet": "420",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/420"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558031,
+  "lat": 59.9492124,
+  "lon": 10.7656919,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Nydalen",
+    "branch": "Nydalen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2025-06-21",
+    "level": "0",
+    "name": "Vinmonopolet Nydalen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "417",
+    "ref:vinmonopolet": "417",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/417"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558032,
+  "lat": 58.9522020,
+  "lon": 5.6781900,
+  "tags": {
+    "alt_name": "Vinmonopolet Stavanger, Madla",
+    "branch": "Madla",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Madla",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "416",
+    "ref:vinmonopolet": "416",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/416"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558033,
+  "lat": 61.3459150,
+  "lon": 5.0626750,
+  "tags": {
+    "branch": "Askvoll",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Askvoll",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "414",
+    "ref:vinmonopolet": "414",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/414"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558034,
+  "lat": 68.5837470,
+  "lon": 16.5719540,
+  "tags": {
+    "branch": "Evenskjer",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Evenskjer",
+    "opening_hours": "Mo-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "413",
+    "ref:vinmonopolet": "413",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/413"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558035,
+  "lat": 61.5705262,
+  "lon": 11.0508036,
+  "tags": {
+    "branch": "Koppang",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Koppang",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-16:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "411",
+    "ref:vinmonopolet": "411",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/411"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558036,
+  "lat": 60.0071930,
+  "lon": 5.2050580,
+  "tags": {
+    "branch": "Austevoll",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Austevoll",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "410",
+    "ref:vinmonopolet": "410",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/410"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558037,
+  "lat": 58.8243002,
+  "lon": 9.0741204,
+  "tags": {
+    "branch": "Brokelandsheia",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Brokelandsheia",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "409",
+    "ref:vinmonopolet": "409",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/409"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558039,
+  "lat": 60.6306543,
+  "lon": 8.5636338,
+  "tags": {
+    "branch": "Ål",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ål",
+    "opening_hours": "Mo closed; Tu-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "406",
+    "ref:vinmonopolet": "406",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/406"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558040,
+  "lat": 59.0000630,
+  "lon": 10.0342920,
+  "tags": {
+    "branch": "Stavern",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stavern",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "404",
+    "ref:vinmonopolet": "404",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/404"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558041,
+  "lat": 59.8483940,
+  "lon": 10.8296710,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Mortensrud",
+    "branch": "Mortensrud",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Mortensrud",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "403",
+    "ref:vinmonopolet": "403",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/403"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558042,
+  "lat": 63.9598059,
+  "lon": 10.2255029,
+  "tags": {
+    "branch": "Åfjord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Åfjord",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "402",
+    "ref:vinmonopolet": "402",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/402"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558044,
+  "lat": 59.2223913,
+  "lon": 10.3035851,
+  "tags": {
+    "branch": "Stokke",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stokke",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "398",
+    "ref:vinmonopolet": "398",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/398"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558045,
+  "lat": 59.5417530,
+  "lon": 10.5588270,
+  "tags": {
+    "branch": "Tofte",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Tofte",
+    "opening_hours": "Mo closed; Tu-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "397",
+    "ref:vinmonopolet": "397",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/397"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558046,
+  "lat": 61.2465430,
+  "lon": 8.9103480,
+  "tags": {
+    "branch": "Beitostølen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Beitostølen",
+    "opening_hours": "Mo 10:00-17:00; Tu closed; We-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "396",
+    "ref:vinmonopolet": "396",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/396"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558047,
+  "lat": 60.8846820,
+  "lon": 10.9433160,
+  "tags": {
+    "branch": "Brumunddal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Brumunddal",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "394",
+    "ref:vinmonopolet": "394",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/394"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558048,
+  "lat": 60.2201740,
+  "lon": 11.0149850,
+  "tags": {
+    "branch": "Nannestad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2026-02-28",
+    "drive_through": "no",
+    "internet_access": "no",
+    "name": "Vinmonopolet Nannestad",
+    "opening_hours": "Mo closed; Tu-Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+47 22 01 50 00",
+    "ref": "392",
+    "ref:vinmonopolet": "392",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/392",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558049,
+  "lat": 59.9602290,
+  "lon": 10.8813030,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Grorud",
+    "branch": "Grorud",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Grorud",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "389",
+    "ref:vinmonopolet": "389",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/389"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558050,
+  "lat": 60.2550005,
+  "lon": 11.6801740,
+  "tags": {
+    "branch": "Skarnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Skarnes",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "388",
+    "ref:vinmonopolet": "388",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/388"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558051,
+  "lat": 60.5688710,
+  "lon": 9.1023930,
+  "tags": {
+    "branch": "Nesbyen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Nesbyen",
+    "opening_hours": "Mo closed; Tu-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "387",
+    "ref:vinmonopolet": "387",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/387"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558052,
+  "lat": 58.1251843,
+  "lon": 7.9535327,
+  "tags": {
+    "alt_name": "Vinmonopolet Kristiansand, Vågsbygd",
+    "branch": "Vågsbygd",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Vågsbygd",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "386",
+    "ref:vinmonopolet": "386",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/386"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558053,
+  "lat": 58.7790750,
+  "lon": 5.6261910,
+  "tags": {
+    "branch": "Klepp",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Klepp",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "385",
+    "ref:vinmonopolet": "385",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/385"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558054,
+  "lat": 62.6220060,
+  "lon": 7.0926070,
+  "tags": {
+    "branch": "Vestnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vestnes",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "384",
+    "ref:vinmonopolet": "384",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/384"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558055,
+  "lat": 63.4207780,
+  "lon": 10.7547410,
+  "tags": {
+    "branch": "Malvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Malvik",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "383",
+    "ref:vinmonopolet": "383",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/383"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558056,
+  "lat": 64.8610340,
+  "lon": 11.2389120,
+  "tags": {
+    "branch": "Rørvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rørvik",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "382",
+    "ref:vinmonopolet": "382",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/382"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558057,
+  "lat": 59.3716640,
+  "lon": 10.2643910,
+  "tags": {
+    "branch": "Re",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Re",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "381",
+    "ref:vinmonopolet": "381",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/381"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558058,
+  "lat": 62.5974720,
+  "lon": 6.4462590,
+  "tags": {
+    "branch": "Brattvåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Brattvåg",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "379",
+    "ref:vinmonopolet": "379",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/379"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558059,
+  "lat": 59.9872339,
+  "lon": 11.2443208,
+  "tags": {
+    "branch": "Sørumsand",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "0",
+    "name": "Vinmonopolet Sørumsand",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "378",
+    "ref:vinmonopolet": "378",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/378"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558060,
+  "lat": 60.2407970,
+  "lon": 10.3851450,
+  "tags": {
+    "branch": "Jevnaker",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Jevnaker",
+    "opening_hours": "Mo closed; Tu-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "377",
+    "ref:vinmonopolet": "377",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/377"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558061,
+  "lat": 59.1159510,
+  "lon": 10.3934020,
+  "tags": {
+    "branch": "Tjøme",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tjøme",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "376",
+    "ref:vinmonopolet": "376",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/376"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558062,
+  "lat": 59.7691061,
+  "lon": 9.9091793,
+  "tags": {
+    "branch": "Hokksund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hokksund",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "375",
+    "ref:vinmonopolet": "375",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/375",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558063,
+  "lat": 59.8745600,
+  "lon": 10.8099922,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Lambertseter",
+    "branch": "Lambertseter",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "2",
+    "name": "Vinmonopolet Lambertseter",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "374",
+    "ref:vinmonopolet": "374",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/374",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558064,
+  "lat": 60.3895950,
+  "lon": 5.2869723,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Laksevåg",
+    "branch": "Laksevåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "1",
+    "name": "Vinmonopolet Laksevåg",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "373",
+    "ref:vinmonopolet": "373",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/373"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558065,
+  "lat": 70.3711422,
+  "lon": 31.1195992,
+  "tags": {
+    "branch": "Vardø",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vardø",
+    "opening_hours": "Mo-We closed; Th 13:00-17:00; Fr 12:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "370",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/370"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558066,
+  "lat": 68.8748080,
+  "lon": 17.8345320,
+  "tags": {
+    "branch": "Sjøvegan",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sjøvegan",
+    "opening_hours": "Mo-Tu closed; We-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "368",
+    "ref:vinmonopolet": "368",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/368"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558067,
+  "lat": 62.1000400,
+  "lon": 5.5568820,
+  "tags": {
+    "branch": "Vanylven",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vanylven",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "367",
+    "ref:vinmonopolet": "367",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/367"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558068,
+  "lat": 59.0901030,
+  "lon": 9.0647110,
+  "tags": {
+    "branch": "Drangedal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Drangedal",
+    "opening_hours": "Mo 11:00-17:00; Tu closed; We-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "365",
+    "ref:vinmonopolet": "365",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/365"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558069,
+  "lat": 60.8201330,
+  "lon": 11.3420750,
+  "tags": {
+    "branch": "Løten",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Løten",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "363",
+    "ref:vinmonopolet": "363",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/363"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558071,
+  "lat": 68.8613480,
+  "lon": 18.3451960,
+  "tags": {
+    "branch": "Setermoen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Setermoen",
+    "opening_hours": "Mo closed; Tu-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "360",
+    "ref:vinmonopolet": "360",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/360"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558072,
+  "lat": 63.7296070,
+  "lon": 8.8273640,
+  "tags": {
+    "branch": "Frøya",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Frøya",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "358",
+    "ref:vinmonopolet": "358",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/358"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558073,
+  "lat": 62.1442000,
+  "lon": 6.0723000,
+  "tags": {
+    "branch": "Volda",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Volda",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "357",
+    "ref:vinmonopolet": "357",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/357"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558074,
+  "lat": 58.0986140,
+  "lon": 7.8154950,
+  "tags": {
+    "branch": "Søgne",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Søgne",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "354",
+    "ref:vinmonopolet": "354",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/354"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558075,
+  "lat": 59.2809160,
+  "lon": 9.2685560,
+  "tags": {
+    "branch": "Ulefoss",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ulefoss",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "353",
+    "ref:vinmonopolet": "353",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/353"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558076,
+  "lat": 59.6040020,
+  "lon": 10.7430550,
+  "tags": {
+    "branch": "Vestby",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vestby",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "351",
+    "ref:vinmonopolet": "351",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/351"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558077,
+  "lat": 61.8768520,
+  "lon": 9.0963660,
+  "tags": {
+    "branch": "Vågå",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vågå",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "349",
+    "ref:vinmonopolet": "349",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/349"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558078,
+  "lat": 62.3427510,
+  "lon": 5.6303180,
+  "tags": {
+    "branch": "Fosnavåg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fosnavåg",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "347",
+    "ref:vinmonopolet": "347",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/347"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558079,
+  "lat": 61.7756909,
+  "lon": 6.2138200,
+  "tags": {
+    "branch": "Sandane",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "name": "Vinmonopolet Sandane",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "operator": "Vinmonopolet",
+    "payment:cash": "yes",
+    "payment:contactless": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:mastercard": "yes",
+    "payment:notes": "yes",
+    "payment:visa": "yes",
+    "phone": "+47 22 01 50 00",
+    "ref": "346",
+    "ref:vinmonopolet": "346",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/346"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558080,
+  "lat": 58.2695740,
+  "lon": 7.9713260,
+  "tags": {
+    "branch": "Vennesla",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vennesla",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "344",
+    "ref:vinmonopolet": "344",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/344"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558081,
+  "lat": 59.5528890,
+  "lon": 11.3351820,
+  "tags": {
+    "branch": "Mysen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Mysen",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "343",
+    "ref:vinmonopolet": "343",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/343"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558083,
+  "lat": 59.7391750,
+  "lon": 10.7698370,
+  "tags": {
+    "branch": "Vinterbro",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vinterbro",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "338",
+    "ref:vinmonopolet": "338",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/338",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558084,
+  "lat": 63.7918780,
+  "lon": 11.4852450,
+  "tags": {
+    "branch": "Verdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Verdal",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "337",
+    "ref:vinmonopolet": "337",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/337"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558085,
+  "lat": 59.9458721,
+  "lon": 10.6433933,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Røa",
+    "branch": "Røa",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Røa",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "335",
+    "ref:vinmonopolet": "335",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/335"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558086,
+  "lat": 62.8540907,
+  "lon": 7.1611165,
+  "tags": {
+    "branch": "Elnesvågen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Elnesvågen",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "333",
+    "ref:vinmonopolet": "333",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/333",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558087,
+  "lat": 60.2976500,
+  "lon": 5.3310140,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Lagunen",
+    "branch": "Lagunen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "2",
+    "name": "Vinmonopolet Lagunen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "331",
+    "ref:vinmonopolet": "331",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/331"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558088,
+  "lat": 61.1325579,
+  "lon": 11.3714662,
+  "tags": {
+    "branch": "Rena",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rena",
+    "opening_hours": "Mo-Th 11:00-16:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "330",
+    "ref:vinmonopolet": "330",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/330"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558089,
+  "lat": 67.1020710,
+  "lon": 15.3973270,
+  "tags": {
+    "branch": "Rognan",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rognan",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "328",
+    "ref:vinmonopolet": "328",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/328"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558090,
+  "lat": 70.0324100,
+  "lon": 20.9741610,
+  "tags": {
+    "branch": "Skjervøy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Skjervøy",
+    "opening_hours": "Mo-Tu closed; We 12:00-16:00; Th-Fr 10:00-16:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "327",
+    "ref:vinmonopolet": "327",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/327"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558091,
+  "lat": 58.6240350,
+  "lon": 8.9278410,
+  "tags": {
+    "branch": "Tvedestrand",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tvedestrand",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "323",
+    "ref:vinmonopolet": "323",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/323"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558092,
+  "lat": 59.4815290,
+  "lon": 8.6285240,
+  "tags": {
+    "branch": "Seljord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Seljord",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "320",
+    "ref:vinmonopolet": "320",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/320"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558093,
+  "lat": 69.0114640,
+  "lon": 23.0416180,
+  "tags": {
+    "branch": "Kautokeino",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kautokeino",
+    "opening_hours": "Mo-We closed; Th-Fr 13:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "319",
+    "ref:vinmonopolet": "319",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/319"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558095,
+  "lat": 69.2397080,
+  "lon": 19.2271150,
+  "tags": {
+    "branch": "Storsteinnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Storsteinnes",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-17:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "317",
+    "ref:vinmonopolet": "317",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/317"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558096,
+  "lat": 64.4642967,
+  "lon": 12.3148685,
+  "tags": {
+    "branch": "Grong",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Grong",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "315",
+    "ref:vinmonopolet": "315",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/315"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558098,
+  "lat": 62.9741410,
+  "lon": 8.7274180,
+  "tags": {
+    "branch": "Surnadal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Surnadal",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "312",
+    "ref:vinmonopolet": "312",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/312"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558099,
+  "lat": 61.3101940,
+  "lon": 7.8079550,
+  "tags": {
+    "branch": "Årdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Årdal",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "311",
+    "ref:vinmonopolet": "311",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/311"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558100,
+  "lat": 61.9034370,
+  "lon": 6.7189640,
+  "tags": {
+    "branch": "Stryn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stryn",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "310",
+    "ref:vinmonopolet": "310",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/310"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558101,
+  "lat": 58.2507740,
+  "lon": 8.3770140,
+  "tags": {
+    "branch": "Lillesand",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lillesand",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "306",
+    "ref:vinmonopolet": "306",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/306"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558102,
+  "lat": 59.5682030,
+  "lon": 7.9904590,
+  "tags": {
+    "branch": "Vinje",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-07-12",
+    "name": "Vinmonopolet Vinje",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "305",
+    "ref:vinmonopolet": "305",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/305"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558103,
+  "lat": 60.5342100,
+  "lon": 8.2091360,
+  "tags": {
+    "branch": "Geilo",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Geilo",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "304",
+    "ref:vinmonopolet": "304",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/304"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558104,
+  "lat": 62.0734010,
+  "lon": 9.1265320,
+  "tags": {
+    "branch": "Dombås",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Dombås",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "303",
+    "ref:vinmonopolet": "303",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/303"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558105,
+  "lat": 60.6126740,
+  "lon": 12.0099990,
+  "tags": {
+    "branch": "Flisa",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Flisa",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "302",
+    "ref:vinmonopolet": "302",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/302"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558106,
+  "lat": 59.8832283,
+  "lon": 11.5676089,
+  "tags": {
+    "branch": "Bjørkelangen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Bjørkelangen",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "301",
+    "ref:vinmonopolet": "301",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/301"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558107,
+  "lat": 59.4275790,
+  "lon": 11.3400700,
+  "tags": {
+    "branch": "Rakkestad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rakkestad",
+    "opening_hours": "Mo closed; Tu-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "300",
+    "ref:vinmonopolet": "300",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/300"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558108,
+  "lat": 62.1994070,
+  "lon": 6.1244490,
+  "tags": {
+    "branch": "Ørsta",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ørsta",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "299",
+    "ref:vinmonopolet": "299",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/299"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558110,
+  "lat": 61.3154030,
+  "lon": 12.2614270,
+  "tags": {
+    "branch": "Trysil",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Trysil",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "294",
+    "ref:vinmonopolet": "294",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/294"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558111,
+  "lat": 62.2787120,
+  "lon": 10.7731740,
+  "tags": {
+    "branch": "Tynset",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tynset",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "293",
+    "ref:vinmonopolet": "293",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/293"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558112,
+  "lat": 59.9478310,
+  "lon": 11.0051920,
+  "tags": {
+    "branch": "Strømmen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Strømmen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "291",
+    "ref:vinmonopolet": "291",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/291"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558113,
+  "lat": 59.2106684,
+  "lon": 9.6053097,
+  "tags": {
+    "alt_name": "Vinmonopolet Skien, Lietorvet",
+    "branch": "Lietorvet",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lietorvet",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "290",
+    "ref:vinmonopolet": "290",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/290"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558114,
+  "lat": 59.7164250,
+  "lon": 10.8361010,
+  "tags": {
+    "branch": "Ski",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ski",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "289",
+    "ref:vinmonopolet": "289",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/289"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558115,
+  "lat": 69.6399320,
+  "lon": 18.9709310,
+  "tags": {
+    "alt_name": "Vinmonopolet Tromsø, Tromsdalen",
+    "branch": "Tromsdalen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tromsdalen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "288",
+    "ref:vinmonopolet": "288",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/288"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558116,
+  "lat": 59.9118814,
+  "lon": 10.7427640,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Steen & Strøm",
+    "branch": "Steen & Strøm",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "-1",
+    "name": "Vinmonopolet Steen & Strøm",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "286",
+    "ref:vinmonopolet": "286",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/286"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558117,
+  "lat": 59.2841210,
+  "lon": 11.1081870,
+  "tags": {
+    "alt_name": "Vinmonopolet Sarpsborg, Storbyen",
+    "branch": "Storbyen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Storbyen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "285",
+    "ref:vinmonopolet": "285",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/285"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558118,
+  "lat": 59.8793460,
+  "lon": 8.5914180,
+  "tags": {
+    "branch": "Rjukan",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rjukan",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "281",
+    "ref:vinmonopolet": "281",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/281"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558119,
+  "lat": 63.4689460,
+  "lon": 10.9242620,
+  "tags": {
+    "branch": "Stjørdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stjørdal",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "280",
+    "ref:vinmonopolet": "280",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/280"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558120,
+  "lat": 59.1395125,
+  "lon": 9.6552412,
+  "tags": {
+    "alt_name": "Vinmonopolet Porsgrunn, Jernbanegata",
+    "branch": "Jernbanegata",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Jernbanegata",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "277",
+    "ref:vinmonopolet": "277",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/277"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558521,
+  "lat": 64.0102986,
+  "lon": 11.4918338,
+  "tags": {
+    "branch": "Steinkjer",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Steinkjer",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "276",
+    "ref:vinmonopolet": "276",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/276"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558522,
+  "lat": 61.7710860,
+  "lon": 9.5410210,
+  "tags": {
+    "branch": "Otta",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Otta",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "274",
+    "ref:vinmonopolet": "274",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/274"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558523,
+  "lat": 69.7685990,
+  "lon": 21.0036490,
+  "tags": {
+    "branch": "Storslett",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Storslett",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "269",
+    "ref:vinmonopolet": "269",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/269"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558524,
+  "lat": 66.0220210,
+  "lon": 12.6339350,
+  "tags": {
+    "branch": "Sandnessjøen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sandnessjøen",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "268",
+    "ref:vinmonopolet": "268",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/268"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558525,
+  "lat": 60.9092820,
+  "lon": 10.8142730,
+  "tags": {
+    "branch": "Rudshøgda",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rudshøgda",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "267",
+    "ref:vinmonopolet": "267",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/267"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558526,
+  "lat": 63.2971360,
+  "lon": 9.8445300,
+  "tags": {
+    "branch": "Orkanger",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Orkanger",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "262",
+    "ref:vinmonopolet": "262",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/262"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558527,
+  "lat": 62.6724570,
+  "lon": 8.5676420,
+  "tags": {
+    "branch": "Sunndalsøra",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sunndalsøra",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "259",
+    "ref:vinmonopolet": "259",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/259"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558528,
+  "lat": 59.0537000,
+  "lon": 10.0292000,
+  "tags": {
+    "branch": "Larvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Larvik",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "258",
+    "ref:vinmonopolet": "258",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/258"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558529,
+  "lat": 61.9086030,
+  "lon": 5.9841370,
+  "tags": {
+    "branch": "Nordfjordeid",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Nordfjordeid",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "255",
+    "ref:vinmonopolet": "255",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/255"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558530,
+  "lat": 58.1798860,
+  "lon": 8.1331870,
+  "tags": {
+    "alt_name": "Vinmonopolet Kristiansand, Sørlandssenteret",
+    "branch": "Sørlandssenteret",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sørlandssenteret",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "253",
+    "ref:vinmonopolet": "253",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/253"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558531,
+  "lat": 64.4679930,
+  "lon": 11.4912060,
+  "tags": {
+    "branch": "Namsos",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Namsos",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "252",
+    "ref:vinmonopolet": "252",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/252"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558532,
+  "lat": 61.4526000,
+  "lon": 5.8506000,
+  "tags": {
+    "branch": "Førde",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Førde",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "251",
+    "ref:vinmonopolet": "251",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/251"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558533,
+  "lat": 60.1864610,
+  "lon": 12.0046750,
+  "tags": {
+    "branch": "Kongsvinger",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2025-07-04",
+    "level": "0",
+    "name": "Vinmonopolet Kongsvinger",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "250",
+    "ref:vinmonopolet": "250",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/250",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558534,
+  "lat": 65.8397820,
+  "lon": 13.1908470,
+  "tags": {
+    "branch": "Mosjøen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2024-08-08",
+    "name": "Vinmonopolet Mosjøen",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "248",
+    "ref:vinmonopolet": "248",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/248"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558535,
+  "lat": 60.1424195,
+  "lon": 11.1747078,
+  "tags": {
+    "branch": "Jessheim",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Jessheim",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "246",
+    "ref:vinmonopolet": "246",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/246"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558536,
+  "lat": 62.7378490,
+  "lon": 7.1823890,
+  "tags": {
+    "branch": "Molde",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "1",
+    "name": "Vinmonopolet Molde",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "244",
+    "ref:vinmonopolet": "244",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/244",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558537,
+  "lat": 64.8651840,
+  "lon": 11.6044860,
+  "tags": {
+    "branch": "Kolvereid",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kolvereid",
+    "opening_hours": "Mo-Tu closed; We-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "243",
+    "ref:vinmonopolet": "243",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/243"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558538,
+  "lat": 60.1675360,
+  "lon": 10.2567480,
+  "tags": {
+    "branch": "Hønefoss",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hønefoss",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "242",
+    "ref:vinmonopolet": "242",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/242"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558539,
+  "lat": 66.3061660,
+  "lon": 14.1342030,
+  "tags": {
+    "branch": "Mo i Rana",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Mo i Rana",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "240",
+    "ref:vinmonopolet": "240",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/240"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558540,
+  "lat": 60.0702550,
+  "lon": 6.5422340,
+  "tags": {
+    "branch": "Odda",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2023-08-21",
+    "name": "Vinmonopolet Odda",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "235",
+    "ref:vinmonopolet": "235",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/235"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558541,
+  "lat": 59.4870590,
+  "lon": 10.3187020,
+  "tags": {
+    "branch": "Holmestrand",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Holmestrand",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "233",
+    "ref:vinmonopolet": "233",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/233",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558542,
+  "lat": 63.1107032,
+  "lon": 7.7327899,
+  "tags": {
+    "branch": "Kristiansund sentrum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Kristiansund sentrum",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "232",
+    "ref:vinmonopolet": "232",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/232"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558543,
+  "lat": 69.7280120,
+  "lon": 30.0376010,
+  "tags": {
+    "branch": "Kirkenes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kirkenes",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "228",
+    "ref:vinmonopolet": "228",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/228"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558544,
+  "lat": 60.3566000,
+  "lon": 10.5709000,
+  "tags": {
+    "branch": "Gran",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Gran",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "226",
+    "ref:vinmonopolet": "226",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/226"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558545,
+  "lat": 60.8004040,
+  "lon": 10.6927920,
+  "tags": {
+    "branch": "Gjøvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Gjøvik",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "223",
+    "ref:vinmonopolet": "223",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/223"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558546,
+  "lat": 59.2062970,
+  "lon": 10.9716960,
+  "tags": {
+    "alt_name": "Vinmonopolet Fredrikstad, Østsiden",
+    "branch": "Østsiden",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Østsiden",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "222",
+    "ref:vinmonopolet": "222",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/222"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558547,
+  "lat": 70.6636410,
+  "lon": 23.6825540,
+  "tags": {
+    "branch": "Hammerfest",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hammerfest",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "220",
+    "ref:vinmonopolet": "220",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/220"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558548,
+  "lat": 60.9863420,
+  "lon": 9.2345070,
+  "tags": {
+    "branch": "Fagernes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fagernes",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "217",
+    "ref:vinmonopolet": "217",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/217"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558549,
+  "lat": 69.2278529,
+  "lon": 17.9775741,
+  "tags": {
+    "branch": "Finnsnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Finnsnes",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "216",
+    "ref:vinmonopolet": "216",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/216"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558550,
+  "lat": 60.3295100,
+  "lon": 11.2589290,
+  "tags": {
+    "branch": "Eidsvoll",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Eidsvoll",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "213",
+    "ref:vinmonopolet": "213",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/213"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558551,
+  "lat": 67.2583220,
+  "lon": 15.3957890,
+  "tags": {
+    "branch": "Fauske",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fauske",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "212",
+    "ref:vinmonopolet": "212",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/212"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558552,
+  "lat": 59.6641220,
+  "lon": 10.6279020,
+  "tags": {
+    "branch": "Drøbak",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Drøbak",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "210",
+    "ref:vinmonopolet": "210",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/210"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558553,
+  "lat": 58.4519920,
+  "lon": 6.0035540,
+  "tags": {
+    "branch": "Egersund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Egersund",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "209",
+    "ref:vinmonopolet": "209",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/209"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558554,
+  "lat": 65.4729808,
+  "lon": 12.2083256,
+  "tags": {
+    "branch": "Brønnøysund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2026-01-17",
+    "name": "Vinmonopolet Brønnøysund",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "208",
+    "ref:vinmonopolet": "208",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/208"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558555,
+  "lat": 63.6928350,
+  "lon": 9.6608750,
+  "tags": {
+    "branch": "Brekstad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Brekstad",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "206",
+    "ref:vinmonopolet": "206",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/206"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558556,
+  "lat": 67.2841110,
+  "lon": 14.3793550,
+  "tags": {
+    "branch": "Bodø sentrum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "level": "-1",
+    "name": "Vinmonopolet Bodø sentrum",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "204",
+    "ref:vinmonopolet": "204",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/204"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558557,
+  "lat": 59.8366990,
+  "lon": 10.4337850,
+  "tags": {
+    "branch": "Asker",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Asker",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "202",
+    "ref:vinmonopolet": "202",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/202"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558558,
+  "lat": 58.4593560,
+  "lon": 8.7629150,
+  "tags": {
+    "branch": "Arendal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Arendal",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "201",
+    "ref:vinmonopolet": "201",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/201"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558559,
+  "lat": 69.9654403,
+  "lon": 23.2726276,
+  "tags": {
+    "branch": "Alta",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2025-01-21",
+    "level": "0",
+    "name": "Vinmonopolet Alta",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "200",
+    "ref:vinmonopolet": "200",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/200"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558560,
+  "lat": 60.4652770,
+  "lon": 5.3220770,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Åsane",
+    "branch": "Åsane",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Åsane",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "197",
+    "ref:vinmonopolet": "197",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/197"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558561,
+  "lat": 63.0479890,
+  "lon": 10.2832780,
+  "tags": {
+    "branch": "Støren",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Støren",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "189",
+    "ref:vinmonopolet": "189",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/189"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558562,
+  "lat": 62.3428610,
+  "lon": 5.8487480,
+  "tags": {
+    "branch": "Ulsteinvik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Ulsteinvik",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "183",
+    "ref:vinmonopolet": "183",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/183"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558563,
+  "lat": 59.9236050,
+  "lon": 10.7929170,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Hasle torg",
+    "branch": "Hasle torg",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hasle torg",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "182",
+    "ref:vinmonopolet": "182",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/182",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558564,
+  "lat": 60.3723120,
+  "lon": 6.1461470,
+  "tags": {
+    "branch": "Norheimsund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Norheimsund",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "177",
+    "ref:vinmonopolet": "177",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/177"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558565,
+  "lat": 60.1226270,
+  "lon": 11.4680390,
+  "tags": {
+    "branch": "Årnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Årnes",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "176",
+    "ref:vinmonopolet": "176",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/176"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558566,
+  "lat": 62.5692040,
+  "lon": 7.6861430,
+  "tags": {
+    "branch": "Åndalsnes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Åndalsnes",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "175",
+    "ref:vinmonopolet": "175",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/175"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558567,
+  "lat": 62.4654330,
+  "lon": 6.3516830,
+  "tags": {
+    "alt_name": "Vinmonopolet Ålesund, Moa",
+    "branch": "Moa",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Moa",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "174",
+    "ref:vinmonopolet": "174",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/174"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558568,
+  "lat": 59.7776200,
+  "lon": 10.4858720,
+  "tags": {
+    "branch": "Slemmestad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Slemmestad",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "173",
+    "ref:vinmonopolet": "173",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/173"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558569,
+  "lat": 58.5869010,
+  "lon": 7.8057430,
+  "tags": {
+    "branch": "Evje",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-07-08",
+    "name": "Vinmonopolet Evje",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "172",
+    "ref:vinmonopolet": "172",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/172",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558570,
+  "lat": 59.9650310,
+  "lon": 9.9938700,
+  "tags": {
+    "branch": "Vikersund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vikersund",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "171",
+    "ref:vinmonopolet": "171",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/171"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558571,
+  "lat": 59.2804230,
+  "lon": 5.3041950,
+  "tags": {
+    "alt_name": "Vinmonopolet Karmøy, Kopervik",
+    "branch": "Kopervik",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kopervik",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "168",
+    "ref:vinmonopolet": "168",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/168"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558572,
+  "lat": 58.2965150,
+  "lon": 6.6619460,
+  "tags": {
+    "branch": "Flekkefjord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Flekkefjord",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "167",
+    "ref:vinmonopolet": "167",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/167"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558573,
+  "lat": 59.4111607,
+  "lon": 9.0717661,
+  "tags": {
+    "branch": "Bø i Telemark",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "name": "Vinmonopolet Bø i Telemark",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "166",
+    "ref:vinmonopolet": "166",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/166"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558574,
+  "lat": 60.4212940,
+  "lon": 5.4651930,
+  "tags": {
+    "alt_name": "Vinmonopolet Bergen, Arna",
+    "branch": "Arna",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Arna",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "165",
+    "ref:vinmonopolet": "165",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/165"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558575,
+  "lat": 61.6008370,
+  "lon": 5.0370700,
+  "tags": {
+    "branch": "Florø",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Florø",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "164",
+    "ref:vinmonopolet": "164",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/164"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558576,
+  "lat": 59.9474762,
+  "lon": 10.7743226,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Storo",
+    "branch": "Storo",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "level": "1",
+    "name": "Vinmonopolet Storo",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "161",
+    "ref:vinmonopolet": "161",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/161"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558577,
+  "lat": 61.9330220,
+  "lon": 5.1113800,
+  "tags": {
+    "branch": "Måløy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Måløy",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "151",
+    "ref:vinmonopolet": "151",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/151"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558578,
+  "lat": 60.4101000,
+  "lon": 5.2271000,
+  "tags": {
+    "branch": "Askøy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Askøy",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "148",
+    "ref:vinmonopolet": "148",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/148"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558579,
+  "lat": 59.9141790,
+  "lon": 10.8414130,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Tveita",
+    "branch": "Tveita",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Tveita",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "145",
+    "ref:vinmonopolet": "145",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/145"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558580,
+  "lat": 59.8543260,
+  "lon": 10.4883420,
+  "tags": {
+    "branch": "Holmen senter",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Holmen senter",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "135",
+    "ref:vinmonopolet": "135",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/135"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558581,
+  "lat": 70.0529140,
+  "lon": 24.9605870,
+  "tags": {
+    "branch": "Lakselv",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Lakselv",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "133",
+    "ref:vinmonopolet": "133",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/133"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558582,
+  "lat": 59.9431870,
+  "lon": 10.8354820,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Linderud",
+    "branch": "Linderud",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Linderud",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "132",
+    "ref:vinmonopolet": "132",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/132",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558583,
+  "lat": 59.0464170,
+  "lon": 9.6941700,
+  "tags": {
+    "branch": "Stathelle",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Stathelle",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "128",
+    "ref:vinmonopolet": "128",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/128"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558584,
+  "lat": 59.7561400,
+  "lon": 9.9992970,
+  "tags": {
+    "branch": "Krokstadelva",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Krokstadelva",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "126",
+    "ref:vinmonopolet": "126",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/126"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558586,
+  "lat": 60.8344940,
+  "lon": 10.0744750,
+  "tags": {
+    "branch": "Dokka",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Dokka",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "123",
+    "ref:vinmonopolet": "123",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/123"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558587,
+  "lat": 63.3621237,
+  "lon": 10.3771422,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, City Syd",
+    "branch": "City Syd",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "en:Vinmonopolet",
+    "level": "1",
+    "name": "Vinmonopolet City Syd",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "120",
+    "ref:vinmonopolet": "120",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/120"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558588,
+  "lat": 58.8767070,
+  "lon": 5.7219030,
+  "tags": {
+    "alt_name": "Vinmonopolet Sandnes, Kvadrat",
+    "branch": "Kvadrat",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kvadrat",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "116",
+    "ref:vinmonopolet": "116",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/116"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558589,
+  "lat": 59.9106790,
+  "lon": 10.7260170,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Aker brygge",
+    "branch": "Aker brygge",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Aker brygge",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "114",
+    "ref:vinmonopolet": "114",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/114"
+  }
+},
+{
+  "type": "node",
+  "id": 5690558590,
+  "lat": 62.4922210,
+  "lon": 6.6059830,
+  "tags": {
+    "branch": "Digerneset",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Digerneset",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "109",
+    "ref:vinmonopolet": "109",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/109"
+  }
+},
+{
+  "type": "node",
+  "id": 6109141186,
+  "lat": 59.9205280,
+  "lon": 10.7169990,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Briskeby",
+    "branch": "Briskeby",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Briskeby",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "104",
+    "ref:vinmonopolet": "104",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/104"
+  }
+},
+{
+  "type": "node",
+  "id": 6164005257,
+  "lat": 59.5601214,
+  "lon": 7.3524984,
+  "tags": {
+    "branch": "Hovden",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-07-11",
+    "level": "0",
+    "name": "Vinmonopolet Hovden",
+    "opening_hours": "Mo-Tu closed; We-Th 14:00-18:00; Fr 12:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "107",
+    "ref:vinmonopolet": "107",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/107"
+  }
+},
+{
+  "type": "node",
+  "id": 6204245478,
+  "lat": 59.9145800,
+  "lon": 10.7374540,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Paleet",
+    "branch": "Paleet",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "email": "oslo-paleet@vinmonopolet.no",
+    "name": "Vinmonopolet Paleet",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "141",
+    "ref:vinmonopolet": "141",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/141"
+  }
+},
+{
+  "type": "node",
+  "id": 6276840889,
+  "lat": 67.2806870,
+  "lon": 14.5437710,
+  "tags": {
+    "alt_name": "Vinmonopolet Bodø, Hunstad",
+    "branch": "Hunstad",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Hunstad",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "469",
+    "ref:vinmonopolet": "469",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/469",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6276840890,
+  "lat": 59.9276195,
+  "lon": 10.7787691,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Carl Berner",
+    "branch": "Carl Berner",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "check_date": "2025-08-04",
+    "name": "Vinmonopolet Carl Berner",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "459",
+    "ref:vinmonopolet": "459",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/459",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6276840891,
+  "lat": 59.1373970,
+  "lon": 9.6405730,
+  "tags": {
+    "alt_name": "Vinmonopolet Porsgrunn, Down Town",
+    "branch": "Down Town",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Down Town",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "113",
+    "ref:vinmonopolet": "113",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/113"
+  }
+},
+{
+  "type": "node",
+  "id": 6276840892,
+  "lat": 66.1997590,
+  "lon": 13.0225330,
+  "tags": {
+    "branch": "Nesna",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Nesna",
+    "opening_hours": "Mo-We closed; Th-Fr 13:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "108",
+    "ref:vinmonopolet": "108",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/108"
+  }
+},
+{
+  "type": "node",
+  "id": 6564636398,
+  "lat": 59.7415130,
+  "lon": 10.2233140,
+  "tags": {
+    "alt_name": "Vinmonopolet Drammen, CC",
+    "branch": "CC Drammen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-03-17",
+    "level": "0",
+    "name": "Vinmonopolet CC Drammen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+47 22 01 50 00",
+    "ref": "468",
+    "ref:vinmonopolet": "468",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/468",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6564636399,
+  "lat": 59.9861070,
+  "lon": 6.0100530,
+  "tags": {
+    "branch": "Rosendal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Rosendal",
+    "opening_hours": "Mo-We closed; Th 12:00-16:00; Fr 12:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "102",
+    "ref:vinmonopolet": "102",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/102"
+  }
+},
+{
+  "type": "node",
+  "id": 7060013995,
+  "lat": 68.9150350,
+  "lon": 15.1016390,
+  "tags": {
+    "branch": "Myre",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "name": "Vinmonopolet Myre",
+    "opening_hours": "Mo closed; Tu-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "359",
+    "ref:vinmonopolet": "359",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/359"
+  }
+},
+{
+  "type": "node",
+  "id": 7141311894,
+  "lat": 59.6815680,
+  "lon": 10.5254640,
+  "tags": {
+    "branch": "Sætre",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sætre",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "112",
+    "ref:vinmonopolet": "112",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/112"
+  }
+},
+{
+  "type": "node",
+  "id": 8365604445,
+  "lat": 59.9281580,
+  "lon": 10.7187950,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Valkyrien",
+    "branch": "Valkyrien",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-05-12",
+    "level": "-1",
+    "name": "Vinmonopolet Valkyrien",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "471",
+    "ref:vinmonopolet": "471",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/471",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 8365604446,
+  "lat": 61.5946455,
+  "lon": 9.7254543,
+  "tags": {
+    "branch": "Vinstra",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Vinstra",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "125",
+    "ref:vinmonopolet": "125",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/125"
+  }
+},
+{
+  "type": "node",
+  "id": 8365604447,
+  "lat": 60.2461690,
+  "lon": 9.3560220,
+  "tags": {
+    "branch": "Eggedal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Eggedal",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "119",
+    "ref:vinmonopolet": "119",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/119"
+  }
+},
+{
+  "type": "node",
+  "id": 8365604448,
+  "lat": 59.4836670,
+  "lon": 6.2504710,
+  "tags": {
+    "branch": "Suldal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Suldal",
+    "opening_hours": "Mo-We closed; Th 12:00-17:00; Fr 12:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "106",
+    "ref:vinmonopolet": "106",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/106"
+  }
+},
+{
+  "type": "node",
+  "id": 8532834261,
+  "lat": 58.8695835,
+  "lon": 9.4153033,
+  "tags": {
+    "branch": "Kragerø",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Kragerø",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "257",
+    "ref:vinmonopolet": "257",
+    "shop": "alcohol",
+    "toilets:wheelchair": "no",
+    "website": "https://www.vinmonopolet.no/butikk/257",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 8883504895,
+  "lat": 59.4221693,
+  "lon": 5.4442776,
+  "tags": {
+    "branch": "Aksdal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Aksdal",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "103",
+    "ref:vinmonopolet": "103",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/103"
+  }
+},
+{
+  "type": "node",
+  "id": 9615091882,
+  "lat": 63.1106690,
+  "lon": 7.7803370,
+  "tags": {
+    "alt_name": "Vinmonopolet Kristiansund, Futura",
+    "branch": "Futura",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "1",
+    "name": "Vinmonopolet Futura",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "137",
+    "ref:vinmonopolet": "137",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/137"
+  }
+},
+{
+  "type": "node",
+  "id": 9615091883,
+  "lat": 60.1799250,
+  "lon": 9.6256037,
+  "tags": {
+    "branch": "Noresund",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date": "2024-03-01",
+    "name": "Vinmonopolet Noresund",
+    "opening_hours": "Mo 10:00-16:00; Tu-We closed; Th-Fr 12:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "131",
+    "ref:vinmonopolet": "131",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/131"
+  }
+},
+{
+  "type": "node",
+  "id": 9615091884,
+  "lat": 59.9181560,
+  "lon": 5.3158380,
+  "tags": {
+    "branch": "Fitjar",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fitjar",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "129",
+    "ref:vinmonopolet": "129",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/129"
+  }
+},
+{
+  "type": "node",
+  "id": 10168254776,
+  "lat": 58.9844142,
+  "lon": 5.6898422,
+  "tags": {
+    "alt_name": "Vinmonopolet Stavanger, Tasta",
+    "branch": "Tasta",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Tasta",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "450",
+    "ref:vinmonopolet": "450",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/450"
+  }
+},
+{
+  "type": "node",
+  "id": 10168254777,
+  "lat": 59.1860146,
+  "lon": 9.6145794,
+  "tags": {
+    "alt_name": "Vinmonopolet Skien, Gråtenmoen",
+    "branch": "Gråtenmoen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Gråtenmoen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "181",
+    "ref:vinmonopolet": "181",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/181"
+  }
+},
+{
+  "type": "node",
+  "id": 10168254778,
+  "lat": 63.4362712,
+  "lon": 10.4562380,
+  "tags": {
+    "alt_name": "Vinmonopolet Trondheim, Sirkus Shopping",
+    "branch": "Sirkus Shopping",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sirkus Shopping",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "146",
+    "ref:vinmonopolet": "146",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/146"
+  }
+},
+{
+  "type": "node",
+  "id": 10899291139,
+  "lat": 59.6038370,
+  "lon": 5.8074889,
+  "tags": {
+    "branch": "Ølen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Ølen",
+    "opening_hours": "Mo closed; Tu-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "operator": "Vinmo",
+    "phone": "+47 22 01 50 00",
+    "ref": "400",
+    "ref:vinmonopolet": "400",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/400"
+  }
+},
+{
+  "type": "node",
+  "id": 11062823960,
+  "lat": 59.9031528,
+  "lon": 10.8221690,
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Bryn",
+    "branch": "Bryn",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Bryn",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "475",
+    "ref:vinmonopolet": "475",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/475"
+  }
+},
+{
+  "type": "node",
+  "id": 11062823961,
+  "lat": 60.4251331,
+  "lon": 11.6401606,
+  "tags": {
+    "branch": "Mo i Nord-Odal",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Mo i Nord-Odal",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-17:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "101",
+    "ref:vinmonopolet": "101",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/101"
+  }
+},
+{
+  "type": "node",
+  "id": 12136159251,
+  "lat": 59.7428142,
+  "lon": 10.1942548,
+  "tags": {
+    "alt_name": "Vinmonopolet Drammen, Strømsø",
+    "branch": "Strømsø",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2026-01-11",
+    "description": "Kategori 6",
+    "name": "Vinmonopolet Strømsø",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "207",
+    "ref:vinmonopolet": "207",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/207",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13072182742,
+  "lat": 59.5878194,
+  "lon": 10.2068518,
+  "tags": {
+    "branch": "Sande",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "contact:facebook": "https://www.facebook.com/Vinmonopolet",
+    "drive_through": "no",
+    "email": "kundesenter@vinmonopolet.no",
+    "name": "Vinmonopolet Sande",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "407",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/407",
+    "website:menu": "https://www.vinmonopolet.no/search?q=%3Arelevance%3AavailableInStores%3A407"
+  }
+},
+{
+  "type": "node",
+  "id": 13153337558,
+  "lat": 63.2854326,
+  "lon": 10.2792761,
+  "tags": {
+    "branch": "Melhus",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "drive_through": "no",
+    "name": "Vinmonopolet Melhus",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "payment:cards": "yes",
+    "payment:cash": "yes",
+    "payment:contactless": "yes",
+    "phone": "+47 22 01 50 00",
+    "ref": "342",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/342"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121980,
+  "lat": 60.9059578,
+  "lon": 7.1863059,
+  "tags": {
+    "branch": "Aurland",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Aurland",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "482",
+    "ref:vinmonopolet": "482",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/482"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121981,
+  "lat": 64.4941128,
+  "lon": 11.9490335,
+  "tags": {
+    "branch": "Overhalla",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Overhalla",
+    "opening_hours": "Mo-We closed; Th 12:00-17:00; Fr 12:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "139",
+    "ref:vinmonopolet": "139",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/139"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121982,
+  "lat": 63.3082300,
+  "lon": 10.1752390,
+  "tags": {
+    "branch": "Buvika",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Buvika",
+    "opening_hours": "Mo closed; Tu-Th 11:00-17:00; Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "479",
+    "ref:vinmonopolet": "479",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/479"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121983,
+  "lat": 58.9346430,
+  "lon": 5.5876740,
+  "tags": {
+    "branch": "Sola, Tananger",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sola, Tananger",
+    "opening_hours": "Mo-We 10:00-17:00; Th-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "480",
+    "ref:vinmonopolet": "480",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/480"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121984,
+  "lat": 60.4012320,
+  "lon": 5.7301570,
+  "tags": {
+    "branch": "Samnanger",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Samnanger",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "153",
+    "ref:vinmonopolet": "153",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/153"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121985,
+  "lat": 59.9236300,
+  "lon": 11.0644130,
+  "tags": {
+    "branch": "Fjerdingby",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Fjerdingby",
+    "opening_hours": "Mo closed; Tu-Th 11:00-18:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "477",
+    "ref:vinmonopolet": "477",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/477"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121986,
+  "lat": 59.5434720,
+  "lon": 5.3546230,
+  "tags": {
+    "branch": "Sveio",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Sveio",
+    "opening_hours": "Mo-We closed; Th-Fr 11:00-18:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "476",
+    "ref:vinmonopolet": "476",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/476"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121987,
+  "lat": 65.9606702,
+  "lon": 12.2736711,
+  "tags": {
+    "branch": "Herøy",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Herøy",
+    "opening_hours": "Mo-We closed; Th-Fr 12:00-18:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "443",
+    "ref:vinmonopolet": "433",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/443"
+  }
+},
+{
+  "type": "node",
+  "id": 13461121988,
+  "lat": 69.3146004,
+  "lon": 16.1198559,
+  "tags": {
+    "branch": "Andenes",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "name": "Vinmonopolet Andenes",
+    "opening_hours": "Mo closed; Tu-Fr 11:00-17:00; Sa 11:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "316",
+    "ref:vinmonopolet": "316",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/316"
+  }
+},
+{
+  "type": "node",
+  "id": 13534166978,
+  "lat": 70.6373035,
+  "lon": 29.7269943,
+  "tags": {
+    "branch": "Båtsfjord",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "indoor": "yes",
+    "name": "Vinmonopolet Båtsfjord",
+    "opening_hours": "Mo-We closed; Th 12:00-16:00; Fr 12:00-17:00; Sa 12:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "318",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/318"
+  }
+},
+{
+  "type": "node",
+  "id": 13591839365,
+  "lat": 59.2105056,
+  "lon": 10.9299211,
+  "tags": {
+    "branch": "Værstetorvet",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "level": "0",
+    "name": "Vinmonopolet Værstetorvet",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "219",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/219"
+  }
+},
+{
+  "type": "way",
+  "id": 368744431,
+  "center": {
+    "lat": 69.6464194,
+    "lon": 18.9550302
+  },
+  "tags": {
+    "branch": "Tromsø sentrum",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "indoor": "room",
+    "level": "0",
+    "name": "Vinmonopolet Tromsø sentrum",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "292",
+    "ref:vinmonopolet": "292",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/292"
+  }
+},
+{
+  "type": "way",
+  "id": 395551847,
+  "center": {
+    "lat": 62.3918940,
+    "lon": 6.5804731
+  },
+  "tags": {
+    "branch": "Sykkylven",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "building": "commercial",
+    "building:material": "brick",
+    "name": "Vinmonopolet Sykkylven",
+    "opening_hours": "Mo-Th 10:00-17:00; Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "348",
+    "ref:bygningsnr": "10254760",
+    "ref:vinmonopolet": "348",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/348"
+  }
+},
+{
+  "type": "way",
+  "id": 717947826,
+  "center": {
+    "lat": 59.8343472,
+    "lon": 10.7959461
+  },
+  "tags": {
+    "alt_name": "Vinmonopolet Oslo, Holmlia",
+    "branch": "Holmlia",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "brand:wikipedia": "no:Vinmonopolet",
+    "indoor": "room",
+    "level": "1",
+    "name": "Vinmonopolet Holmlia",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "122",
+    "ref:vinmonopolet": "122",
+    "shop": "alcohol",
+    "start_date": "2021-11-12",
+    "website": "https://www.vinmonopolet.no/butikk/122"
+  }
+},
+{
+  "type": "way",
+  "id": 1486530658,
+  "center": {
+    "lat": 59.8096207,
+    "lon": 10.3006442
+  },
+  "tags": {
+    "branch": "Liertoppen",
+    "brand": "Vinmonopolet",
+    "brand:wikidata": "Q1740534",
+    "check_date:opening_hours": "2025-12-17",
+    "indoor": "room",
+    "level": "0",
+    "name": "Vinmonopolet Liertoppen",
+    "opening_hours": "Mo-Fr 10:00-18:00; Sa 10:00-16:00; Su closed",
+    "phone": "+47 22 01 50 00",
+    "ref": "362",
+    "ref:vinmonopolet": "362",
+    "room": "shop",
+    "shop": "alcohol",
+    "website": "https://www.vinmonopolet.no/butikk/362"
+  }
+}
+
+  ]
+}
