@@ -63,6 +63,27 @@ let routeFetching = false;
 let routeCooldownUntil = 0;  // backoff after a failed fetch
 let mapOpen = false;
 
+// Dim base map: CARTO dark raster tiles (OSM data), drawn faintly under the route.
+const TILE_URL = (z, x, y) => `https://basemaps.cartocdn.com/dark_all/${z}/${x}/${y}.png`;
+const tileCache = new Map(); // url -> HTMLImageElement (img.ok marks loaded)
+let lastMapDraw = 0;
+
+const TILE = 256;
+const mercY = (lat) => (1 - Math.log(Math.tan(rad(lat)) + 1 / Math.cos(rad(lat))) / Math.PI) / 2;
+
+function getTile(url, onload) {
+  let img = tileCache.get(url);
+  if (img) return img.ok ? img : null;
+  img = new Image();
+  img.crossOrigin = "anonymous";
+  img.ok = false;
+  img.onload = () => { img.ok = true; onload(); };
+  img.onerror = () => {};
+  img.src = url;
+  tileCache.set(url, img);
+  return null;
+}
+
 // ---------- DOM ----------
 const bottle = document.getElementById("bottle");
 const northEl = document.getElementById("north");
@@ -214,6 +235,14 @@ async function maybeFetchRoute(target) {
   }
 }
 
+// Redraw at most ~6 fps when driven by the frequent render loop.
+function drawMapThrottled(target) {
+  const now = Date.now();
+  if (now - lastMapDraw < 160) return;
+  lastMapDraw = now;
+  drawMap(target);
+}
+
 function drawMap(target) {
   const canvas = document.getElementById("mapcanvas");
   if (!canvas) return;
@@ -225,33 +254,55 @@ function drawMap(target) {
   const ctx = canvas.getContext("2d");
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   const W = rect.width, H = rect.height;
-  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = "#0b0b0b"; ctx.fillRect(0, 0, W, H);
   const info = document.getElementById("mapinfo");
   if (!userPos || !target) { info.textContent = "Odotetaan sijaintia"; return; }
 
   const store = target.store;
   const haveRoute = currentRoute && routeKey === storeKey(store);
   const line = haveRoute ? currentRoute.coords : [[userPos.lat, userPos.lon], [store.lat, store.lon]];
-  const all = line.concat([[userPos.lat, userPos.lon], [store.lat, store.lon]]);
+  const pts = line.concat([[userPos.lat, userPos.lon], [store.lat, store.lon]]);
 
   let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
-  for (const [la, lo] of all) {
+  for (const [la, lo] of pts) {
     minLat = Math.min(minLat, la); maxLat = Math.max(maxLat, la);
     minLon = Math.min(minLon, lo); maxLon = Math.max(maxLon, lo);
   }
-  const cosLat = Math.cos(rad((minLat + maxLat) / 2));
-  const spanX = Math.max((maxLon - minLon) * cosLat, 1e-6);
-  const spanY = Math.max(maxLat - minLat, 1e-6);
-  const pad = 26;
-  const scale = Math.min((W - 2 * pad) / spanX, (H - 2 * pad) / spanY);
-  const offX = (W - spanX * scale) / 2, offY = (H - spanY * scale) / 2;
-  const project = ([la, lo]) => [
-    offX + (lo - minLon) * cosLat * scale,
-    offY + (maxLat - la) * scale,
-  ];
+  const padLat = ((maxLat - minLat) || 0.0008) * 0.35;
+  const padLon = ((maxLon - minLon) || 0.0008) * 0.35;
+  minLat -= padLat; maxLat += padLat; minLon -= padLon; maxLon += padLon;
 
+  // Pick the slippy-map zoom that fits the padded bbox into the canvas.
+  const pad = 12;
+  const lonFrac = Math.max((maxLon - minLon) / 360, 1e-9);
+  const latFrac = Math.max(mercY(minLat) - mercY(maxLat), 1e-9);
+  let z = Math.floor(Math.min(
+    Math.log2((W - 2 * pad) / (TILE * lonFrac)),
+    Math.log2((H - 2 * pad) / (TILE * latFrac)),
+  ));
+  z = Math.max(3, Math.min(18, z));
+  const scale = TILE * Math.pow(2, z);
+  const nT = Math.pow(2, z);
+  const cWx = ((minLon + maxLon) / 2 + 180) / 360 * scale;
+  const cWy = (mercY(minLat) + mercY(maxLat)) / 2 * scale;
+  const sx0 = cWx - W / 2, sy0 = cWy - H / 2; // viewport top-left in world px
+  const project = ([la, lo]) => [(lo + 180) / 360 * scale - sx0, mercY(la) * scale - sy0];
+
+  // Dim base map: CARTO dark tiles, faint behind the route.
+  ctx.globalAlpha = 0.55;
+  for (let tx = Math.floor(sx0 / TILE); tx <= Math.floor((sx0 + W) / TILE); tx++) {
+    for (let ty = Math.floor(sy0 / TILE); ty <= Math.floor((sy0 + H) / TILE); ty++) {
+      if (ty < 0 || ty >= nT) continue;
+      const wx = ((tx % nT) + nT) % nT;
+      const img = getTile(TILE_URL(z, wx, ty), () => { if (mapOpen) drawMapThrottled(currentTarget()); });
+      if (img) ctx.drawImage(img, tx * TILE - sx0, ty * TILE - sy0, TILE, TILE);
+    }
+  }
+  ctx.globalAlpha = 1;
+
+  // Route on top.
   ctx.lineWidth = 4; ctx.lineJoin = "round"; ctx.lineCap = "round";
-  ctx.strokeStyle = haveRoute ? "#d7263d" : "rgba(215,38,61,0.55)";
+  ctx.strokeStyle = haveRoute ? "#d7263d" : "rgba(215,38,61,0.7)";
   if (!haveRoute) ctx.setLineDash([7, 7]);
   ctx.beginPath();
   line.forEach((p, i) => { const [x, y] = project(p); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
@@ -263,6 +314,10 @@ function drawMap(target) {
   ctx.fillStyle = "#000"; ctx.beginPath(); ctx.arc(sx, sy, 3, 0, 6.2832); ctx.fill();
   const [ux, uy] = project([userPos.lat, userPos.lon]);
   ctx.fillStyle = "#f5f5f5"; ctx.beginPath(); ctx.arc(ux, uy, 6, 0, 6.2832); ctx.fill();
+  ctx.lineWidth = 2; ctx.strokeStyle = "rgba(0,0,0,0.6)"; ctx.stroke();
+
+  ctx.fillStyle = "rgba(255,255,255,0.35)"; ctx.font = "9px sans-serif"; ctx.textAlign = "right";
+  ctx.fillText("© OpenStreetMap, CARTO", W - 6, H - 6); ctx.textAlign = "left";
 
   if (haveRoute) {
     info.textContent = `Kävellen ${formatDistance(currentRoute.distance)} · ~${Math.max(1, Math.round(currentRoute.duration / 60))} min`;
@@ -279,7 +334,7 @@ function render() {
   const target = ranked[rank];
 
   // The route only feeds the map view on web, so fetch it only while the map is open.
-  if (mapOpen) { maybeFetchRoute(target); drawMap(target); }
+  if (mapOpen) { maybeFetchRoute(target); drawMapThrottled(target); }
 
   renderDistance(formatDistance(target.dist), target.dist);
   storeEl.textContent = target.store.name;

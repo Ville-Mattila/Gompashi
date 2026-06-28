@@ -48,6 +48,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -73,13 +74,18 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlin.math.PI
 import kotlin.math.cos
+import kotlin.math.ln
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.pow
 import kotlin.math.roundToInt
+import kotlin.math.tan
 
 private val Background = Color(0xFF000000)
 private val Accent = Color(0xFFD7263D)
@@ -106,6 +112,8 @@ fun MainScreen(
 ) {
     var showSettings by remember { mutableStateOf(false) }
     var showMap by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+    val tileStore = remember { TileStore(scope) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -144,7 +152,7 @@ fun MainScreen(
         }
 
         if (showMap) {
-            RouteMap(state = state, route = route, onClose = { showMap = false })
+            RouteMap(state = state, route = route, tileStore = tileStore, onClose = { showMap = false })
         }
 
         if (showSettings) {
@@ -555,9 +563,9 @@ private fun MapIconButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
     }
 }
 
-/** Expandable half-screen walking-route map: themed canvas, no base tiles. */
+/** Expandable half-screen walking-route map: dim CARTO-dark base tiles + the route on top. */
 @Composable
-private fun RouteMap(state: UiState, route: FootRoute?, onClose: () -> Unit) {
+private fun RouteMap(state: UiState, route: FootRoute?, tileStore: TileStore, onClose: () -> Unit) {
     Box(Modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
@@ -594,65 +602,119 @@ private fun RouteMap(state: UiState, route: FootRoute?, onClose: () -> Unit) {
                             .padding(start = 12.dp),
                     )
                 }
-                RouteCanvas(state, route)
+                RouteCanvas(state, route, tileStore)
             }
         }
     }
 }
 
+private const val TILE = 256
+private fun mercY(lat: Double) = (1 - ln(tan(lat * PI / 180) + 1 / cos(lat * PI / 180)) / PI) / 2
+
 @Composable
-private fun RouteCanvas(state: UiState, route: FootRoute?) {
+private fun RouteCanvas(state: UiState, route: FootRoute?, tileStore: TileStore) {
     val uLat = state.userLat; val uLon = state.userLon
     val sLat = state.storeLat; val sLon = state.storeLon
-    Canvas(
+    BoxWithConstraints(
         modifier = Modifier
             .fillMaxSize()
             .clip(RoundedCornerShape(12.dp))
             .background(Color(0xFF0B0B0B)),
     ) {
-        if (uLat == null || uLon == null || sLat == null || sLon == null) return@Canvas
+        if (uLat == null || uLon == null || sLat == null || sLon == null) return@BoxWithConstraints
+        val w = constraints.maxWidth.toDouble()
+        val h = constraints.maxHeight.toDouble()
+        if (w <= 0 || h <= 0) return@BoxWithConstraints
 
         val line: List<Pair<Double, Double>> =
             route?.points?.map { it.lat to it.lon } ?: listOf(uLat to uLon, sLat to sLon)
-        val all = line + listOf(uLat to uLon, sLat to sLon)
+        val pts = line + listOf(uLat to uLon, sLat to sLon)
 
         var minLat = Double.MAX_VALUE; var maxLat = -Double.MAX_VALUE
         var minLon = Double.MAX_VALUE; var maxLon = -Double.MAX_VALUE
-        for ((la, lo) in all) {
+        for ((la, lo) in pts) {
             minLat = min(minLat, la); maxLat = max(maxLat, la)
             minLon = min(minLon, lo); maxLon = max(maxLon, lo)
         }
-        val cosLat = cos((minLat + maxLat) / 2 * PI / 180)
-        val spanX = max((maxLon - minLon) * cosLat, 1e-6)
-        val spanY = max(maxLat - minLat, 1e-6)
-        val pad = 26.dp.toPx()
-        val scale = min((size.width - 2 * pad) / spanX, (size.height - 2 * pad) / spanY)
-        val offX = (size.width - spanX * scale) / 2
-        val offY = (size.height - spanY * scale) / 2
-        fun proj(la: Double, lo: Double) = Offset(
-            (offX + (lo - minLon) * cosLat * scale).toFloat(),
-            (offY + (maxLat - la) * scale).toFloat(),
-        )
+        val padLat = ((maxLat - minLat).takeIf { it > 0 } ?: 0.0008) * 0.35
+        val padLon = ((maxLon - minLon).takeIf { it > 0 } ?: 0.0008) * 0.35
+        minLat -= padLat; maxLat += padLat; minLon -= padLon; maxLon += padLon
 
-        val path = Path()
-        line.forEachIndexed { i, (la, lo) ->
-            val o = proj(la, lo)
-            if (i == 0) path.moveTo(o.x, o.y) else path.lineTo(o.x, o.y)
+        val pad = 12.0
+        val lonFrac = max((maxLon - minLon) / 360, 1e-9)
+        val latFrac = max(mercY(minLat) - mercY(maxLat), 1e-9)
+        var z = minOf(
+            (ln((w - 2 * pad) / (TILE * lonFrac)) / ln(2.0)),
+            (ln((h - 2 * pad) / (TILE * latFrac)) / ln(2.0)),
+        ).toInt()
+        z = z.coerceIn(3, 18)
+        val scale = TILE * 2.0.pow(z)
+        val nT = 2.0.pow(z).toInt()
+        val cWx = ((minLon + maxLon) / 2 + 180) / 360 * scale
+        val cWy = (mercY(minLat) + mercY(maxLat)) / 2 * scale
+        val sx0 = cWx - w / 2
+        val sy0 = cWy - h / 2
+
+        // Request the tiles covering the viewport (loads happen in the background).
+        data class T(val img: ImageBitmap, val dx: Float, val dy: Float)
+        val drawTiles = ArrayList<T>()
+        var tx = kotlin.math.floor(sx0 / TILE).toInt()
+        while (tx <= kotlin.math.floor((sx0 + w) / TILE).toInt()) {
+            var ty = kotlin.math.floor(sy0 / TILE).toInt()
+            while (ty <= kotlin.math.floor((sy0 + h) / TILE).toInt()) {
+                if (ty in 0 until nT) {
+                    val wx = ((tx % nT) + nT) % nT
+                    tileStore.get(z, wx, ty)?.let {
+                        drawTiles.add(T(it, (tx * TILE - sx0).toFloat(), (ty * TILE - sy0).toFloat()))
+                    }
+                }
+                ty++
+            }
+            tx++
         }
-        drawPath(
-            path = path,
-            color = if (route != null) Accent else Accent.copy(alpha = 0.55f),
-            style = Stroke(
-                width = 4.dp.toPx(),
-                cap = StrokeCap.Round,
-                pathEffect = if (route == null) PathEffect.dashPathEffect(floatArrayOf(14f, 14f)) else null,
-            ),
+
+        fun proj(la: Double, lo: Double) = Offset(
+            ((lo + 180) / 360 * scale - sx0).toFloat(),
+            (mercY(la) * scale - sy0).toFloat(),
         )
 
-        val so = proj(sLat, sLon)
-        drawCircle(Accent, 6.5.dp.toPx(), so)
-        drawCircle(Color.Black, 3.dp.toPx(), so)
-        drawCircle(TextPrimary, 5.dp.toPx(), proj(uLat, uLon))
+        Canvas(Modifier.fillMaxSize()) {
+            // Dim base map.
+            for (t in drawTiles) {
+                drawImage(
+                    image = t.img,
+                    dstOffset = IntOffset(t.dx.roundToInt(), t.dy.roundToInt()),
+                    dstSize = IntSize(TILE, TILE),
+                    alpha = 0.55f,
+                )
+            }
+            // Route.
+            val path = Path()
+            line.forEachIndexed { i, (la, lo) ->
+                val o = proj(la, lo)
+                if (i == 0) path.moveTo(o.x, o.y) else path.lineTo(o.x, o.y)
+            }
+            drawPath(
+                path = path,
+                color = if (route != null) Accent else Accent.copy(alpha = 0.7f),
+                style = Stroke(
+                    width = 4.dp.toPx(),
+                    cap = StrokeCap.Round,
+                    pathEffect = if (route == null) PathEffect.dashPathEffect(floatArrayOf(14f, 14f)) else null,
+                ),
+            )
+            val so = proj(sLat, sLon)
+            drawCircle(Accent, 6.5.dp.toPx(), so)
+            drawCircle(Color.Black, 3.dp.toPx(), so)
+            drawCircle(TextPrimary, 5.dp.toPx(), proj(uLat, uLon))
+        }
+
+        Text(
+            text = "© OpenStreetMap, CARTO",
+            color = TextSecondary.copy(alpha = 0.6f),
+            fontSize = 9.sp,
+            modifier = Modifier.align(Alignment.BottomEnd).padding(4.dp),
+        )
     }
 }
 
