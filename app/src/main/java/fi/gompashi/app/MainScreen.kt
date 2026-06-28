@@ -13,8 +13,10 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -23,6 +25,7 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -56,7 +59,11 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.CompositingStrategy
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.BitmapPainter
 import androidx.compose.ui.layout.ContentScale
@@ -68,6 +75,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.max
+import kotlin.math.min
+import kotlin.math.roundToInt
 
 private val Background = Color(0xFF000000)
 private val Accent = Color(0xFFD7263D)
@@ -83,6 +95,7 @@ private val ClosedRed = Color(0xFFE0707A)
 fun MainScreen(
     state: UiState,
     needle: ImageBitmap?,
+    route: FootRoute?,
     customStores: List<AlkoStore>,
     onToggleRank: () -> Unit,
     onRequestPermission: () -> Unit,
@@ -92,6 +105,7 @@ fun MainScreen(
     onResetNeedle: () -> Unit,
 ) {
     var showSettings by remember { mutableStateOf(false) }
+    var showMap by remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -117,6 +131,21 @@ fun MainScreen(
                     interactionSource = remember { MutableInteractionSource() },
                 ) { showSettings = true },
         )
+
+        // Route-map toggle, mirroring the settings gear on the opposite corner.
+        if (state.permissionGranted && !state.loading) {
+            MapIconButton(
+                onClick = { showMap = true },
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .statusBarsPadding()
+                    .padding(top = 8.dp, start = 16.dp),
+            )
+        }
+
+        if (showMap) {
+            RouteMap(state = state, route = route, onClose = { showMap = false })
+        }
 
         if (showSettings) {
             SettingsScreen(
@@ -502,6 +531,128 @@ private fun SettingsScreen(
 
         Spacer(Modifier.height(28.dp))
         Button(onClick = onClose, modifier = Modifier.fillMaxWidth()) { Text("Sulje") }
+    }
+}
+
+/** Small themed "route" glyph (two endpoints joined by a line), drawn to match the UI. */
+@Composable
+private fun MapIconButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
+    Canvas(
+        modifier = modifier
+            .size(26.dp)
+            .clickable(
+                indication = null,
+                interactionSource = remember { MutableInteractionSource() },
+            ) { onClick() },
+    ) {
+        val sw = 2.dp.toPx()
+        val r = 2.6.dp.toPx()
+        val a = Offset(size.width * 0.26f, size.height * 0.74f)
+        val b = Offset(size.width * 0.74f, size.height * 0.30f)
+        drawLine(TextSecondary, a, b, strokeWidth = sw, cap = StrokeCap.Round)
+        drawCircle(TextSecondary, r, a, style = Stroke(width = sw))
+        drawCircle(TextSecondary, r, b, style = Stroke(width = sw))
+    }
+}
+
+/** Expandable half-screen walking-route map: themed canvas, no base tiles. */
+@Composable
+private fun RouteMap(state: UiState, route: FootRoute?, onClose: () -> Unit) {
+    Box(Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .fillMaxHeight(0.52f)
+                .clip(RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp))
+                .background(Background)
+                .border(1.dp, Accent.copy(alpha = 0.5f), RoundedCornerShape(topStart = 18.dp, topEnd = 18.dp))
+                .navigationBarsPadding()
+                .padding(12.dp),
+        ) {
+            Column(Modifier.fillMaxSize()) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(start = 6.dp, end = 6.dp, bottom = 8.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    val info = when {
+                        state.userLat == null -> "Odotetaan sijaintia"
+                        route != null -> "Kävellen ${DistanceFormat.format(route.distanceMeters)} · ~${max(1, (route.durationSeconds / 60).roundToInt())} min"
+                        else -> "Reitti vaatii verkon — näytetään linnuntie"
+                    }
+                    Text(info, color = TextSecondary, fontSize = 14.sp)
+                    Text(
+                        text = "✕",
+                        color = TextSecondary,
+                        fontSize = 20.sp,
+                        modifier = Modifier
+                            .clickable(
+                                indication = null,
+                                interactionSource = remember { MutableInteractionSource() },
+                            ) { onClose() }
+                            .padding(start = 12.dp),
+                    )
+                }
+                RouteCanvas(state, route)
+            }
+        }
+    }
+}
+
+@Composable
+private fun RouteCanvas(state: UiState, route: FootRoute?) {
+    val uLat = state.userLat; val uLon = state.userLon
+    val sLat = state.storeLat; val sLon = state.storeLon
+    Canvas(
+        modifier = Modifier
+            .fillMaxSize()
+            .clip(RoundedCornerShape(12.dp))
+            .background(Color(0xFF0B0B0B)),
+    ) {
+        if (uLat == null || uLon == null || sLat == null || sLon == null) return@Canvas
+
+        val line: List<Pair<Double, Double>> =
+            route?.points?.map { it.lat to it.lon } ?: listOf(uLat to uLon, sLat to sLon)
+        val all = line + listOf(uLat to uLon, sLat to sLon)
+
+        var minLat = Double.MAX_VALUE; var maxLat = -Double.MAX_VALUE
+        var minLon = Double.MAX_VALUE; var maxLon = -Double.MAX_VALUE
+        for ((la, lo) in all) {
+            minLat = min(minLat, la); maxLat = max(maxLat, la)
+            minLon = min(minLon, lo); maxLon = max(maxLon, lo)
+        }
+        val cosLat = cos((minLat + maxLat) / 2 * PI / 180)
+        val spanX = max((maxLon - minLon) * cosLat, 1e-6)
+        val spanY = max(maxLat - minLat, 1e-6)
+        val pad = 26.dp.toPx()
+        val scale = min((size.width - 2 * pad) / spanX, (size.height - 2 * pad) / spanY)
+        val offX = (size.width - spanX * scale) / 2
+        val offY = (size.height - spanY * scale) / 2
+        fun proj(la: Double, lo: Double) = Offset(
+            (offX + (lo - minLon) * cosLat * scale).toFloat(),
+            (offY + (maxLat - la) * scale).toFloat(),
+        )
+
+        val path = Path()
+        line.forEachIndexed { i, (la, lo) ->
+            val o = proj(la, lo)
+            if (i == 0) path.moveTo(o.x, o.y) else path.lineTo(o.x, o.y)
+        }
+        drawPath(
+            path = path,
+            color = if (route != null) Accent else Accent.copy(alpha = 0.55f),
+            style = Stroke(
+                width = 4.dp.toPx(),
+                cap = StrokeCap.Round,
+                pathEffect = if (route == null) PathEffect.dashPathEffect(floatArrayOf(14f, 14f)) else null,
+            ),
+        )
+
+        val so = proj(sLat, sLon)
+        drawCircle(Accent, 6.5.dp.toPx(), so)
+        drawCircle(Color.Black, 3.dp.toPx(), so)
+        drawCircle(TextPrimary, 5.dp.toPx(), proj(uLat, uLon))
     }
 }
 

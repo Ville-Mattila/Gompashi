@@ -1,6 +1,6 @@
 // Gompashi PWA service worker — offline-first app shell + bundled store data.
 // Bump CACHE when assets or data change so clients pick up the new version.
-const CACHE = "gompashi-v12";
+const CACHE = "gompashi-v13";
 const ASSETS = [
   "./",
   "./index.html",
@@ -33,6 +33,9 @@ self.addEventListener("activate", (e) => {
 
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
+  // Only the app shell is cached. Cross-origin calls (e.g. the OSM routing API) go
+  // straight to the network so routes stay fresh and offline failures fall back cleanly.
+  if (new URL(e.request.url).origin !== self.location.origin) return;
   e.respondWith(
     caches.match(e.request).then((hit) =>
       hit ||

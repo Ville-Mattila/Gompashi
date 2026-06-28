@@ -54,6 +54,15 @@ let hasCompass = false;
 let gotOrientation = false;
 const cont = {};         // continuous (unwrapped) rotation per element
 
+// Walking-route state (keyless OSM foot routing via FOSSGIS OSRM).
+const ROUTE_URL = "https://routing.openstreetmap.de/routed-foot/route/v1/foot/";
+let currentRoute = null;     // { coords: [[lat,lon],...], distance, duration }
+let routeKey = null;         // store key the current route is for
+let routeOrigin = null;      // { lat, lon } where the route was computed
+let routeFetching = false;
+let routeCooldownUntil = 0;  // backoff after a failed fetch
+let mapOpen = false;
+
 // ---------- DOM ----------
 const bottle = document.getElementById("bottle");
 const northEl = document.getElementById("north");
@@ -159,12 +168,118 @@ function updateHours() {
   hoursNoteEl.textContent = currentHoursKnown ? "" : "aukioloaika ei tiedossa — vakioajat käytössä";
 }
 
+// ---------- Walking route + map ----------
+function currentTarget() {
+  if (!userPos || !stores.length) return null;
+  const ranked = rankStores(userPos.lat, userPos.lon, stores);
+  const rank = Math.min(selectedRank, ranked.length - 1);
+  return ranked[rank];
+}
+
+function storeKey(s) { return `${s.lat.toFixed(5)},${s.lon.toFixed(5)}`; }
+
+// Fetch a foot route to the target, but only when needed: store changed, user moved
+// far enough, or no route yet. Backs off after failures so we respect fair-use.
+async function maybeFetchRoute(target) {
+  if (!userPos || !target) return;
+  const key = storeKey(target.store);
+  const moved = routeOrigin
+    ? distanceMeters(userPos.lat, userPos.lon, routeOrigin.lat, routeOrigin.lon) : Infinity;
+  const need = key !== routeKey || moved > 75;
+  if (!need || routeFetching || Date.now() < routeCooldownUntil) return;
+  routeFetching = true;
+  const from = `${userPos.lon},${userPos.lat}`;
+  const to = `${target.store.lon},${target.store.lat}`;
+  try {
+    const res = await fetch(`${ROUTE_URL}${from};${to}?overview=full&geometries=geojson`);
+    const d = await res.json();
+    if (d.code === "Ok" && d.routes && d.routes[0]) {
+      const r = d.routes[0];
+      currentRoute = {
+        coords: r.geometry.coordinates.map(([lon, lat]) => [lat, lon]),
+        distance: r.distance,
+        duration: r.duration,
+      };
+      routeKey = key;
+      routeOrigin = { lat: userPos.lat, lon: userPos.lon };
+    } else {
+      routeCooldownUntil = Date.now() + 15000;
+    }
+  } catch (_) {
+    routeCooldownUntil = Date.now() + 15000; // offline / failed: fall back to straight line
+    if (key !== routeKey) currentRoute = null;
+  } finally {
+    routeFetching = false;
+    if (mapOpen) drawMap(currentTarget());
+  }
+}
+
+function drawMap(target) {
+  const canvas = document.getElementById("mapcanvas");
+  if (!canvas) return;
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.getBoundingClientRect();
+  if (rect.width === 0) return;
+  canvas.width = Math.round(rect.width * dpr);
+  canvas.height = Math.round(rect.height * dpr);
+  const ctx = canvas.getContext("2d");
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const W = rect.width, H = rect.height;
+  ctx.clearRect(0, 0, W, H);
+  const info = document.getElementById("mapinfo");
+  if (!userPos || !target) { info.textContent = "Odotetaan sijaintia"; return; }
+
+  const store = target.store;
+  const haveRoute = currentRoute && routeKey === storeKey(store);
+  const line = haveRoute ? currentRoute.coords : [[userPos.lat, userPos.lon], [store.lat, store.lon]];
+  const all = line.concat([[userPos.lat, userPos.lon], [store.lat, store.lon]]);
+
+  let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
+  for (const [la, lo] of all) {
+    minLat = Math.min(minLat, la); maxLat = Math.max(maxLat, la);
+    minLon = Math.min(minLon, lo); maxLon = Math.max(maxLon, lo);
+  }
+  const cosLat = Math.cos(rad((minLat + maxLat) / 2));
+  const spanX = Math.max((maxLon - minLon) * cosLat, 1e-6);
+  const spanY = Math.max(maxLat - minLat, 1e-6);
+  const pad = 26;
+  const scale = Math.min((W - 2 * pad) / spanX, (H - 2 * pad) / spanY);
+  const offX = (W - spanX * scale) / 2, offY = (H - spanY * scale) / 2;
+  const project = ([la, lo]) => [
+    offX + (lo - minLon) * cosLat * scale,
+    offY + (maxLat - la) * scale,
+  ];
+
+  ctx.lineWidth = 4; ctx.lineJoin = "round"; ctx.lineCap = "round";
+  ctx.strokeStyle = haveRoute ? "#d7263d" : "rgba(215,38,61,0.55)";
+  if (!haveRoute) ctx.setLineDash([7, 7]);
+  ctx.beginPath();
+  line.forEach((p, i) => { const [x, y] = project(p); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  const [sx, sy] = project([store.lat, store.lon]);
+  ctx.fillStyle = "#d7263d"; ctx.beginPath(); ctx.arc(sx, sy, 7, 0, 6.2832); ctx.fill();
+  ctx.fillStyle = "#000"; ctx.beginPath(); ctx.arc(sx, sy, 3, 0, 6.2832); ctx.fill();
+  const [ux, uy] = project([userPos.lat, userPos.lon]);
+  ctx.fillStyle = "#f5f5f5"; ctx.beginPath(); ctx.arc(ux, uy, 6, 0, 6.2832); ctx.fill();
+
+  if (haveRoute) {
+    info.textContent = `Kävellen ${formatDistance(currentRoute.distance)} · ~${Math.max(1, Math.round(currentRoute.duration / 60))} min`;
+  } else {
+    info.textContent = "Reitti vaatii verkon — näytetään linnuntie";
+  }
+}
+
 // ---------- Render ----------
 function render() {
   if (!userPos || !stores.length) return;
   const ranked = rankStores(userPos.lat, userPos.lon, stores);
   const rank = Math.min(selectedRank, ranked.length - 1);
   const target = ranked[rank];
+
+  // The route only feeds the map view on web, so fetch it only while the map is open.
+  if (mapOpen) { maybeFetchRoute(target); drawMap(target); }
 
   renderDistance(formatDistance(target.dist), target.dist);
   storeEl.textContent = target.store.name;
@@ -265,6 +380,24 @@ segs.forEach((seg) =>
   })
 );
 
+// ---------- Map panel ----------
+function initMap() {
+  const panel = document.getElementById("mappanel");
+  document.getElementById("mapBtn").onclick = () => {
+    mapOpen = true;
+    panel.classList.add("open");
+    const t = currentTarget();
+    if (t) maybeFetchRoute(t);
+    // Wait a frame so the panel has its expanded size before measuring the canvas.
+    requestAnimationFrame(() => drawMap(currentTarget()));
+  };
+  document.getElementById("mapClose").onclick = () => {
+    mapOpen = false;
+    panel.classList.remove("open");
+  };
+  window.addEventListener("resize", () => { if (mapOpen) drawMap(currentTarget()); });
+}
+
 // ---------- Settings: custom needle + own stores (localStorage) ----------
 function rebuildStores() {
   stores = bundledStores.concat(customStores);
@@ -358,6 +491,7 @@ function initSettings() {
 // ---------- Boot ----------
 loadCustom();
 initSettings();
+initMap();
 
 fetch("alko_stores.json")
   .then((r) => r.json())

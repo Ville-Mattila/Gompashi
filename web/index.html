@@ -31,6 +31,13 @@
 </head>
 <body>
   <button id="settingsBtn" class="iconbtn" aria-label="Asetukset" title="Asetukset">⚙</button>
+  <button id="mapBtn" class="iconbtn mapbtn" aria-label="Reittikartta" title="Reittikartta">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="6" cy="17.5" r="2" /><circle cx="18" cy="6.5" r="2" />
+      <path d="M8 17.5h6a3 3 0 0 0 0-6H10a3 3 0 0 1 0-6h6" />
+    </svg>
+  </button>
 
   <main id="app">
     <img id="title" class="title" src="assets/title.svg" alt="Gompashi" />
@@ -93,6 +100,15 @@
 
       <button id="settingsClose" class="btn">Sulje</button>
     </div>
+  </div>
+
+  <!-- Expandable walking-route map (themed canvas, no base tiles) -->
+  <div id="mappanel" class="mappanel">
+    <div class="maphead">
+      <span id="mapinfo" class="mapinfo">Reittikartta</span>
+      <button id="mapClose" class="mapclose" aria-label="Sulje kartta">✕</button>
+    </div>
+    <canvas id="mapcanvas" class="mapcanvas"></canvas>
   </div>
 
   <script src="app.js"></script>

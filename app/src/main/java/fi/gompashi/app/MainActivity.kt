@@ -52,6 +52,7 @@ class MainActivity : ComponentActivity() {
                     val state by viewModel.state.collectAsState()
                     val customStores by viewModel.customStores.collectAsState()
                     val needle by viewModel.needle.collectAsState()
+                    val route by viewModel.route.collectAsState()
                     val pickImage = rememberLauncherForActivityResult(
                         ActivityResultContracts.PickVisualMedia()
                     ) { uri -> uri?.let { viewModel.setNeedle(it) } }
@@ -59,6 +60,7 @@ class MainActivity : ComponentActivity() {
                     MainScreen(
                         state = state,
                         needle = needle,
+                        route = route,
                         customStores = customStores,
                         onToggleRank = { viewModel.toggleRank() },
                         onRequestPermission = { requestLocationPermission() },
