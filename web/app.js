@@ -261,26 +261,20 @@ function drawMap(target) {
   const store = target.store;
   const haveRoute = currentRoute && routeKey === storeKey(store);
   const line = haveRoute ? currentRoute.coords : [[userPos.lat, userPos.lon], [store.lat, store.lon]];
-  const pts = line.concat([[userPos.lat, userPos.lon], [store.lat, store.lon]]);
 
-  let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
-  for (const [la, lo] of pts) {
-    minLat = Math.min(minLat, la); maxLat = Math.max(maxLat, la);
-    minLon = Math.min(minLon, lo); maxLon = Math.max(maxLon, lo);
-  }
-  const padLat = ((maxLat - minLat) || 0.0008) * 0.35;
-  const padLon = ((maxLon - minLon) || 0.0008) * 0.35;
-  minLat -= padLat; maxLat += padLat; minLon -= padLon; maxLon += padLon;
+  // Frame just the start (you) and finish (store), with a margin proportional to the view.
+  const minLat = Math.min(userPos.lat, store.lat), maxLat = Math.max(userPos.lat, store.lat);
+  const minLon = Math.min(userPos.lon, store.lon), maxLon = Math.max(userPos.lon, store.lon);
+  const marginX = W * 0.18, marginY = H * 0.18;
 
-  // Pick the slippy-map zoom that fits the padded bbox into the canvas.
-  const pad = 12;
+  // Pick the slippy-map zoom that frames the two endpoints with that margin.
   const lonFrac = Math.max((maxLon - minLon) / 360, 1e-9);
   const latFrac = Math.max(mercY(minLat) - mercY(maxLat), 1e-9);
   let z = Math.floor(Math.min(
-    Math.log2((W - 2 * pad) / (TILE * lonFrac)),
-    Math.log2((H - 2 * pad) / (TILE * latFrac)),
+    Math.log2(Math.max(W - 2 * marginX, 1) / (TILE * lonFrac)),
+    Math.log2(Math.max(H - 2 * marginY, 1) / (TILE * latFrac)),
   ));
-  z = Math.max(3, Math.min(18, z));
+  z = Math.max(3, Math.min(19, z));
   const scale = TILE * Math.pow(2, z);
   const nT = Math.pow(2, z);
   const cWx = ((minLon + maxLon) / 2 + 180) / 360 * scale;

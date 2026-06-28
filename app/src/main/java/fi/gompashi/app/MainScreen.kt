@@ -628,26 +628,19 @@ private fun RouteCanvas(state: UiState, route: FootRoute?, tileStore: TileStore)
 
         val line: List<Pair<Double, Double>> =
             route?.points?.map { it.lat to it.lon } ?: listOf(uLat to uLon, sLat to sLon)
-        val pts = line + listOf(uLat to uLon, sLat to sLon)
 
-        var minLat = Double.MAX_VALUE; var maxLat = -Double.MAX_VALUE
-        var minLon = Double.MAX_VALUE; var maxLon = -Double.MAX_VALUE
-        for ((la, lo) in pts) {
-            minLat = min(minLat, la); maxLat = max(maxLat, la)
-            minLon = min(minLon, lo); maxLon = max(maxLon, lo)
-        }
-        val padLat = ((maxLat - minLat).takeIf { it > 0 } ?: 0.0008) * 0.35
-        val padLon = ((maxLon - minLon).takeIf { it > 0 } ?: 0.0008) * 0.35
-        minLat -= padLat; maxLat += padLat; minLon -= padLon; maxLon += padLon
+        // Frame just the start (you) and finish (store), with a margin proportional to the view.
+        val minLat = min(uLat, sLat); val maxLat = max(uLat, sLat)
+        val minLon = min(uLon, sLon); val maxLon = max(uLon, sLon)
+        val marginX = w * 0.18; val marginY = h * 0.18
 
-        val pad = 12.0
         val lonFrac = max((maxLon - minLon) / 360, 1e-9)
         val latFrac = max(mercY(minLat) - mercY(maxLat), 1e-9)
         var z = minOf(
-            (ln((w - 2 * pad) / (TILE * lonFrac)) / ln(2.0)),
-            (ln((h - 2 * pad) / (TILE * latFrac)) / ln(2.0)),
+            (ln(max(w - 2 * marginX, 1.0) / (TILE * lonFrac)) / ln(2.0)),
+            (ln(max(h - 2 * marginY, 1.0) / (TILE * latFrac)) / ln(2.0)),
         ).toInt()
-        z = z.coerceIn(3, 18)
+        z = z.coerceIn(3, 19)
         val scale = TILE * 2.0.pow(z)
         val nT = 2.0.pow(z).toInt()
         val cWx = ((minLon + maxLon) / 2 + 180) / 360 * scale
