@@ -105,9 +105,14 @@
   <!-- Expandable walking-route map (themed canvas, no base tiles) -->
   <div id="mappanel" class="mappanel">
     <div class="maphead">
-      <span id="mapinfo" class="mapinfo">Reittikartta</span>
+      <div id="maptoggle" class="maptoggle" role="tablist">
+        <div class="mappill" id="mappill"></div>
+        <button class="mapseg" data-rank="0" role="tab">Lähin</button>
+        <button class="mapseg" data-rank="1" role="tab">Toiseksi lähin</button>
+      </div>
       <button id="mapClose" class="mapclose" aria-label="Sulje kartta">✕</button>
     </div>
+    <span id="mapinfo" class="mapinfo">Reittikartta</span>
     <canvas id="mapcanvas" class="mapcanvas"></canvas>
   </div>
 

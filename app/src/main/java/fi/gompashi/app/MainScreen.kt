@@ -152,7 +152,13 @@ fun MainScreen(
         }
 
         if (showMap) {
-            RouteMap(state = state, route = route, tileStore = tileStore, onClose = { showMap = false })
+            RouteMap(
+                state = state,
+                route = route,
+                tileStore = tileStore,
+                onToggleRank = onToggleRank,
+                onClose = { showMap = false },
+            )
         }
 
         if (showSettings) {
@@ -565,7 +571,13 @@ private fun MapIconButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
 
 /** Expandable half-screen walking-route map: dim CARTO-dark base tiles + the route on top. */
 @Composable
-private fun RouteMap(state: UiState, route: FootRoute?, tileStore: TileStore, onClose: () -> Unit) {
+private fun RouteMap(
+    state: UiState,
+    route: FootRoute?,
+    tileStore: TileStore,
+    onToggleRank: () -> Unit,
+    onClose: () -> Unit,
+) {
     Box(Modifier.fillMaxSize()) {
         Box(
             modifier = Modifier
@@ -579,17 +591,18 @@ private fun RouteMap(state: UiState, route: FootRoute?, tileStore: TileStore, on
                 .padding(12.dp),
         ) {
             Column(Modifier.fillMaxSize()) {
+                // The bottom Lähin/Toiseksi toggle is hidden behind this panel, so repeat it here.
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(start = 6.dp, end = 6.dp, bottom = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    val info = when {
-                        state.userLat == null -> "Odotetaan sijaintia"
-                        route != null -> "Kävellen ${DistanceFormat.format(route.distanceMeters)} · ~${max(1, (route.durationSeconds / 60).roundToInt())} min"
-                        else -> "Reitti vaatii verkon — näytetään linnuntie"
-                    }
-                    Text(info, color = TextSecondary, fontSize = 14.sp)
+                    MapRankToggle(
+                        selectedRank = state.selectedRank,
+                        secondEnabled = state.storeCount > 1,
+                        onToggleRank = onToggleRank,
+                        modifier = Modifier.weight(1f),
+                    )
                     Text(
                         text = "✕",
                         color = TextSecondary,
@@ -599,12 +612,67 @@ private fun RouteMap(state: UiState, route: FootRoute?, tileStore: TileStore, on
                                 indication = null,
                                 interactionSource = remember { MutableInteractionSource() },
                             ) { onClose() }
-                            .padding(start = 12.dp),
+                            .padding(horizontal = 6.dp),
                     )
                 }
+                val info = when {
+                    state.userLat == null -> "Odotetaan sijaintia"
+                    route != null -> "Kävellen ${DistanceFormat.format(route.distanceMeters)} · ~${max(1, (route.durationSeconds / 60).roundToInt())} min"
+                    else -> "Reitti vaatii verkon — näytetään linnuntie"
+                }
+                Text(info, color = TextSecondary, fontSize = 14.sp, modifier = Modifier.padding(start = 4.dp, bottom = 8.dp))
                 RouteCanvas(state, route, tileStore)
             }
         }
+    }
+}
+
+@Composable
+private fun MapRankToggle(
+    selectedRank: Int,
+    secondEnabled: Boolean,
+    onToggleRank: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .clip(RoundedCornerShape(percent = 50))
+            .background(TrackColor)
+            .padding(3.dp),
+    ) {
+        MapSeg("Lähin", selectedRank == 0, true, Modifier.weight(1f)) { if (selectedRank != 0) onToggleRank() }
+        MapSeg("Toiseksi lähin", selectedRank == 1, secondEnabled, Modifier.weight(1f)) {
+            if (selectedRank != 1 && secondEnabled) onToggleRank()
+        }
+    }
+}
+
+@Composable
+private fun MapSeg(
+    label: String,
+    selected: Boolean,
+    enabled: Boolean,
+    modifier: Modifier,
+    onClick: () -> Unit,
+) {
+    Box(
+        modifier = modifier
+            .clip(RoundedCornerShape(percent = 50))
+            .background(if (selected) Accent else Color.Transparent)
+            .clickable(
+                enabled = enabled,
+                indication = null,
+                interactionSource = remember { MutableInteractionSource() },
+            ) { onClick() }
+            .padding(vertical = 8.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = label,
+            color = if (selected) Color.White else if (enabled) TextSecondary else DisabledText,
+            fontSize = 13.sp,
+            fontWeight = if (selected) FontWeight.SemiBold else FontWeight.Normal,
+        )
     }
 }
 

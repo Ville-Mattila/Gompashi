@@ -432,9 +432,28 @@ segs.forEach((seg) =>
 // ---------- Map panel ----------
 function initMap() {
   const panel = document.getElementById("mappanel");
+  const mapToggle = document.getElementById("maptoggle");
+  const mapsegs = [...document.querySelectorAll(".mapseg")];
+
+  function syncMapToggle() {
+    mapToggle.className = "maptoggle rank" + selectedRank;
+    mapsegs[1].disabled = stores.length < 2;
+  }
+
+  mapsegs.forEach((seg) =>
+    seg.addEventListener("click", () => {
+      if (seg.disabled) return;
+      selectedRank = Number(seg.dataset.rank);
+      syncMapToggle();
+      render();                       // compass + route fetch for the new target
+      drawMap(currentTarget());       // immediate reframe
+    })
+  );
+
   document.getElementById("mapBtn").onclick = () => {
     mapOpen = true;
     panel.classList.add("open");
+    syncMapToggle();
     const t = currentTarget();
     if (t) maybeFetchRoute(t);
     // Wait a frame so the panel has its expanded size before measuring the canvas.
