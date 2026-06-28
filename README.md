@@ -1,24 +1,35 @@
 # Gompashi
 
 > *Maailman ainoa puhelimeen asennettava valtiollisesti tunnustamaton mittalaite, joka
-> osoittaa kansalaiselle lyhimmän janoisen reitin kohti lähintä Alkoa.*
+> osoittaa kansalaiselle lyhimmän janoisen reitin kohti lähintä pohjoismaista
+> alkoholimonopolia - oli se sitten Alko, Systembolaget tai Vinmonopolet.*
 
 Hyvät naiset ja herrat, arvon nesteytyksen ystävät. Tiedoksenne saatetaan, että ihmiskunta
 on vuosituhansien ajan eksynyt metsään, suohon ja paikallisvaaleihin pelkästään siksi,
-ettei kukaan ole tiennyt, missä suunnassa lähin Alko sijaitsee. Tähän epäkohtaan on nyt
-puututtu määrätietoisesti ja hieman jälkijättöisesti.
+ettei kukaan ole tiennyt, missä suunnassa lähin valtion juomahuolto sijaitsee. Tähän
+epäkohtaan on nyt puututtu määrätietoisesti ja hieman jälkijättöisesti.
 
 **Gompashi** on kompassi, joka ei osoita pohjoiseen. Pohjoisessa kun ei yleensä ole mitään.
 Sen sijaan se osoittaa erään punaviinipullon - virka-asultaan *Gambina Cocktail* - muodossa
 suoraan kohti lähintä valtion alkoholimyymälää. Pullo kääntyy, vipattaa ja osoittaa, ja
 kansalainen seuraa. Yksinkertaista kuin valtionhallinto, mutta toimivaa.
 
+Versiossa 1.1.0 laitos solmi historiallisen *Pohjolan janosopimuksen* ja laajensi
+toimivaltansa diplomaattisesti rajojen yli: nyt rekisterissä komeilee yhteensä **1161
+myymälää kolmesta kuningas- ja tasavallasta** - Suomen **Alko**, Ruotsin **Systembolaget**
+ja Norjan **Vinmonopolet**. Pullo ei tunne tullimuodollisuuksia: Torniossa se osoittaa
+empimättä Haaparannan puolelle, mikäli sieltä löytyy lähempi lohdutus.
+
 ## Toimintaperiaate (tieteellinen)
 
-- Punapullonuoli osoittaa kohti Alkoa ja reagoi puhelimen kääntelyyn herkästi kuin
-  keskushallinnon mielipide tuoreimpaan gallupiin.
+- Punapullonuoli osoittaa kohti lähintä monopolia ja reagoi puhelimen kääntelyyn herkästi
+  kuin keskushallinnon mielipide tuoreimpaan gallupiin.
 - Etäisyys lähimpään lohdutukseen ilmoitetaan metreinä tai kilometreinä, riippuen
   janon vakavuusasteesta.
+- **Rajat ylittävä toimivalta:** laite ei välitä valtakunnanrajoista vaan osoittaa
+  lähimpään myymälään, oli sen kyltissä sitten Alko, Systembolaget tai Vinmonopolet.
+  Aukioloajat ja pyhät lasketaan kunkin maan oman virkapyhäkalenterin mukaan, jottei
+  suomalainen juhannus erehdy sulkemaan ruotsalaista myymälää.
 - **Lähin / Toiseksi lähin** -valitsin niitä tilanteita varten, kun lähin on suljettu,
   loppuunmyyty tai muuten vain epämieluisa.
 - Toimii ilman verkkoa. Myymälärekisteri matkaa mukana laitteessa, kuin eväät reppuselässä.
@@ -62,27 +73,32 @@ Hakemuksen käsittely edellyttää seuraavia liitteitä:
 
 ## Myymälärekisterin virkistäminen
 
-Kolmen valtakunnan kapakkakartasto sijaitsee tiedostossa `app/src/main/assets/alko_stores.json`.
-Kun se vanhenee, jalostuslaitos käynnistetään yhdellä taikasanalla:
+Pohjolan yhdistetty kapakkakartasto - kaikkien kolmen valtakunnan myymälät yhdessä
+arkistomapissa - majailee tiedostossa `app/src/main/assets/alko_stores.json`. Kun
+kartasto vanhenee, jalostuslaitos herätetään virka-ajan ulkopuolellakin yhdellä taikasanalla:
 
 ```bash
 python tools/convert_stores.py
 ```
 
-Skripti yhdistää kolme lähtöaineistoa, karsii noutopisteet (ne, joista vain noudetaan tilaus,
-eivät ole oikeita myymälöitä) ja suljetut, normalisoi aukioloajat viikkoaikatauluksi ja
-kirjoittaa tuloksen sekä Android-appiin että `web/`-kansioon. Pyhät hoituu erikseen
-maakohtaisesti `closed_dates.json`-listalta (FI/SE/NO):
+Skripti kutsuu koolle kolme erikielistä lähtöaineistoa, poistaa joukosta noutopisteet (ne
+ovat pelkkiä tiskejä, joista tilaus noudetaan - eivät arvonsa tuntevia myymälöitä) sekä
+pysyvästi suljetut, normalisoi kirjavat aukioloajat siistiksi viikkoaikatauluksi ja
+toimittaa lopputuloksen kahtena kappaleena niin Android-appiin kuin `web/`-kansioon.
+Pyhät hoidetaan erikseen, maakohtaisella tarkkuudella, `closed_dates.json`-listalta
+(FI/SE/NO) - sillä jokainen valtakunta sulkee luukkunsa oman juhlakalenterinsa tahdissa:
 
-| Maa | Ketju | Lähtöaineisto |
+| Maa | Monopoli | Mistä aineisto noudetaan |
 |---|---|---|
 | 🇫🇮 Suomi | Alko | `stores.json` (Alkon oma vienti, juurihakemistossa) |
-| 🇸🇪 Ruotsi | Systembolaget | `tools/raw/systembolaget_mirror.json` (virallinen Site V2 -data) |
+| 🇸🇪 Ruotsi | Systembolaget | `tools/raw/systembolaget_mirror.json` (virallinen Site-data) |
 | 🇳🇴 Norja | Vinmonopolet | `tools/raw/vinmonopolet_osm.json` (OpenStreetMap / Overpass) |
 
-Norjan raakadatan saa tuoreena Overpassista; Ruotsin virallisesta APIsta
-(`api-extern.systembolaget.se`, vaatii ilmaisen avaimen) tai sen yhteisömirrorista.
-Pelkkää Pythonin vakiokalustoa - ei ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
+Norjan raakadatan saa tuoreena Overpassista koska tahansa. Ruotsin virallinen aarre lepää
+APIn (`api-extern.systembolaget.se`) takana lukkojen ja ilmaisen avaimen päässä; tällä
+hetkellä se on poimittu kohteliaasti yhteisön ylläpitämästä peilistä. Koko jalostamo
+pyörii pelkällä Pythonin vakiokalustolla - ei ulkopuolisia riippuvuuksia, ei salaseuroja,
+ei jäsenmaksuja.
 
 ## Laitoksen sisäinen organisaatiokaavio
 
@@ -97,18 +113,20 @@ erillään herkästä Android-sensori- ja sijaintiosastosta:
 | `DistanceFormat` | Pukee metrit ja kilometrit ihmisymmärrettävään virka-asuun |
 | `CompassProvider` | Kuulostelee laitteen suuntaa magneettikentästä |
 | `LocationProvider` | Tiedustelee kansalaisen olinpaikan satelliiteilta |
-| `MainViewModel` | Yhdistää kaiken ja päättää, kumpi Alko on vuorossa |
+| `MainViewModel` | Yhdistää kaiken ja päättää, mikä monopoli on lähinnä vuorossa |
 | `MainScreen` / `MainActivity` | Esittää pullon, luvut ja painikkeet yleisölle |
 
 Suunnittelu- ja toteutuspöytäkirjat arkistoituvat kansioon `docs/superpowers/`.
 
 ## Tekijänoikeudet, kunnianosoitukset ja muut juhlapuheet
 
-- Suomen myymälätiedot: Alkon oma myymälärekisteri, oikeudet Alko Oy:lle.
-- Ruotsin myymälätiedot: Systembolagetin avoin Site-API, oikeudet Systembolaget AB:lle
-  (käyttöehdot sallivat datan julkaisun sovelluksessa).
-- Norjan myymälätiedot: © OpenStreetMapin uupumattomat talkoolaiset,
-  lisenssi [ODbL](https://opendatacommons.org/licenses/odbl/).
+- Suomen myymälätiedot: Alkon oma myymälärekisteri, oikeudet Alko Oy:lle - kiitos
+  hyvästä palveluksesta jo vuodesta 1932.
+- Ruotsin myymälätiedot: Systembolagetin avoin Site-API, oikeudet Systembolaget AB:lle.
+  Heidän käyttöehtonsa sallivat aineiston julkaisun sovelluksessa, kunhan touhu ei sodi
+  heidän kansanterveydellistä kutsumustaan vastaan - eikä osoitinpullo sitä tee.
+- Norjan myymälätiedot: © OpenStreetMapin uupumattomat talkoolaiset, jotka kartoittivat
+  Vinmonopoletit vapaaehtoisvoimin; lisenssi [ODbL](https://opendatacommons.org/licenses/odbl/).
 - `compass_needle.png`: *Gambina Cocktail* -pullo, ylennetty kunniakkaaseen
   kompassinuolen virkaan.
 - `title.svg`: talon oma vaakuna, taottu vektoripajassa.
