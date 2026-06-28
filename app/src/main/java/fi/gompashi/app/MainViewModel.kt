@@ -53,6 +53,7 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
     private val stepProvider = StepProvider(app)
     private val stride = StrideEstimator()
     private val routeProvider = RouteProvider()
+    val tileStore = TileStore(app, viewModelScope)
 
     // Walking-route state. The route feeds the map view and a detour factor for steps.
     val route = MutableStateFlow<FootRoute?>(null)

@@ -61,6 +61,7 @@ class MainActivity : ComponentActivity() {
                         state = state,
                         needle = needle,
                         route = route,
+                        tileStore = viewModel.tileStore,
                         customStores = customStores,
                         onToggleRank = { viewModel.toggleRank() },
                         onRequestPermission = { requestLocationPermission() },

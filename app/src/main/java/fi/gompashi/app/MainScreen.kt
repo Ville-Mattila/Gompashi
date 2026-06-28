@@ -48,7 +48,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -102,6 +101,7 @@ fun MainScreen(
     state: UiState,
     needle: ImageBitmap?,
     route: FootRoute?,
+    tileStore: TileStore,
     customStores: List<AlkoStore>,
     onToggleRank: () -> Unit,
     onRequestPermission: () -> Unit,
@@ -112,8 +112,6 @@ fun MainScreen(
 ) {
     var showSettings by remember { mutableStateOf(false) }
     var showMap by remember { mutableStateOf(false) }
-    val scope = rememberCoroutineScope()
-    val tileStore = remember { TileStore(scope) }
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -165,6 +163,9 @@ fun MainScreen(
             SettingsScreen(
                 needle = needle,
                 customStores = customStores,
+                tileStore = tileStore,
+                userLat = state.userLat,
+                userLon = state.userLon,
                 onAddCustom = onAddCustom,
                 onRemoveCustom = onRemoveCustom,
                 onPickNeedle = onPickNeedle,
@@ -474,6 +475,9 @@ private fun SegmentedToggle(
 private fun SettingsScreen(
     needle: ImageBitmap?,
     customStores: List<AlkoStore>,
+    tileStore: TileStore,
+    userLat: Double?,
+    userLon: Double?,
     onAddCustom: (String) -> Boolean,
     onRemoveCustom: (Int) -> Unit,
     onPickNeedle: () -> Unit,
@@ -507,6 +511,37 @@ private fun SettingsScreen(
         Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
             Button(onClick = onPickNeedle) { Text("Vaihda kuva") }
             TextButton(onClick = onResetNeedle) { Text("Palauta oletus", color = TextSecondary) }
+        }
+
+        Spacer(Modifier.height(28.dp))
+        Text("Offline-kartat", color = TextPrimary, fontSize = 16.sp, fontWeight = FontWeight.SemiBold)
+        Text(
+            text = "Lataa kartta nykyisen sijainnin ympäriltä (n. 50 km), niin reittikartta toimii myös ilman verkkoa. Reitit vaativat silti verkon.",
+            color = TextSecondary,
+            fontSize = 12.sp,
+            modifier = Modifier.padding(vertical = 6.dp),
+        )
+        Button(
+            onClick = { if (userLat != null && userLon != null) tileStore.downloadRegion(userLat, userLon) },
+            enabled = !tileStore.downloading && userLat != null,
+        ) { Text(if (tileStore.downloading) "Ladataan…" else "Lataa nykyinen seutu") }
+        if (tileStore.downloading) {
+            Text(
+                "Ladataan ${tileStore.progressDone}/${tileStore.progressTotal}…",
+                color = TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 6.dp),
+            )
+        }
+        tileStore.regions.forEachIndexed { i, r ->
+            Row(
+                modifier = Modifier.fillMaxWidth().padding(vertical = 6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    "%.3f, %.3f · %d MB".format(r.lat, r.lon, r.bytes / 1_048_576),
+                    color = TextPrimary, fontSize = 14.sp, modifier = Modifier.weight(1f),
+                )
+                TextButton(onClick = { tileStore.deleteRegion(i) }) { Text("Poista", color = Accent) }
+            }
         }
 
         Spacer(Modifier.height(28.dp))
@@ -708,7 +743,9 @@ private fun RouteCanvas(state: UiState, route: FootRoute?, tileStore: TileStore)
         val dnx = max(maxNx - minNx, 1e-12); val dny = max(maxNy - minNy, 1e-12)
         var scale = min((w - 2 * marginX) / dnx, (h - 2 * marginY) / dny) // px per normalized world unit
         scale = scale.coerceIn(TILE * 2.0.pow(3), TILE * 2.0.pow(20))
-        val tz = (ln(scale / TILE) / ln(2.0)).toInt().coerceIn(3, 19)
+        // Offline: cap to the downloaded zoom; closer zooms overzoom those tiles.
+        val maxZ = if (tileStore.online) 19 else TileStore.MAX_ZOOM
+        val tz = (ln(scale / TILE) / ln(2.0)).toInt().coerceIn(3, maxZ)
         val nT = 2.0.pow(tz).toInt()
         val tilePx = scale / nT // on-screen tile size (256..512)
         val cNx = (minNx + maxNx) / 2; val cNy = (minNy + maxNy) / 2

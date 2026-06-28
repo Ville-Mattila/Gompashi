@@ -71,6 +71,30 @@ let lastMapDraw = 0;
 const TILE = 256;
 const mercY = (lat) => (1 - Math.log(Math.tan(rad(lat)) + 1 / Math.cos(rad(lat))) / Math.PI) / 2;
 
+// ----- Offline map regions (downloaded tiles) -----
+const TILE_CACHE_NAME = "gompashi-tiles";
+const LS_REGIONS = "gompashi.regions";
+const OFFLINE_RADIUS_KM = 25;   // half-size of the downloaded box
+const OFFLINE_MINZ = 11;
+const OFFLINE_MAXZ = 14;        // also the offline render zoom cap (higher zooms overzoom these)
+
+const tileX = (lon, z) => Math.floor((lon + 180) / 360 * 2 ** z);
+const tileY = (lat, z) => Math.floor(mercY(lat) * 2 ** z);
+
+// All {z,x,y} tiles covering a box of ±OFFLINE_RADIUS_KM around (lat,lon), z MIN..MAX.
+function regionTiles(lat, lon) {
+  const dLat = OFFLINE_RADIUS_KM / 111.32;
+  const dLon = OFFLINE_RADIUS_KM / (111.32 * Math.cos(rad(lat)));
+  const s = lat - dLat, n = lat + dLat, w = lon - dLon, e = lon + dLon;
+  const out = [];
+  for (let z = OFFLINE_MINZ; z <= OFFLINE_MAXZ; z++) {
+    const x0 = tileX(w, z), x1 = tileX(e, z);
+    const y0 = tileY(n, z), y1 = tileY(s, z); // north has the smaller y
+    for (let x = x0; x <= x1; x++) for (let y = y0; y <= y1; y++) out.push({ z, x, y });
+  }
+  return out;
+}
+
 function getTile(url, onload) {
   let img = tileCache.get(url);
   if (img) return img.ok ? img : null;
@@ -274,7 +298,9 @@ function drawMap(target) {
   const dnx = Math.max(maxNx - minNx, 1e-12), dny = Math.max(maxNy - minNy, 1e-12);
   let scale = Math.min((W - 2 * marginX) / dnx, (H - 2 * marginY) / dny); // px per normalized world unit
   scale = Math.max(TILE * 2 ** 3, Math.min(TILE * 2 ** 20, scale));
-  const tz = Math.max(3, Math.min(19, Math.floor(Math.log2(scale / TILE))));
+  // Offline: cap the tile zoom to what's been downloaded; higher zooms overzoom those tiles.
+  const maxZ = navigator.onLine ? 19 : OFFLINE_MAXZ;
+  const tz = Math.max(3, Math.min(maxZ, Math.floor(Math.log2(scale / TILE))));
   const nT = 2 ** tz;
   const tilePx = scale / nT; // on-screen tile size (256..512)
   const cNx = (minNx + maxNx) / 2, cNy = (minNy + maxNy) / 2;
@@ -287,7 +313,8 @@ function drawMap(target) {
     for (let ty = Math.floor(sy0 / tilePx); ty <= Math.floor((sy0 + H) / tilePx); ty++) {
       if (ty < 0 || ty >= nT) continue;
       const wx = ((tx % nT) + nT) % nT;
-      const img = getTile(TILE_URL(tz, wx, ty), () => { if (mapOpen) drawMapThrottled(currentTarget()); });
+      // Redraw directly on tile load (cached tiles arrive faster than the throttle window).
+      const img = getTile(TILE_URL(tz, wx, ty), () => { if (mapOpen) drawMap(currentTarget()); });
       if (img) ctx.drawImage(img, tx * tilePx - sx0, ty * tilePx - sy0, tilePx, tilePx);
     }
   }
@@ -465,6 +492,87 @@ function initMap() {
   window.addEventListener("resize", () => { if (mapOpen) drawMap(currentTarget()); });
 }
 
+// ---------- Offline map regions ----------
+function loadRegions() { try { return JSON.parse(localStorage.getItem(LS_REGIONS) || "[]"); } catch (_) { return []; } }
+function saveRegions(r) { localStorage.setItem(LS_REGIONS, JSON.stringify(r)); }
+
+// Download every tile (z11..14) around the current location into the persistent tile cache.
+async function downloadCurrentRegion(onProgress) {
+  if (!userPos) throw new Error("no-loc");
+  const tiles = regionTiles(userPos.lat, userPos.lon);
+  const cache = await caches.open(TILE_CACHE_NAME);
+  let done = 0, bytes = 0, idx = 0;
+  async function worker() {
+    while (idx < tiles.length) {
+      const t = tiles[idx++];
+      const url = TILE_URL(t.z, t.x, t.y);
+      try {
+        const existing = await cache.match(url);
+        if (existing) { bytes += (await existing.clone().blob()).size; }
+        else {
+          const res = await fetch(url, { mode: "cors" });
+          if (res.ok) { bytes += (await res.clone().blob()).size; await cache.put(url, res); }
+        }
+      } catch (_) { /* skip failed tile */ }
+      done++;
+      if (onProgress && done % 12 === 0) onProgress(done, tiles.length);
+    }
+  }
+  await Promise.all(Array.from({ length: 6 }, worker));
+  const regions = loadRegions();
+  regions.push({ lat: userPos.lat, lon: userPos.lon, tiles: tiles.length, bytes, ts: Date.now() });
+  saveRegions(regions);
+  return { tiles: tiles.length, bytes };
+}
+
+async function deleteRegion(i) {
+  const regions = loadRegions();
+  const r = regions[i];
+  if (!r) return;
+  const cache = await caches.open(TILE_CACHE_NAME);
+  for (const t of regionTiles(r.lat, r.lon)) {
+    try { await cache.delete(TILE_URL(t.z, t.x, t.y)); } catch (_) {}
+  }
+  regions.splice(i, 1);
+  saveRegions(regions);
+}
+
+function renderRegionList() {
+  const list = document.getElementById("offlineList");
+  list.replaceChildren();
+  loadRegions().forEach((r, i) => {
+    const row = document.createElement("div");
+    row.className = "custom-row";
+    const label = document.createElement("span");
+    label.textContent = `${r.lat.toFixed(3)}, ${r.lon.toFixed(3)} · ${(r.bytes / 1048576).toFixed(0)} MB`;
+    const del = document.createElement("button");
+    del.textContent = "✕";
+    del.setAttribute("aria-label", "Poista");
+    del.onclick = async () => { await deleteRegion(i); renderRegionList(); };
+    row.append(label, del);
+    list.appendChild(row);
+  });
+}
+
+function initOfflineMaps() {
+  const btn = document.getElementById("offlineDownload");
+  const prog = document.getElementById("offlineProgress");
+  renderRegionList();
+  btn.onclick = async () => {
+    if (!userPos) { prog.textContent = "Sijaintia ei vielä saatu — käynnistä ensin ja salli sijainti."; return; }
+    btn.disabled = true;
+    prog.textContent = "Ladataan…";
+    try {
+      const r = await downloadCurrentRegion((d, total) => { prog.textContent = `Ladataan ${d}/${total}…`; });
+      prog.textContent = `Valmis: ${(r.bytes / 1048576).toFixed(0)} MB tallennettu.`;
+      renderRegionList();
+    } catch (_) {
+      prog.textContent = "Lataus epäonnistui. Tarkista verkkoyhteys.";
+    }
+    btn.disabled = false;
+  };
+}
+
 // ---------- Settings: custom needle + own stores (localStorage) ----------
 function rebuildStores() {
   stores = bundledStores.concat(customStores);
@@ -559,6 +667,7 @@ function initSettings() {
 loadCustom();
 initSettings();
 initMap();
+initOfflineMaps();
 
 fetch("alko_stores.json")
   .then((r) => r.json())

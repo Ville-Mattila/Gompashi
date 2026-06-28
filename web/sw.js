@@ -1,6 +1,9 @@
 // Gompashi PWA service worker — offline-first app shell + bundled store data.
 // Bump CACHE when assets or data change so clients pick up the new version.
-const CACHE = "gompashi-v18";
+const CACHE = "gompashi-v19";
+// Persistent, user-downloaded base-map tiles (kept across app-shell updates).
+const TILE_CACHE = "gompashi-tiles";
+const TILE_HOST = "basemaps.cartocdn.com";
 const ASSETS = [
   "./",
   "./index.html",
@@ -26,16 +29,27 @@ self.addEventListener("install", (e) => {
 self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+      Promise.all(keys.filter((k) => k !== CACHE && k !== TILE_CACHE).map((k) => caches.delete(k)))
     ).then(() => self.clients.claim())
   );
 });
 
 self.addEventListener("fetch", (e) => {
   if (e.request.method !== "GET") return;
-  // Only the app shell is cached. Cross-origin calls (e.g. the OSM routing API) go
+  const url = new URL(e.request.url);
+  // Map tiles: serve from the downloaded-tiles cache first (works offline), else network.
+  // Downloads populate this cache explicitly; we don't auto-add live tiles here.
+  if (url.hostname === TILE_HOST) {
+    e.respondWith(
+      caches.open(TILE_CACHE).then((c) =>
+        c.match(e.request).then((hit) => hit || fetch(e.request))
+      )
+    );
+    return;
+  }
+  // Only the app shell is cached. Other cross-origin calls (e.g. the OSM routing API) go
   // straight to the network so routes stay fresh and offline failures fall back cleanly.
-  if (new URL(e.request.url).origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin) return;
   e.respondWith(
     caches.match(e.request).then((hit) =>
       hit ||
