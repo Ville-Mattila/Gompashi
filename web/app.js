@@ -262,34 +262,33 @@ function drawMap(target) {
   const haveRoute = currentRoute && routeKey === storeKey(store);
   const line = haveRoute ? currentRoute.coords : [[userPos.lat, userPos.lon], [store.lat, store.lon]];
 
-  // Frame just the start (you) and finish (store), with a margin proportional to the view.
-  const minLat = Math.min(userPos.lat, store.lat), maxLat = Math.max(userPos.lat, store.lat);
-  const minLon = Math.min(userPos.lon, store.lon), maxLon = Math.max(userPos.lon, store.lon);
-  const marginX = W * 0.18, marginY = H * 0.18;
-
-  // Pick the slippy-map zoom that frames the two endpoints with that margin.
-  const lonFrac = Math.max((maxLon - minLon) / 360, 1e-9);
-  const latFrac = Math.max(mercY(minLat) - mercY(maxLat), 1e-9);
-  let z = Math.floor(Math.min(
-    Math.log2(Math.max(W - 2 * marginX, 1) / (TILE * lonFrac)),
-    Math.log2(Math.max(H - 2 * marginY, 1) / (TILE * latFrac)),
-  ));
-  z = Math.max(3, Math.min(19, z));
-  const scale = TILE * Math.pow(2, z);
-  const nT = Math.pow(2, z);
-  const cWx = ((minLon + maxLon) / 2 + 180) / 360 * scale;
-  const cWy = (mercY(minLat) + mercY(maxLat)) / 2 * scale;
-  const sx0 = cWx - W / 2, sy0 = cWy - H / 2; // viewport top-left in world px
-  const project = ([la, lo]) => [(lo + 180) / 360 * scale - sx0, mercY(la) * scale - sy0];
+  // Frame just the start (you) and finish (store) tightly, with a small view-proportional
+  // margin. Uses a continuous (fractional) zoom so the framing isn't loosened by snapping to
+  // integer tile levels; tiles are drawn scaled to match.
+  const nx = (lon) => (lon + 180) / 360;
+  const aNx = nx(userPos.lon), bNx = nx(store.lon);
+  const aNy = mercY(userPos.lat), bNy = mercY(store.lat);
+  const minNx = Math.min(aNx, bNx), maxNx = Math.max(aNx, bNx);
+  const minNy = Math.min(aNy, bNy), maxNy = Math.max(aNy, bNy);
+  const marginX = W * 0.10, marginY = H * 0.10;
+  const dnx = Math.max(maxNx - minNx, 1e-12), dny = Math.max(maxNy - minNy, 1e-12);
+  let scale = Math.min((W - 2 * marginX) / dnx, (H - 2 * marginY) / dny); // px per normalized world unit
+  scale = Math.max(TILE * 2 ** 3, Math.min(TILE * 2 ** 20, scale));
+  const tz = Math.max(3, Math.min(19, Math.floor(Math.log2(scale / TILE))));
+  const nT = 2 ** tz;
+  const tilePx = scale / nT; // on-screen tile size (256..512)
+  const cNx = (minNx + maxNx) / 2, cNy = (minNy + maxNy) / 2;
+  const sx0 = cNx * scale - W / 2, sy0 = cNy * scale - H / 2; // viewport top-left in world px
+  const project = ([la, lo]) => [nx(lo) * scale - sx0, mercY(la) * scale - sy0];
 
   // Dim base map: CARTO dark tiles, faint behind the route.
   ctx.globalAlpha = 0.55;
-  for (let tx = Math.floor(sx0 / TILE); tx <= Math.floor((sx0 + W) / TILE); tx++) {
-    for (let ty = Math.floor(sy0 / TILE); ty <= Math.floor((sy0 + H) / TILE); ty++) {
+  for (let tx = Math.floor(sx0 / tilePx); tx <= Math.floor((sx0 + W) / tilePx); tx++) {
+    for (let ty = Math.floor(sy0 / tilePx); ty <= Math.floor((sy0 + H) / tilePx); ty++) {
       if (ty < 0 || ty >= nT) continue;
       const wx = ((tx % nT) + nT) % nT;
-      const img = getTile(TILE_URL(z, wx, ty), () => { if (mapOpen) drawMapThrottled(currentTarget()); });
-      if (img) ctx.drawImage(img, tx * TILE - sx0, ty * TILE - sy0, TILE, TILE);
+      const img = getTile(TILE_URL(tz, wx, ty), () => { if (mapOpen) drawMapThrottled(currentTarget()); });
+      if (img) ctx.drawImage(img, tx * tilePx - sx0, ty * tilePx - sy0, tilePx, tilePx);
     }
   }
   ctx.globalAlpha = 1;

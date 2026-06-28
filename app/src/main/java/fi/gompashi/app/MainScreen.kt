@@ -697,36 +697,40 @@ private fun RouteCanvas(state: UiState, route: FootRoute?, tileStore: TileStore)
         val line: List<Pair<Double, Double>> =
             route?.points?.map { it.lat to it.lon } ?: listOf(uLat to uLon, sLat to sLon)
 
-        // Frame just the start (you) and finish (store), with a margin proportional to the view.
-        val minLat = min(uLat, sLat); val maxLat = max(uLat, sLat)
-        val minLon = min(uLon, sLon); val maxLon = max(uLon, sLon)
-        val marginX = w * 0.18; val marginY = h * 0.18
+        // Frame just the start (you) and finish (store) tightly, with a small view-proportional
+        // margin. Continuous (fractional) zoom so framing isn't loosened by integer tile levels;
+        // tiles are drawn scaled to match.
+        val aNx = (uLon + 180) / 360; val bNx = (sLon + 180) / 360
+        val aNy = mercY(uLat); val bNy = mercY(sLat)
+        val minNx = min(aNx, bNx); val maxNx = max(aNx, bNx)
+        val minNy = min(aNy, bNy); val maxNy = max(aNy, bNy)
+        val marginX = w * 0.10; val marginY = h * 0.10
+        val dnx = max(maxNx - minNx, 1e-12); val dny = max(maxNy - minNy, 1e-12)
+        var scale = min((w - 2 * marginX) / dnx, (h - 2 * marginY) / dny) // px per normalized world unit
+        scale = scale.coerceIn(TILE * 2.0.pow(3), TILE * 2.0.pow(20))
+        val tz = (ln(scale / TILE) / ln(2.0)).toInt().coerceIn(3, 19)
+        val nT = 2.0.pow(tz).toInt()
+        val tilePx = scale / nT // on-screen tile size (256..512)
+        val cNx = (minNx + maxNx) / 2; val cNy = (minNy + maxNy) / 2
+        val sx0 = cNx * scale - w / 2
+        val sy0 = cNy * scale - h / 2
 
-        val lonFrac = max((maxLon - minLon) / 360, 1e-9)
-        val latFrac = max(mercY(minLat) - mercY(maxLat), 1e-9)
-        var z = minOf(
-            (ln(max(w - 2 * marginX, 1.0) / (TILE * lonFrac)) / ln(2.0)),
-            (ln(max(h - 2 * marginY, 1.0) / (TILE * latFrac)) / ln(2.0)),
-        ).toInt()
-        z = z.coerceIn(3, 19)
-        val scale = TILE * 2.0.pow(z)
-        val nT = 2.0.pow(z).toInt()
-        val cWx = ((minLon + maxLon) / 2 + 180) / 360 * scale
-        val cWy = (mercY(minLat) + mercY(maxLat)) / 2 * scale
-        val sx0 = cWx - w / 2
-        val sy0 = cWy - h / 2
-
-        // Request the tiles covering the viewport (loads happen in the background).
-        data class T(val img: ImageBitmap, val dx: Float, val dy: Float)
+        // Request the tiles covering the viewport (loads happen in the background). Tile edges are
+        // snapped to integer pixels so scaled tiles tile seamlessly.
+        data class T(val img: ImageBitmap, val x: Int, val y: Int, val wpx: Int, val hpx: Int)
         val drawTiles = ArrayList<T>()
-        var tx = kotlin.math.floor(sx0 / TILE).toInt()
-        while (tx <= kotlin.math.floor((sx0 + w) / TILE).toInt()) {
-            var ty = kotlin.math.floor(sy0 / TILE).toInt()
-            while (ty <= kotlin.math.floor((sy0 + h) / TILE).toInt()) {
+        var tx = kotlin.math.floor(sx0 / tilePx).toInt()
+        while (tx <= kotlin.math.floor((sx0 + w) / tilePx).toInt()) {
+            var ty = kotlin.math.floor(sy0 / tilePx).toInt()
+            while (ty <= kotlin.math.floor((sy0 + h) / tilePx).toInt()) {
                 if (ty in 0 until nT) {
                     val wx = ((tx % nT) + nT) % nT
-                    tileStore.get(z, wx, ty)?.let {
-                        drawTiles.add(T(it, (tx * TILE - sx0).toFloat(), (ty * TILE - sy0).toFloat()))
+                    tileStore.get(tz, wx, ty)?.let {
+                        val ix = (tx * tilePx - sx0).roundToInt()
+                        val iy = (ty * tilePx - sy0).roundToInt()
+                        val iw = ((tx + 1) * tilePx - sx0).roundToInt() - ix
+                        val ih = ((ty + 1) * tilePx - sy0).roundToInt() - iy
+                        drawTiles.add(T(it, ix, iy, iw, ih))
                     }
                 }
                 ty++
@@ -744,8 +748,8 @@ private fun RouteCanvas(state: UiState, route: FootRoute?, tileStore: TileStore)
             for (t in drawTiles) {
                 drawImage(
                     image = t.img,
-                    dstOffset = IntOffset(t.dx.roundToInt(), t.dy.roundToInt()),
-                    dstSize = IntSize(TILE, TILE),
+                    dstOffset = IntOffset(t.x, t.y),
+                    dstSize = IntSize(t.wpx, t.hpx),
                     alpha = 0.55f,
                 )
             }
