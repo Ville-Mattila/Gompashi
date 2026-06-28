@@ -71,10 +71,10 @@ python tools/convert_stores.py
 ```
 
 Skripti lukee `stores.json`-arkin, karsii joukosta noutopisteet (ne, joista vain noudetaan
-tilaus, eivät ole oikeita myymälöitä) ja pysyvästi suljetut, poimii viikkoaikataulut sekä
-seuraavan kymmenen päivän päiväkohtaiset poikkeukset (pyhät ja erikoispäivät), ja kirjoittaa
-tuloksen sekä Android-appiin että `web/`-kansioon. Pelkkää Pythonin vakiokalustoa - ei
-ulkopuolisia riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
+tilaus, eivät ole oikeita myymälöitä) ja pysyvästi suljetut, poimii viikkoaikataulut ja
+kirjoittaa tuloksen sekä Android-appiin että `web/`-kansioon. Pyhät hoituu erikseen
+`closed_dates.json`-listalta. Pelkkää Pythonin vakiokalustoa - ei ulkopuolisia
+riippuvuuksia, ei salaseuroja, ei jäsenmaksuja.
 
 ## Laitoksen sisäinen organisaatiokaavio
 

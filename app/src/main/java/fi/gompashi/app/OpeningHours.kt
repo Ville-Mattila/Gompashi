@@ -10,28 +10,15 @@ data class OpenStatus(val open: Boolean, val target: LocalDateTime)
 object OpeningHours {
 
     /**
-     * Given the current time, a 7-day schedule (Mon..Sun; each [open,close] or null), per-date
-     * exceptions ("yyyy-MM-dd" -> [open,close] or null), and the set of Alko-closed dates
-     * (ISO "yyyy-MM-dd"), returns whether the store is open now and when it next closes (if open)
-     * or opens (if closed). Null if no opening found in 2 weeks.
-     *
-     * Precedence per day: exception (if the date is present) > closed date > weekly schedule.
+     * Given the current time, a 7-day schedule (Mon..Sun; each [open,close] or null), and the
+     * set of Alko-closed dates (ISO "yyyy-MM-dd"), returns whether the store is open now and
+     * when it next closes (if open) or opens (if closed). Null if no opening found in 2 weeks.
      */
-    fun status(
-        now: LocalDateTime,
-        hours: List<List<String>?>,
-        closedDates: Set<String>,
-        exceptions: Map<String, List<String>?> = emptyMap(),
-    ): OpenStatus? {
+    fun status(now: LocalDateTime, hours: List<List<String>?>, closedDates: Set<String>): OpenStatus? {
         for (offset in 0L..13L) {
             val day = now.toLocalDate().plusDays(offset)
-            val key = day.toString()
             val dow = day.dayOfWeek.value - 1 // Mon=0 .. Sun=6
-            val sched = when {
-                exceptions.containsKey(key) -> exceptions[key]
-                closedDates.contains(key) || dow !in hours.indices -> null
-                else -> hours[dow]
-            }
+            val sched = if (closedDates.contains(day.toString()) || dow !in hours.indices) null else hours[dow]
             if (sched == null || sched.size < 2) continue
             val open = day.atTime(LocalTime.parse(sched[0]))
             val close = day.atTime(LocalTime.parse(sched[1]))

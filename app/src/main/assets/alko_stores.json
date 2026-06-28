@@ -294,13 +294,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Espoo Kauklahti",
@@ -369,14 +363,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Espoo Lähderanta",
@@ -478,14 +465,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Espoo Niittykumpu",
@@ -551,13 +531,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Espoo Tapiola Ainoa",
@@ -593,14 +567,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Eura",
@@ -897,13 +864,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Harjavalta",
@@ -1194,13 +1155,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Herttoniemi Hertta",
@@ -1233,13 +1188,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Itäkeskus Easton",
@@ -1275,14 +1224,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Itäkeskus Prisma",
@@ -1381,13 +1323,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Kallio",
@@ -1456,14 +1392,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Kasarmitori",
@@ -1628,13 +1557,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Laajasalo",
@@ -1700,13 +1623,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Malmi Nova",
@@ -1739,13 +1656,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Mellunmäki",
@@ -1880,14 +1791,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Pikku Huopalahti",
@@ -1986,13 +1890,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki Taivallahti",
@@ -2157,13 +2055,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki keskusta Arkadia",
@@ -2196,13 +2088,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "10:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki keskusta Citycenter",
@@ -2235,13 +2121,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki keskusta Eteläesplanadi",
@@ -2310,14 +2190,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Helsinki keskusta Stockmann",
@@ -2485,14 +2358,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Hyvinkää Willa Prisma",
@@ -2726,14 +2592,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Hämeenlinna Tiiriö Prisma",
@@ -2832,13 +2691,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Iitti Kausala",
@@ -3237,14 +3090,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Joensuu Pilkko Citymarket",
@@ -3277,13 +3123,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Joensuu keskusta Sokos",
@@ -3316,13 +3156,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Jomala Maxinge Center",
@@ -3490,14 +3324,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Jyväskylä Palokka Prisma",
@@ -3530,13 +3357,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Jyväskylä Seppä",
@@ -3572,10 +3393,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Jyväskylä Seppälä Citymarket",
@@ -3674,13 +3492,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Jämsä",
@@ -3749,14 +3561,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Järvenpää Prisma",
@@ -3789,13 +3594,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kaarina",
@@ -3828,13 +3627,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kaarina Piikkiö",
@@ -3936,14 +3729,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kajaani keskusta Citymarket",
@@ -4042,13 +3828,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kangasala keskusta",
@@ -4642,13 +4422,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Keuruu",
@@ -4717,14 +4491,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kitee",
@@ -4925,14 +4692,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kokkola keskusta K-Supermarket",
@@ -4965,13 +4725,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kolari Ylläs Äkäslompolo",
@@ -5139,14 +4893,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kouvola Inkeroinen",
@@ -5215,14 +4962,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kouvola Kuusankoski",
@@ -5654,14 +5394,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kuopio keskusta Sokos",
@@ -5694,13 +5427,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Kurikka",
@@ -5994,13 +5721,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Lahti Karisma",
@@ -6102,14 +5823,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Lahti Nastola Rakokivi",
@@ -6208,13 +5922,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Laihia",
@@ -6448,14 +6156,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Lappeenranta keskusta Iso Kristiina",
@@ -6818,13 +6519,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Lohja keskusta Lohi",
@@ -7124,14 +6819,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Mikkeli Ristiina",
@@ -7362,13 +7050,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Mänttä",
@@ -7500,13 +7182,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Nivala",
@@ -7572,13 +7248,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Nurmes",
@@ -7677,13 +7347,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Närpiö",
@@ -7881,13 +7545,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Oulu Kiiminki",
@@ -7956,14 +7614,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Oulu Linnanmaa",
@@ -7996,13 +7647,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Oulu Rusko Citymarket",
@@ -8035,13 +7680,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Oulu Välivainio",
@@ -8074,13 +7713,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Oulu keskusta Pekuri",
@@ -8113,13 +7746,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Outokumpu",
@@ -8317,13 +7944,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Parikkala",
@@ -8521,13 +8142,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Pihtipudas",
@@ -8593,13 +8208,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Pirkkala keskusta",
@@ -8665,13 +8274,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Pori Länsi-Pori",
@@ -8707,14 +8310,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Pori Noormarkku",
@@ -8849,14 +8445,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Porvoo Tarmola",
@@ -8889,13 +8478,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Porvoo vanhakaupunki",
@@ -9150,13 +8733,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Raasepori Karjaa",
@@ -9222,13 +8799,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Raisio Mylly",
@@ -9261,13 +8832,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Raisio keskusta",
@@ -9300,13 +8865,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Rantasalmi",
@@ -9402,13 +8961,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Rauma Äyhö",
@@ -9474,13 +9027,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Riihimäki Merkos",
@@ -9546,13 +9093,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Rovaniemi Saarenkylä",
@@ -9621,14 +9162,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Ruovesi",
@@ -9760,13 +9294,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Salo Perniö",
@@ -9835,14 +9363,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Sastamala Vammala",
@@ -9977,14 +9498,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Savonlinna keskusta",
@@ -10083,13 +9597,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Seinäjoki Pohja Minimani",
@@ -10122,13 +9630,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Seinäjoki keskusta Megakeskus",
@@ -10164,14 +9666,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Siilinjärvi",
@@ -10600,13 +10095,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Kaleva Prisma",
@@ -10642,14 +10131,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Koivistonkylä Prisma",
@@ -10715,13 +10197,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Linnainmaa Prisma",
@@ -10754,13 +10230,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Ratina",
@@ -10793,13 +10263,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Sokos",
@@ -10835,14 +10299,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Stockmann",
@@ -10875,13 +10332,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Tammela Stadion",
@@ -10914,13 +10365,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Tesoma",
@@ -10953,13 +10398,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tampere Turtola Citymarket",
@@ -10992,13 +10431,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Teuva",
@@ -11124,13 +10557,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku Kupittaa",
@@ -11166,14 +10593,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku Länsikeskus Citymarket",
@@ -11206,13 +10626,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku Manhattan",
@@ -11245,13 +10659,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku Skanssi",
@@ -11284,13 +10692,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku Tampereentie",
@@ -11323,13 +10725,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku keskusta Stockmann",
@@ -11362,13 +10758,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Turku keskusta Wiklund",
@@ -11404,14 +10794,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Tuusula Hyrylä",
@@ -11444,13 +10827,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Ulvila",
@@ -11714,14 +11091,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vaasa Kivihaka Citymarket",
@@ -11754,13 +11124,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vaasa Liisanlehto",
@@ -11793,13 +11157,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vaasa keskusta Citymarket",
@@ -11832,13 +11190,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Valkeakoski",
@@ -11937,13 +11289,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vantaa Kivistö",
@@ -12042,13 +11388,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vantaa Korso",
@@ -12114,13 +11454,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vantaa Pakkala Jumbo",
@@ -12156,14 +11490,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vantaa Tammisto Citymarket",
@@ -12196,13 +11523,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Vantaa Tikkurila",
@@ -12235,13 +11556,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Varkaus",
@@ -12310,14 +11625,7 @@
         "18:00"
       ]
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ],
-      "2026-06-28": null
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Viitasaari",
@@ -12449,13 +11757,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Ylöjärvi",
@@ -12488,13 +11790,7 @@
       ],
       null
     ],
-    "hoursKnown": true,
-    "exceptions": {
-      "2026-06-27": [
-        "09:00",
-        "18:00"
-      ]
-    }
+    "hoursKnown": true
   },
   {
     "name": "Alko Ähtäri",

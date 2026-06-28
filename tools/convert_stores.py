@@ -8,12 +8,12 @@ lat,lon,hours[7],upcomingHours[{date,hours}]}]}.
 
 Steps:
   1. Drop pickup points ("Noutopiste ..." / 6-digit ids) — only real stores stay.
-  2. Drop stores that are closed every weekday with no upcoming opening
-     (permanently/temporarily closed).
-  3. Build per-store date exceptions from upcomingHours (only entries that
-     differ from the weekly pattern), so the countdown is exact for ~10 days.
-  4. Keep emitting closed_dates.json (Finnish holidays) as the long-term
-     fallback beyond the upcomingHours window.
+  2. Drop stores that are closed every weekday (permanently/temporarily closed).
+  3. Emit the weekly schedule + closed_dates.json (Finnish holidays).
+
+Note: the source's per-date `upcomingHours` are intentionally ignored — they only
+cover ~10 days and we can't regenerate the bundled data that often. Holidays are
+handled by closed_dates.json instead.
 
 Usage:
     python tools/convert_stores.py
@@ -34,9 +34,7 @@ def is_pickup(s):
 
 
 def is_closed_forever(s):
-    weekly_all_closed = all(h is None for h in (s.get("hours") or [None] * 7))
-    upcoming_all_closed = all(d.get("hours") is None for d in (s.get("upcomingHours") or []))
-    return weekly_all_closed and upcoming_all_closed
+    return all(h is None for h in (s.get("hours") or [None] * 7))
 
 
 def norm_hours(h):
@@ -44,22 +42,6 @@ def norm_hours(h):
     if not h:
         return None
     return [h[0], h[1]]
-
-
-def build_exceptions(s):
-    """Date -> [open,close]|null for upcoming days that differ from the weekly pattern."""
-    weekly = s.get("hours") or [None] * 7
-    out = {}
-    for d in s.get("upcomingHours") or []:
-        try:
-            wd = datetime.date.fromisoformat(d["date"]).weekday()  # Mon=0..Sun=6
-        except (ValueError, KeyError):
-            continue
-        actual = norm_hours(d.get("hours"))
-        base = norm_hours(weekly[wd]) if wd < len(weekly) else None
-        if actual != base:
-            out[d["date"]] = actual
-    return out
 
 
 def _easter(y):
@@ -123,17 +105,13 @@ def main():
         if is_closed_forever(s):
             dropped_closed += 1
             continue
-        store = {
+        stores.append({
             "name": "Alko " + s["name"].strip(),
             "lat": s["lat"],
             "lon": s["lon"],
             "hours": [norm_hours(h) for h in (s.get("hours") or [None] * 7)],
             "hoursKnown": True,
-        }
-        exc = build_exceptions(s)
-        if exc:
-            store["exceptions"] = exc
-        stores.append(store)
+        })
 
     stores.sort(key=lambda s: s["name"])
 
@@ -149,10 +127,9 @@ def main():
             json.dump(closed, f, ensure_ascii=False, indent=2)
             f.write("\n")
 
-    with_exc = sum(1 for s in stores if "exceptions" in s)
     print(f"generatedAt: {src.get('generatedAt')}")
     print(f"dropped {dropped_pickup} pickup points, {dropped_closed} closed stores")
-    print(f"wrote {len(stores)} stores ({with_exc} with date exceptions) + {len(closed)} closed dates")
+    print(f"wrote {len(stores)} stores + {len(closed)} closed dates")
     print(f"  -> {ASSETS}")
     print(f"  -> {WEB}")
 
