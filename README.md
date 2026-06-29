@@ -132,6 +132,8 @@ Suunnittelu- ja toteutuspöytäkirjat arkistoituvat kansioon `docs/superpowers/`
 - `title.svg`: talon oma vaakuna, taottu vektoripajassa.
 - Etäisyyslukeman pisteröity loiste: **Bitcount Single** -kirjasin, © sen tekijät,
   lisenssi SIL Open Font License 1.1 (`licenses/BitcountSingle-OFL.txt`).
+- Itse sovelluksen lähdekoodi: lisenssi **GNU GPL-3.0-or-later** (`LICENSE`). Vapaa kuin
+  janoinen kansalaisen perjantai-ilta.
 
 ## Vastuuvapauslauseke
 
