@@ -27,7 +27,13 @@ html, body {
 
 #app {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Use the dynamic viewport height so a mobile browser's address/tool bar never hides
+     the bottom content (store name, hours, toggle). Falls back to vh on old browsers. */
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +60,8 @@ html, body {
 /* Hero stage: north needle (dim, behind) + glow + bottle */
 .stage {
   width: 100%;
-  height: min(46vh, 430px);
+  height: min(44dvh, 430px);
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +86,7 @@ html, body {
 }
 
 .bottle {
-  height: 46vh;
+  height: 44dvh;
   max-height: 420px;
   width: auto;
   transform: translate(-50%, -50%) perspective(900px) rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg)) rotateZ(var(--rot, 0deg));

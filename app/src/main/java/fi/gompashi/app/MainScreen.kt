@@ -178,6 +178,10 @@ fun MainScreen(
 
 @Composable
 private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: () -> Unit) {
+  BoxWithConstraints(Modifier.fillMaxSize()) {
+    // Shrink the hero on short screens so the distance/steps/store/hours and the toggle
+    // always stay inside the safe area instead of slipping under the navigation bar.
+    val heroSize = (maxHeight - 480.dp).coerceIn(150.dp, 420.dp)
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -202,7 +206,7 @@ private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: (
         Box(contentAlignment = Alignment.Center) {
             Box(
                 modifier = Modifier
-                    .size(420.dp)
+                    .size(heroSize)
                     .background(
                         Brush.radialGradient(
                             colors = listOf(Accent.copy(alpha = 0.22f), Color.Transparent),
@@ -218,10 +222,10 @@ private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: (
                     painter = painterResource(id = R.drawable.compass_needle_north),
                     contentDescription = null,
                     modifier = Modifier
-                        // Lay out at the bottle's size, but draw at ~650dp via scale so the
+                        // Lay out at the bottle's size, but draw ~1.55x larger via scale so the
                         // big faint compass overflows behind the bottle without pushing the
                         // distance/toggle off-screen.
-                        .size(420.dp)
+                        .size(heroSize)
                         .graphicsLayer {
                             val s = 650f / 420f
                             scaleX = s
@@ -245,7 +249,7 @@ private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: (
                 painter = needlePainter,
                 contentDescription = "Suunta Alkoon",
                 modifier = Modifier
-                    .height(420.dp)
+                    .height(heroSize)
                     .graphicsLayer {
                         rotationZ = bottleRotation
                         rotationX = (state.pitchDeg * -0.5f).coerceIn(-7f, 7f)
@@ -334,6 +338,7 @@ private fun CompassContent(state: UiState, needle: ImageBitmap?, onToggleRank: (
             onToggleRank = onToggleRank,
         )
     }
+  }
 }
 
 /** Groups an integer with spaces every three digits, e.g. 1234 -> "1 234". */
