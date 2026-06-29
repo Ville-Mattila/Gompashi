@@ -17,7 +17,10 @@ Repo: https://github.com/Ville-Mattila/Gompashi.git
 Builds:
   - versionName: 1.6.0
     versionCode: 28
-    commit: v1.6.0
+    # Screenshots/fastlane were added after the v1.6.0 tag, so this build points at the
+    # commit that includes them (the produced APK is byte-identical to the v1.6.0 tag).
+    # Alternatively move the v1.6.0 tag here and use `commit: v1.6.0`.
+    commit: 2d0f529804804a1aa811b88b670f70298c5b3ce4
     subdir: app
     gradle:
       - yes
