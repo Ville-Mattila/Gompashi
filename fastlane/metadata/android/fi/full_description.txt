@@ -1,0 +1,14 @@
+Gompashi on minimalistinen kompassi, joka ei osoita pohjoiseen vaan lähimpään valtion
+alkoholimyymälään: Suomen Alkoon, Ruotsin Systembolagetiin tai Norjan Vinmonopoletiin.
+
+Pullonmuotoinen neula kääntyy kohti lähintä myymälää ja näyttää etäisyyden, myymälän
+nimen ja aukioloajan laskurin. Valitsimella vaihdat lähimmän ja toiseksi lähimmän välillä.
+
+Ominaisuudet:
+- Toimii offline: myymälärekisteri kulkee mukana sovelluksessa.
+- Kävelyreittikartta (OpenStreetMap) ja arvio askelmäärästä.
+- Lataa karttaseutuja täysin offline-käyttöön, mukaan lukien reitinlaskenta laitteella.
+- Ei tilejä, ei mainoksia, ei seurantaa. Käyttää vain laitteen omaa sijaintia.
+
+Myymälätiedot: Alko, Systembolaget ja OpenStreetMap (Vinmonopolet). Karttalaatat CARTO
+(OpenStreetMap-data). Reititys OSM/OSRM-palvelulla verkossa, muuten laitteella.

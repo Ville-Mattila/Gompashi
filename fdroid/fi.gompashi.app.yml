@@ -1,0 +1,28 @@
+# F-Droid build recipe for Gompashi.
+# Copy this into fdroiddata as metadata/fi.gompashi.app.yml when opening the merge request:
+#   https://gitlab.com/fdroid/fdroiddata
+# (kept here in the app repo for reference / easy updates).
+
+Categories:
+  - Navigation
+License: GPL-3.0-or-later
+AuthorName: Ville Mattila
+WebSite: https://gompashi.vercel.app
+SourceCode: https://github.com/Ville-Mattila/Gompashi
+IssueTracker: https://github.com/Ville-Mattila/Gompashi/issues
+
+RepoType: git
+Repo: https://github.com/Ville-Mattila/Gompashi.git
+
+Builds:
+  - versionName: 1.6.0
+    versionCode: 28
+    commit: v1.6.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.6.0
+CurrentVersionCode: 28

@@ -1,0 +1,15 @@
+Gompashi is a minimalist compass that does not point north — it points to the nearest
+state liquor store in Finland (Alko), Sweden (Systembolaget) or Norway (Vinmonopolet).
+
+A bottle-shaped needle rotates toward the closest store and shows the distance, the
+store name and an opening-hours countdown. A toggle switches between the nearest and
+second-nearest store.
+
+Features:
+- Works offline: the store register travels with the app.
+- Walking-route map (OpenStreetMap) with an estimated step count.
+- Download map regions for fully offline use, including on-device route calculation.
+- No accounts, no ads, no tracking. Uses the device's own location only.
+
+Store data: Alko, Systembolaget and OpenStreetMap (Vinmonopolet). Map tiles by CARTO
+(OpenStreetMap data). Routing by the OSM/OSRM service when online, on-device otherwise.

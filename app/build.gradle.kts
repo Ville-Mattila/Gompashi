@@ -22,8 +22,8 @@ android {
         applicationId = "fi.gompashi.app"
         minSdk = 26
         targetSdk = 35
-        versionCode = 27
-        versionName = "1.5.1"
+        versionCode = 28
+        versionName = "1.6.0"
     }
 
     signingConfigs {
@@ -70,7 +70,6 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
-    implementation(libs.play.services.location)
     implementation(libs.kotlinx.serialization.json)
     debugImplementation(libs.androidx.ui.tooling)
     testImplementation(libs.junit)
