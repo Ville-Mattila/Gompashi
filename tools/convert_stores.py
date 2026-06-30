@@ -37,6 +37,9 @@ RAW = os.path.join(ROOT, "tools", "raw")
 ASSETS = os.path.join(ROOT, "app", "src", "main", "assets")
 WEB = os.path.join(ROOT, "web")
 OUTPUT_FILES = ("alko_stores.json", "closed_dates.json")
+# closed_dates.json is regenerated from the current date (this year + next), so a fresh run
+# legitimately differs once the year rolls over. --check only compares the date-independent files.
+CHECK_FILES = ("alko_stores.json",)
 
 WD = {"mo": 0, "tu": 1, "we": 2, "th": 3, "fr": 4, "sa": 5, "su": 6}
 
@@ -313,7 +316,7 @@ def check_outputs(stores, closed):
         write_outputs(stores, closed, (generated_assets, generated_web))
         changed = []
         for actual_base, generated_base in ((ASSETS, generated_assets), (WEB, generated_web)):
-            for filename in OUTPUT_FILES:
+            for filename in CHECK_FILES:
                 actual = os.path.join(actual_base, filename)
                 generated = os.path.join(generated_base, filename)
                 if not filecmp.cmp(actual, generated, shallow=False):
