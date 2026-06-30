@@ -49,6 +49,7 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
     var downloading by mutableStateOf(false); private set
     var progressDone by mutableStateOf(0); private set
     var progressTotal by mutableStateOf(0); private set
+    var phase by mutableStateOf(""); private set // non-empty during a non-tile step (e.g. routing network)
 
     var online by mutableStateOf(true); private set
 
@@ -118,8 +119,10 @@ class TileStore(private val context: Context, private val scope: CoroutineScope)
                     progressDone++
                 }
             }
-            // Walkable network for offline routing (best-effort).
+            // Walkable network for offline routing (best-effort; capped so it can't hang).
+            phase = "Haetaan kävelytieverkkoa…"
             bytes += router.downloadAndStore(lat, lon)
+            phase = ""
             regions.add(MapRegion(lat, lon, list.size, bytes))
             saveRegions()
             downloading = false

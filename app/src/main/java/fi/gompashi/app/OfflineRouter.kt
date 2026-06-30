@@ -3,6 +3,7 @@ package fi.gompashi.app
 import android.content.Context
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
@@ -34,19 +35,22 @@ class OfflineRouter(context: Context) {
         val dLat = ROUTE_KM / 111.32
         val dLon = ROUTE_KM / (111.32 * cos(lat * Math.PI / 180))
         val bbox = "(%.5f,%.5f,%.5f,%.5f)".format(lat - dLat, lon - dLon, lat + dLat, lon + dLon)
-        val query = "[out:json][timeout:90];way[\"highway\"~\"^($WALK)\$\"]$bbox;out geom;"
-        // Try several Overpass mirrors so a single down/slow/unresolvable host doesn't block it.
-        for (endpoint in ENDPOINTS) {
-            val text = postOverpass(endpoint, query) ?: continue
-            val graph = runCatching { buildGraph(text) }.getOrNull() ?: continue
-            return@withContext runCatching {
-                val out = file(lat, lon)
-                out.writeText(json.encodeToString(graph))
-                graphs = null // invalidate
-                out.length()
-            }.getOrDefault(0L)
-        }
-        0L
+        val query = "[out:json][timeout:60];way[\"highway\"~\"^($WALK)\$\"]$bbox;out geom;"
+        // Best-effort: try several Overpass mirrors, but cap the whole thing so a slow/blocked
+        // service can't make the download appear stuck. Tiles already work without the graph.
+        withTimeoutOrNull(90_000) {
+            for (endpoint in ENDPOINTS) {
+                val text = postOverpass(endpoint, query) ?: continue
+                val graph = runCatching { buildGraph(text) }.getOrNull() ?: continue
+                return@withTimeoutOrNull runCatching {
+                    val out = file(lat, lon)
+                    out.writeText(json.encodeToString(graph))
+                    graphs = null // invalidate
+                    out.length()
+                }.getOrDefault(0L)
+            }
+            0L
+        } ?: 0L
     }
 
     private fun postOverpass(endpoint: String, query: String): String? {
@@ -54,7 +58,7 @@ class OfflineRouter(context: Context) {
         return try {
             conn = (URL(endpoint).openConnection() as HttpURLConnection).apply {
                 requestMethod = "POST"
-                connectTimeout = 15_000; readTimeout = 120_000
+                connectTimeout = 10_000; readTimeout = 40_000
                 doOutput = true
                 setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
                 setRequestProperty("User-Agent", "Gompashi/1.x (https://gompashi.vercel.app)")

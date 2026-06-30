@@ -249,12 +249,16 @@ async function fetchNetworkGraph(lat, lon) {
   let d = null;
   for (const ep of OVERPASS_ENDPOINTS) {
     try {
-      const res = await fetch(ep, {
-        method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: "data=" + encodeURIComponent(q),
-      });
-      if (res.ok) { d = await res.json(); break; }
-    } catch (_) { /* try next mirror */ }
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 40000); // don't let a slow mirror stall
+      try {
+        const res = await fetch(ep, {
+          method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "data=" + encodeURIComponent(q), signal: ctrl.signal,
+        });
+        if (res.ok) { d = await res.json(); break; }
+      } finally { clearTimeout(timer); }
+    } catch (_) { /* timed out or failed — try next mirror */ }
   }
   if (!d) throw new Error("overpass-unreachable");
   const idx = new Map(), nodes = [], adj = [];

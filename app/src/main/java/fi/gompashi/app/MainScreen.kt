@@ -531,10 +531,9 @@ private fun SettingsScreen(
             enabled = !tileStore.downloading && userLat != null,
         ) { Text(if (tileStore.downloading) "Ladataan…" else "Lataa nykyinen seutu") }
         if (tileStore.downloading) {
-            Text(
-                "Ladataan ${tileStore.progressDone}/${tileStore.progressTotal}…",
-                color = TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 6.dp),
-            )
+            val progress = if (tileStore.phase.isNotEmpty()) tileStore.phase
+                else "Ladataan ${tileStore.progressDone}/${tileStore.progressTotal}…"
+            Text(progress, color = TextSecondary, fontSize = 12.sp, modifier = Modifier.padding(top = 6.dp))
         }
         tileStore.regions.forEachIndexed { i, r ->
             Row(
