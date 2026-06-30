@@ -21,17 +21,22 @@ hours are intentionally not bundled - they can't be refreshed often enough).
 
 Usage:
     python tools/convert_stores.py
+    python tools/convert_stores.py --check
 """
+import argparse
 import collections
 import datetime
+import filecmp
 import json
 import os
 import re
+import tempfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 RAW = os.path.join(ROOT, "tools", "raw")
 ASSETS = os.path.join(ROOT, "app", "src", "main", "assets")
 WEB = os.path.join(ROOT, "web")
+OUTPUT_FILES = ("alko_stores.json", "closed_dates.json")
 
 WD = {"mo": 0, "tu": 1, "we": 2, "th": 3, "fr": 4, "sa": 5, "su": 6}
 
@@ -41,6 +46,32 @@ def norm_hours(h):
     if not h:
         return None
     return [h[0][:5], h[1][:5]]
+
+
+def validate_hours(hours, context):
+    if hours is None:
+        return
+    if not isinstance(hours, list) or len(hours) != 2:
+        raise ValueError(f"{context}: hours must be [open, close] or null")
+    for value in hours:
+        if not isinstance(value, str):
+            raise ValueError(f"{context}: hour values must be strings")
+
+
+def validate_output(stores):
+    seen = {}
+    for index, store in enumerate(stores):
+        context = f"alko_stores.json stores[{index}]"
+        key = (store["name"], round(float(store["lat"]), 7), round(float(store["lon"]), 7))
+        if key in seen:
+            raise ValueError(f"alko_stores.json: duplicate store {store['name']!r} at {store['lat']},{store['lon']}")
+        seen[key] = index
+
+        weekly = store.get("hours")
+        if not isinstance(weekly, list) or len(weekly) != 7:
+            raise ValueError(f"{context}: hours must contain 7 weekday entries")
+        for weekday, hours in enumerate(weekly):
+            validate_hours(hours, f"{context}.hours[{weekday}]")
 
 
 # ---------------------------------------------------------------- Finland (Alko)
@@ -264,15 +295,8 @@ def closed_dates_no(years):
     return sorted(d.isoformat() for d in out)
 
 
-def main():
-    fi, se, no = load_finland(), load_sweden(), load_norway()
-    stores = fi + se + no
-    stores.sort(key=lambda s: (s["country"], s["name"]))
-
-    years = [datetime.date.today().year, datetime.date.today().year + 1]
-    closed = {"FI": closed_dates_fi(years), "SE": closed_dates_se(years), "NO": closed_dates_no(years)}
-
-    for base in (ASSETS, WEB):
+def write_outputs(stores, closed, bases):
+    for base in bases:
         os.makedirs(base, exist_ok=True)
         with open(os.path.join(base, "alko_stores.json"), "w", encoding="utf-8") as f:
             json.dump(stores, f, ensure_ascii=False, indent=2)
@@ -280,6 +304,45 @@ def main():
         with open(os.path.join(base, "closed_dates.json"), "w", encoding="utf-8") as f:
             json.dump(closed, f, ensure_ascii=False, indent=2)
             f.write("\n")
+
+
+def check_outputs(stores, closed):
+    with tempfile.TemporaryDirectory() as tmp:
+        generated_assets = os.path.join(tmp, "assets")
+        generated_web = os.path.join(tmp, "web")
+        write_outputs(stores, closed, (generated_assets, generated_web))
+        changed = []
+        for actual_base, generated_base in ((ASSETS, generated_assets), (WEB, generated_web)):
+            for filename in OUTPUT_FILES:
+                actual = os.path.join(actual_base, filename)
+                generated = os.path.join(generated_base, filename)
+                if not filecmp.cmp(actual, generated, shallow=False):
+                    changed.append(os.path.relpath(actual, ROOT))
+        if changed:
+            raise SystemExit(
+                "Generated store data is out of date. Run "
+                "`python tools/convert_stores.py` and commit:\n  "
+                + "\n  ".join(changed)
+            )
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--check", action="store_true", help="validate inputs and fail if generated files differ")
+    args = parser.parse_args()
+
+    fi, se, no = load_finland(), load_sweden(), load_norway()
+    stores = fi + se + no
+    stores.sort(key=lambda s: (s["country"], s["name"]))
+    validate_output(stores)
+
+    years = [datetime.date.today().year, datetime.date.today().year + 1]
+    closed = {"FI": closed_dates_fi(years), "SE": closed_dates_se(years), "NO": closed_dates_no(years)}
+
+    if args.check:
+        check_outputs(stores, closed)
+    else:
+        write_outputs(stores, closed, (ASSETS, WEB))
 
     print(f"FI {len(fi)} + SE {len(se)} + NO {len(no)} = {len(stores)} stores")
     print(f"closed dates: FI {len(closed['FI'])}, SE {len(closed['SE'])}, NO {len(closed['NO'])}")

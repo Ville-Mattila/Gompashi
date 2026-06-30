@@ -78,7 +78,7 @@ arkistomapissa - majailee tiedostossa `app/src/main/assets/alko_stores.json`. Ku
 kartasto vanhenee, jalostuslaitos herätetään virka-ajan ulkopuolellakin yhdellä taikasanalla:
 
 ```bash
-python tools/convert_stores.py
+python3 tools/convert_stores.py
 ```
 
 Skripti kutsuu koolle kolme erikielistä lähtöaineistoa, poistaa joukosta noutopisteet (ne
